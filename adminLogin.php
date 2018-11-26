@@ -7,6 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <!-- Material icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -47,7 +48,10 @@ and open the template in the editor.
                     </form>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn col s4 offset-s4" id="loginBtn">Sign in</a>
+                    <a href="admin.php" class="waves-effect waves-light btn col s4 offset-s4" id="loginBtn">Sign in</a>
+                </div>
+                <div class="row">
+                    <a href="accountCreate.php" class="waves-effect waves-light btn col s4 offset-s4" id="Account">Create Account</a>
                 </div>
             </div>
         </form>
