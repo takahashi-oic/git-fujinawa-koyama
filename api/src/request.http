@@ -1,3 +1,3 @@
-GET http://127.0.0.1:80/api/database.php
+GET http://192.168.201.106/git-fujinawa-koyama/api/questionnaire.php?format=csv&id=1
 
 ###
