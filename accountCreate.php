@@ -20,6 +20,26 @@
           </ul>
         </div>
     </header>
+    <body>
+        <form>
+            <div class="container col s4 offset-s4">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row z-depth-2">
+                            <div class="input-field col s4 offset-s4">
+                                <i class="material-icons prefix">account_box</i>
+                                <input id="userid" type="text" class="validate">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn col s4 offset-s4" id="loginBtn">Sign in</a>
+                    <a class="waves-effect waves-light btn col s4 offset-s4" id="loginBtn">Create Account</a>
+                </div>
+            </div>
+        </form>
+    </body>
    </html>
 
 
