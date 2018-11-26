@@ -1,4 +1,6 @@
 <?php
-	include_once "src\Parser.php";
-	$dao = new api\DBParser();
-?><?= $dao->toXml() ?>
+	use api\DBParser;
+
+	include_once "src/Parser.php";
+	$parser = new DBParser($_GET);
+?><?= $parser->result; ?>

@@ -8,6 +8,32 @@
 	// endregion header
 
 	abstract class Parser {
+		public $result;
+
+		function __construct(array $query) {
+			if(array_key_exists('format', $query))
+				$format = strtolower($query['format']);
+			else
+				$format = null;
+
+			switch($format) {
+				case 'csv':
+					$this->result = $this->toCSV();
+					break;
+
+				case 'json':
+					$this->result = $this->toJson();
+					break;
+
+				case 'xml':
+					$this->result = $this->toXml();
+					break;
+
+				default:
+					$this->result = "ERROR";
+			}
+		}
+
 		/**
 		 * ## CSV変換関数
 		 * @return string 変換されたDB
