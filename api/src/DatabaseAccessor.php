@@ -37,8 +37,7 @@
 			$this->host = $host;
 			$this->db = $db;
 			$this->charset = $charset;
-			$this->dsn = "mysql:host={$host};
-			dbname={$db};charset={$charset}";
+			$this->dsn = "mysql:host={$host};dbname={$db};charset={$charset}";
 
 			$this->user = $user;
 			$this->pass = $pass;

@@ -16,6 +16,7 @@
 				$year = $this->query['year'];
 			else $year = '____';
 
+			$month = '';
 			if(array_key_exists('month', $this->query))
 				switch(strlen($this->query['month'])) {
 					case 1:
@@ -34,22 +35,18 @@
 			$this->query = $query;
 			if(array_key_exists('format', $query))
 				$format = strtolower($query['format']);
-			else
-				$format = null;
+			else $format = null;
 
 			switch($format) {
 				case 'csv':
 					$this->result = $this->toCSV();
 					break;
-
 				case 'json':
 					$this->result = $this->toJson();
 					break;
-
 				case 'xml':
 					$this->result = $this->toXml();
 					break;
-
 				default:
 					$this->result = "ERROR";
 			}
@@ -143,7 +140,7 @@
 			$result = '';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$length = $select->columnCount();
 
@@ -170,7 +167,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$idx = 0;
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
@@ -187,7 +184,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$header = '<?xml version="1.0" encoding="UTF-8"?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
