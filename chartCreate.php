@@ -11,7 +11,7 @@
             $stmt->execute();
 
             $result = $stmt->fetch();
-            echo "result = ".$result['result'];
+            echo "テスト:result = ".$result['result'];
 
             
             //ここまで処理
@@ -33,9 +33,24 @@
         <!--Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <title>グラフ作成ページ</title>
     </head>
     <body>
+        <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケートグラフ作成ページ</span></div>
+        
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3" id="home"><a href="#!"><span class="light-green-text text-lighten-1">データ1</span></a></li>
+            <li class="tab col s3" id=""chart><a class="active" href="#!"><span class="light-green-text text-lighten-1">データ2</span></a></li>
+            <li class="tab col s3" id="api"><a href="#!"><span class="light-green-text text-lighten-1">データ3</span></a></li>
+            <li class="tab col s3" id="adminLogin"><a href="#!"><span class="light-green-text text-lighten-1">データ4</span></a></li>
+          </ul>
+        </div>
+        
         <p>取ってきた値から棒グラフ、円グラフなどのグラフを表示させる</p>
         <input type ="button" value="戻る" id="back" onclick="location.href='user.php'">
         <input type ="button" value="グラフ作成" id="chart">
