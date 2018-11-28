@@ -34,7 +34,7 @@
                     <h2>API概要</h2><br>
                     <h4 class="truncate">概要</h4>
                     <div class="row">
-                        <div class="col s7">
+                        <div class="col s7 ">
                             <table>
                                 <tbody>
                                     <tr>
@@ -60,6 +60,11 @@
                     </div>
                     <p>※APIキーの使い方については <a href="#">API詳細仕様</a>からご覧になれます。</p>
                     <h4 class="truncate">API一覧</h4>
+                    <ul>
+                        <li>・<a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
+                        <li>・<a href="#!" class="blue-text text-darken-2">国一覧</a></li>
+                        <li>・<a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
