@@ -21,7 +21,7 @@
     <body>
         <ul id="slide-out" class="sidenav sidenav-fixed">
             <p>　はじめに</p>
-            <li><a href="apiMain.php" class="blue-text text-darken-2">API詳細仕様</a></li>
+            <li><a href="apiMain.php" class="blue-text text-darken-2">API概要</a></li>
             <li><a href="Moredetail.php" class="blue-text text-darken-2">API詳細仕様</a></li>
             <p>　API一覧</p>
             <li><a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
