@@ -27,7 +27,7 @@
             <div class="container col s4 offset-s4">
                 <div class="row">
                     <form class="col s12">
-                        <div class="row">
+                        <div class="cards row">
                           <div class="input-field col s6">
                               <i class="material-icons prefix">account_circle</i>
                               <input id="icon_prefix" type="text" class="validate">

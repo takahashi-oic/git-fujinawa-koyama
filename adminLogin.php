@@ -25,33 +25,31 @@ and open the template in the editor.
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-            <li class="tab col s3" id="api"><a href="APIform.php"><span class="light-green-text text-lighten-1">API公開ページ</span></a></li>
+            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">仕様書</span></a></li>
           </ul>
         </div>
     </header>
     <body>
-        <br><br>
+        <br><br><br>
         <form>
-            <div class="container col s4 offset-s4">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row z-depth-2">
-                            <div class="input-field col s4 offset-s4">
-                                <i class="material-icons prefix">account_box</i>
-                                <input id="userid" type="text" class="validate">
-                            </div>
-                            <div class="input-field col s4 offset-s4">
-                                <i class="material-icons prefix">lock</i>
-                                <input id="password" type="text" class="validate">
-                            </div>
+            <div class="row">
+                <div class="col s4 offset-s4 z-depth-3">
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2">
+                            <i class="material-icons prefix">account_box</i>
+                            <input id="userid" type="text" class="validate">
                         </div>
-                    </form>
-                </div>
-                <div class="row">
-                    <a href="admin.php" class="waves-effect waves-light btn col s4 offset-s4" id="loginBtn">Sign in</a>
-                </div>
-                <div class="row">
-                    <a href="accountCreate.php" class="waves-effect waves-light btn col s4 offset-s4" id="Account">Create Account</a>
+                        <div class="input-field col s8 offset-s2">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="password" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="admin.php" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">Sign in</a>
+                    </div>
+                    <div class="row">
+                        <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">Create Account</a>
+                    </div>
                 </div>
             </div>
         </form>
