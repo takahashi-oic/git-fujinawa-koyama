@@ -1,18 +1,29 @@
 <?php
         try{
-            //host localhost,192.168.201.xxxなど
-            $dsn = 'mysql:dbname=questionnaire_db;host=localhost;charset=utf8mb4';//mysql
-            $username = 'root';//ユーザー
+            //DB接続
+            //host localhost,192.168.201.xxxなど 106koya 99 ju
+            $dsn = 'mysql:dbname=questionnaire_db;host=192.168.201.99;charset=utf8mb4';//mysql
+            $username = 'user';//ユーザー root user
             $password = '';//パス
             $pdo = new PDO($dsn, $username, $password);
             
             //ここから処理
-            $stmt = $pdo->prepare("select * from questionnaire_result where answer_num = 1");
+            $stmt = $pdo->prepare("select result from questionnaire_result");
             $stmt->execute();
-
-            $result = $stmt->fetch();
-            echo "テスト:result = ".$result['result'];
-
+            
+            $resArray = array();
+            //結果取得
+            while($row = $stmt -> fetch()){
+                $resArray[] = $row['result'];
+            }
+            //結果の数を数える
+            $valCount = array_count_values($resArray);
+            /*foreach($valCount as $key => $value){
+                
+            }*/
+            print_r($resArray);
+            echo("<br>");
+            print_r($valCount);
             
             //ここまで処理
         } catch (PDOException $e) {
