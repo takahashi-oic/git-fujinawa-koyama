@@ -1,8 +1,10 @@
 <?php
+	// region header
 	namespace api;
 	use PDO;
-	use PDOException;
 	use PDOStatement;
+
+	// endregion header
 
 	/**
 	 * ## Result Table Manager
@@ -51,18 +53,14 @@
 		 * @return PDOStatement
 		 */
 		public function select(string $select, string $from, string $where = "TRUE"): PDOStatement {
-			try {
-				$pdo = new PDO($this->dsn, $this->user);
+			$pdo = new PDO($this->dsn, $this->user);
 
-				$sql = "SELECT {$select} FROM {$from} WHERE {$where}";
+			$sql = "SELECT {$select} FROM {$from} WHERE {$where}";
 
-				$result = $pdo->query($sql);
-				if($result instanceof PDOStatement)
-					return $result;
-				else return null;
-			} catch(PDOException $ex) {
-				exit($ex->getMessage());
-			}
+			$result = $pdo->query($sql);
+			if($result instanceof PDOStatement)
+				return $result;
+			else return null;
 		}
 		// endregion function
 	}

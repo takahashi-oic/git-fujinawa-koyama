@@ -2,21 +2,25 @@
 	// region header
 	namespace api;
 	use PDO;
+	use PDOException;
 	use SimpleXMLElement;
 
-	include "DatabaseAccessor.php";
+	include_once "DatabaseAccessor.php";
+	require_once "DatabaseAccessor.php";
 	// endregion header
 
 	abstract class Parser {
 		public $result;
 		protected $query;
 
+		protected $db;
+
 		protected function timeFormat(): String {
 			if(array_key_exists('year', $this->query))
 				$year = $this->query['year'];
 			else $year = '____';
 
-			$month = '';
+			$month = '__';
 			if(array_key_exists('month', $this->query))
 				switch(strlen($this->query['month'])) {
 					case 1:
@@ -26,29 +30,33 @@
 						$month = $this->query['month'];
 						break;
 				}
-			else $month = '__';
 
 			return "ans_time LIKE '{$year}-{$month}%'";
 		}
 
 		function __construct(array $query) {
-			$this->query = $query;
-			if(array_key_exists('format', $query))
-				$format = strtolower($query['format']);
-			else $format = null;
+			try {
+				$this->db = new DatabaseAccessor();
+				$this->query = $query;
+				if(array_key_exists('format', $query))
+					$format = strtolower($query['format']);
+				else $format = null;
 
-			switch($format) {
-				case 'csv':
-					$this->result = $this->toCSV();
-					break;
-				case 'json':
-					$this->result = $this->toJson();
-					break;
-				case 'xml':
-					$this->result = $this->toXml();
-					break;
-				default:
-					$this->result = "ERROR";
+				switch($format) {
+					case 'csv':
+						$this->result = $this->toCSV();
+						break;
+					case 'json':
+						$this->result = $this->toJson();
+						break;
+					case 'xml':
+						$this->result = $this->toXml();
+						break;
+					default:
+						$this->result = "ERROR";
+				}
+			} catch(PDOException $E) {
+				$this->result = 'Database Access Failed.';
 			}
 		}
 
@@ -77,14 +85,15 @@
 			$result = "";
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('*', 'questionnaire_result');
+			$select = $db->select('*', 'questionnaire_result', "{$this->timeFormat()}");
 
 			$length = $select->columnCount();
 
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+				$cnt = 0;
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($value < $length - 1)
+					if($cnt++ < $length - 1)
 						$result .= ',';
 					else $result .= "\n";
 				}
@@ -100,7 +109,7 @@
 			);
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('*', 'questionnaire_result');
+			$select = $db->select('*', 'questionnaire_result', "{$this->timeFormat()}");
 
 			$idx = 0;
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
@@ -116,7 +125,7 @@
 			$root = new SimpleXMLElement($header . '<api></api>');
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('*', 'questionnaire_result');
+			$select = $db->select('*', 'questionnaire_result', "{$this->timeFormat()}");
 
 			$api = $root->addChild('msg');
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
@@ -140,7 +149,7 @@
 			$result = '';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$length = $select->columnCount();
 
@@ -167,7 +176,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$idx = 0;
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
@@ -184,7 +193,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
 			$header = '<?xml version="1.0" encoding="UTF-8"?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
@@ -211,7 +220,7 @@
 			$result = '';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
 
 			$length = $select->columnCount();
 
@@ -238,7 +247,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
 
 			$idx = 0;
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
@@ -255,7 +264,7 @@
 			else return 'ERROR';
 
 			$db = new DatabaseAccessor();
-			$select = $db->select('answer_num, item_num, result, ans_time', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
+			$select = $db->select('*', 'questionnaire_result', "item_num = {$id} AND {$this->timeFormat()}");
 
 			$header = '<?xml version="1.0" encoding="UTF-8"?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
