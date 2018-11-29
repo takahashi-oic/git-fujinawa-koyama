@@ -42,7 +42,7 @@
                     </form>
                 </div>
                 <div class="row">
-                    <a class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">アカウント作成</a>
+                    <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">アカウント作成</a>
                 </div>
             </div>
         </form>
