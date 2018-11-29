@@ -3,11 +3,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <!-- Material icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- CSS -->
+        <style type="text/css">
+            
+        </style>
         <title>アンケートAPI-API概要</title>
     </head>
     <!--<header>
@@ -20,13 +26,18 @@
     </header>-->
     <body>
         <ul id="slide-out" class="sidenav sidenav-fixed">
-            <p>　はじめに</p>
-            <li><a href="apiMain.php" class="blue-text text-darken-2">API概要</a></li>
-            <li><a href="Moredetail.php" class="blue-text text-darken-2">API詳細仕様</a></li>
-            <p>　API一覧</p>
-            <li><a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
-            <li><a href="#!" class="blue-text text-darken-2">国一覧</a></li>
-            <li><a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
+            <div class="row">
+                <a href="index.php"><i class="medium material-icons left black-text" id="homebtn">home</i></a>
+            </div>
+            <div>
+                <p>　はじめに</p>
+                <li><a href="apiMain.php" class="blue-text text-darken-2">API概要</a></li>
+                <li><a href="Moredetail.php" class="blue-text text-darken-2">API詳細仕様</a></li>
+                <p>　API一覧</p>
+                <li><a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
+                <li><a href="#!" class="blue-text text-darken-2">国一覧</a></li>
+                <li><a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
+            </div>
         </ul>
         <div class="container">
             <div class="row">

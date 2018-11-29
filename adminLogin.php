@@ -25,7 +25,7 @@ and open the template in the editor.
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">仕様書</span></a></li>
+            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
           </ul>
         </div>
     </header>
@@ -37,11 +37,11 @@ and open the template in the editor.
                     <div class="row">
                         <div class="input-field col s8 offset-s2">
                             <i class="material-icons prefix">account_box</i>
-                            <input id="userid" type="text" class="validate">
+                            <input id="userid" type="text" class="validate" required="required">
                         </div>
                         <div class="input-field col s8 offset-s2">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" type="text" class="validate">
+                            <input id="password" type="text" class="validate" required="required">
                         </div>
                     </div>
                     <div class="row">
