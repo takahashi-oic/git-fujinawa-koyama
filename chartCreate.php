@@ -64,7 +64,6 @@
         </div>
         
         <p>取ってきた値から棒グラフ、円グラフなどのグラフを表示させる</p>
-        <input type ="button" value="戻る" id="back" onclick="location.href='user.php'">
         <input type ="button" value="グラフ作成" id="chart">
         
         <!--<canvas id="myChart"></canvas>-->
