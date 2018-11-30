@@ -56,8 +56,10 @@
         
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="#!"><span class="light-green-text text-lighten-1">データ1</span></a></li>
-            <li class="tab col s3" id=""chart><a class="active" href="#!"><span class="light-green-text text-lighten-1">データ2</span></a></li>
+            <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
+            <li class="tab col s3" id="home"><a href="#!"><span class="light-green-text text-lighten-1">円グラフ</span></a></li>
+            <li class="tab col s3" id=""chart><a class="active" href="#!"><span class="light-green-text text-lighten-1">棒グラフ</span></a></li>
             <li class="tab col s3" id="api"><a href="#!"><span class="light-green-text text-lighten-1">データ3</span></a></li>
             <li class="tab col s3" id="adminLogin"><a href="#!"><span class="light-green-text text-lighten-1">データ4</span></a></li>
           </ul>
