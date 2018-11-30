@@ -42,31 +42,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <!--Google Icon Font-->
+        <!-- Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <title>グラフ作成ページ</title>
     </head>
-    <body>
+    <header>
         <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケートグラフ作成ページ</span></div>
         
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
             <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
-            <li class="tab col s3" id="home"><a href="#!"><span class="light-green-text text-lighten-1">円グラフ</span></a></li>
-            <li class="tab col s3" id=""chart><a class="active" href="#!"><span class="light-green-text text-lighten-1">棒グラフ</span></a></li>
-            <li class="tab col s3" id="api"><a href="#!"><span class="light-green-text text-lighten-1">データ3</span></a></li>
-            <li class="tab col s3" id="adminLogin"><a href="#!"><span class="light-green-text text-lighten-1">データ4</span></a></li>
           </ul>
         </div>
+    </header>
+    <body>
         
         <p>取ってきた値から棒グラフ、円グラフなどのグラフを表示させる</p>
-        <input type ="button" value="戻る" id="back" onclick="location.href='user.php'">
+        <a href="#"class="waves-effect waves-light btn" id="chart">button</a>
         <input type ="button" value="グラフ作成" id="chart">
         
         <!--<canvas id="myChart"></canvas>-->
@@ -74,6 +74,7 @@
         <canvas id="jsontest" />
         
         <script>
+            
             //phpからJSON key=場所val=数
             var json = <?php echo json_encode($resultArray); ?>
             
@@ -118,6 +119,7 @@
             ctx.canvas.height = 280;//グラフの高さ
             var myChart = new Chart(ctx, config);
         };
+        
         </script>
     </body>
 </html>
