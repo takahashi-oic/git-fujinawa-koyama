@@ -8,7 +8,6 @@
 	use SimpleXMLElement;
 
 	include_once "DatabaseAccessor.php";
-	require_once "DatabaseAccessor.php";
 	// endregion header
 
 	/**
