@@ -83,10 +83,8 @@
                 <li><a href="#!">グラフ３</a></li>
             </ul>
         </div>
-        <div>
-            <canvas id="jsontest" />
-        </div>
-        
+        <canvas id="jsontest" />
+                
         <script>
         $(function(){
             $('.dropdown-tr').dropdown();
