@@ -196,7 +196,7 @@
 				$idx++;
 			}
 
-			return json_encode($result, JSON_UNESCAPED_UNICODE);
+			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		}
 
 		public function toXml(): String {
@@ -216,7 +216,7 @@
 					$result->addChild($key, $value);
 			}
 
-			return $root->asXML();
+			return $this->xmlFormat($root);
 		}
 	}
 
@@ -263,7 +263,7 @@
 				$idx++;
 			}
 
-			return json_encode($result, JSON_UNESCAPED_UNICODE);
+			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		}
 
 		public function toXml(): String {
@@ -283,6 +283,6 @@
 					$result->addChild($key, $value);
 			}
 
-			return $root->asXML();
+			return $this->xmlFormat($root);
 		}
 	}
