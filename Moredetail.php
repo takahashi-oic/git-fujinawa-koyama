@@ -82,7 +82,7 @@
 
 					<h4 class="truncate">使用例</h4>
 					<?php $_GET['format'] = 'json'; ?>
-					<pre><?= include("./api/database.php"); ?></pre>
+					<pre><?= include("./api/database.php") ?></pre>
 				</div>
 			</div>
 		</div>
