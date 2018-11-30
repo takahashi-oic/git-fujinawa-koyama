@@ -31,8 +31,6 @@ and open the template in the editor.
         </div>
     </header>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <img class="responsive-img" src="picture/後楽園.jpg">
     </body>
 </html>
