@@ -1,6 +1,8 @@
 <?php
 	// region header
 	namespace api;
+
+	use DOMDocument;
 	use PDO;
 	use PDOException;
 	use SimpleXMLElement;
@@ -9,10 +11,14 @@
 	require_once "DatabaseAccessor.php";
 	// endregion header
 
+	/**
+	 * ## Class Parser
+	 * 取得結果変換抽象クラス
+	 * @package api
+	 */
 	abstract class Parser {
 		public $result;
 		protected $query;
-
 		protected $db;
 
 		protected function timeFormat(): String {
@@ -32,6 +38,17 @@
 				}
 
 			return "ans_time LIKE '{$year}-{$month}%'";
+		}
+
+		protected function jsonFormat($json): string {
+			return json_encode($json, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		}
+
+		protected function xmlFormat(SimpleXMLElement $xml): string {
+			$dom = new DOMDocument('1.0');
+			$dom->loadXML($xml->asXML());
+			$dom->formatOutput = true;
+			return $dom->saveXML();
 		}
 
 		function __construct(array $query) {
@@ -57,7 +74,6 @@
 				}
 			} catch(PDOException $E) {
 				$this->result = "[{$E->getCode()}] - <pre>{$E->getTrace()}</pre>";
-
 			}
 		}
 
@@ -83,7 +99,7 @@
 	class DBParser
 		extends Parser {
 		public function toCSV(): string {
-			$result = "";
+			$result = '';
 
 			$select = $this->db->select('*', 'questionnaire_result', "{$this->timeFormat()}");
 
@@ -112,11 +128,13 @@
 
 			$idx = 0;
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
-				$result['result'] += array($idx => $col);
+				if(is_int($col))
+					$result['result'] += array($idx => intval($col));
+				else $result['result'] += array($idx => $col);
 				$idx++;
 			}
 
-			return json_encode($result, JSON_UNESCAPED_UNICODE);
+			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 		}
 
 		public function toXml(): String {
@@ -125,15 +143,14 @@
 
 			$select = $this->db->select('*', 'questionnaire_result', "{$this->timeFormat()}");
 
-			$api = $root->addChild('msg');
+			$msg = $root->addChild('msg');
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
-				$result = $api->addChild('result');
-				foreach($col as $key => $value) {
+				$result = $root->addChild('result');
+				foreach($col as $key => $value)
 					$result->addChild($key, $value);
-				}
 			}
 
-			return $root->asXML();
+			return $this->xmlFormat($root);
 		}
 	}
 
@@ -196,9 +213,8 @@
 
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
 				$result = $api->addChild('result');
-				foreach($col as $key => $value) {
+				foreach($col as $key => $value)
 					$result->addChild($key, $value);
-				}
 			}
 
 			return $root->asXML();
@@ -264,12 +280,10 @@
 
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
 				$result = $api->addChild('result');
-				foreach($col as $key => $value) {
+				foreach($col as $key => $value)
 					$result->addChild($key, $value);
-				}
 			}
 
 			return $root->asXML();
 		}
 	}
-?>
