@@ -42,27 +42,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-
-        <!-- Google Icon Font-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-        $(function(){
-            $('.dropdown-trigger').dropdown();
-        });
-        </script>
         <!--Google Icon Font-->
-
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
-        <!-- JQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        
         <title>グラフ作成ページ</title>
+        
+        
     </head>
 
+    <body>
     <header>
         <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -74,10 +68,9 @@
           </ul>
         </div>
     </header>
-    <body>
-        
+    
         <!-- Dropdown Trigger -->
-        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+        <a class='dropdown-tr btn' href='#' data-target='dropdown1'>Drop Me!</a>
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
@@ -96,6 +89,12 @@
         <!--<canvas id="myChart"></canvas>-->
 
         <canvas id="jsontest" />
+        
+        <script>
+        $(function(){
+            $('.dropdown-tr').dropdown();
+        });
+        </script>
         
         <script>
             
