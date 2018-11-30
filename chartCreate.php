@@ -42,6 +42,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+        $(function(){
+            $('.dropdown-trigger').dropdown();
+        });
+        </script>
         <!--Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
@@ -52,7 +58,7 @@
         <title>グラフ作成ページ</title>
     </head>
     <body>
-        <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケートグラフ作成ページ</span></div>
+        <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
         
         <div class="col s12">
           <ul class="tabs">
@@ -64,6 +70,19 @@
             <li class="tab col s3" id="adminLogin"><a href="#!"><span class="light-green-text text-lighten-1">データ4</span></a></li>
           </ul>
         </div>
+        
+        <!-- Dropdown Trigger -->
+        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+        </ul>
         
         <p>取ってきた値から棒グラフ、円グラフなどのグラフを表示させる</p>
         <input type ="button" value="グラフ作成" id="chart">
@@ -117,6 +136,7 @@
             ctx.canvas.height = 280;//グラフの高さ
             var myChart = new Chart(ctx, config);
         };
+        
         </script>
     </body>
 </html>
