@@ -16,6 +16,7 @@
 			break;
 	}
 
-	header("Content-Type: {$content}; charset=utf-8");
+	if($_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'])
+		header("Content-Type: {$content}; charset=utf-8");
 	$parser = new ItemParser($_GET);
 ?><?= $parser->result; ?>
