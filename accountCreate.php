@@ -24,21 +24,21 @@
     </header>
     <body>
         <br><br><br>
-        <form>
+        <form　action="accountConfirm.php" method="post">
             <div class="row">
                 <div class="col s4 offset-s4 z-depth-3">
                     <div class="row">
-                        <div class="input-field col s8 offset-s2">
+                        <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">account_box</i>
-                            <input id="userid" type="text" class="validate" required="required">
+                            <input id="userid" type="text" class="validate" required="required" placeholder="ユーザーID（半角英数字12文字以内）">
                         </div>
-                        <div class="input-field col s8 offset-s2">
+                        <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" type="text" class="validate" required="required">
+                            <input id="password" type="text" class="validate" required="required" placeholder="password（半角英数字8～20文字以内)">
                         </div>
                     </div>
                     <div class="row">
-                        <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">確認</a>
+                        <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">送信</a>
                     </div>
                 </div>
             </div>
