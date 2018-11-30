@@ -71,22 +71,21 @@
     </header>
     
         <!-- Dropdown Trigger -->
-        <a class='dropdown-tr btn' href='#' data-target='dropdown1'>グラフを表示</a>
-
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!" id="piechart">円グラフ</a></li>
-            <li><a href="#!">棒グラフ</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a href="#!">グラフ１</a></li>
-            <li><a href="#!">グラフ２</a></li>
-            <li><a href="#!">グラフ３</a></li>
-        </ul>
-        
-                
-        <!--<canvas id="myChart"></canvas>-->
-
-        <canvas id="jsontest" />
+        <div>
+            <a class='dropdown-tr btn' href='#' data-target='dropdown1'>グラフを表示</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!" id="piechart">円グラフ</a></li>
+                <li><a href="#!">棒グラフ</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">グラフ１</a></li>
+                <li><a href="#!">グラフ２</a></li>
+                <li><a href="#!">グラフ３</a></li>
+            </ul>
+        </div>
+        <div>
+            <canvas id="jsontest" />
+        </div>
         
         <script>
         $(function(){
