@@ -75,7 +75,7 @@
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!" id="chart">円グラフ</a></li>
+            <li><a href="#!" id="piechart">円グラフ</a></li>
             <li><a href="#!">棒グラフ</a></li>
             <li class="divider" tabindex="-1"></li>
             <li><a href="#!">グラフ１</a></li>
@@ -135,7 +135,7 @@
                     maintainAspectRatio: false
                 }
             };
-        document.getElementById("chart").onclick = function() {
+        document.getElementById("piechart").onclick = function() {
             var ctx = document.getElementById("jsontest").getContext('2d');
             ctx.canvas.height = 280;//グラフの高さ
             var myChart = new Chart(ctx, config);
