@@ -71,22 +71,19 @@
     </header>
     
         <!-- Dropdown Trigger -->
-        <a class='dropdown-tr btn' href='#' data-target='dropdown1'>Drop Me!</a>
+        <a class='dropdown-tr btn' href='#' data-target='dropdown1'>グラフを表示</a>
 
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
+            <li><a href="#!" id="chart">円グラフ</a></li>
+            <li><a href="#!">棒グラフ</a></li>
             <li class="divider" tabindex="-1"></li>
-            <li><a href="#!">three</a></li>
-            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+            <li><a href="#!">グラフ１</a></li>
+            <li><a href="#!">グラフ２</a></li>
+            <li><a href="#!">グラフ３</a></li>
         </ul>
         
-        <p>取ってきた値から棒グラフ、円グラフなどのグラフを表示させる</p>
-
-        <input type ="button" value="グラフ作成" id="chart">
-        
+                
         <!--<canvas id="myChart"></canvas>-->
 
         <canvas id="jsontest" />
