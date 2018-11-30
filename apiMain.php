@@ -54,10 +54,6 @@
                                       <td>https://kaito.ju-ri.go.jp</td>
                                     </tr>
                                     <tr>
-                                      <td>SSL Support</td>
-                                      <td>対応</td>
-                                    </tr>
-                                    <tr>
                                       <td>利用可能なHTTPメソッド</td>
                                       <td>GET</td>
                                     </tr>
