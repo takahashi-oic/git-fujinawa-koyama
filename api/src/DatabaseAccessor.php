@@ -35,7 +35,7 @@
 		 * @param string $user DBアクセスユーザー
 		 * @param string $pass DBアクセスパスワード
 		 */
-		public function __construct(string $host = '192.168.201.106', string $db = 'questionnaire_db', string $charset = 'utf8', string $user = 'user', string $pass = '') {
+		public function __construct(string $host = '192.168.201.99', string $db = 'questionnaire_db', string $charset = 'utf8', string $user = 'testdb', string $pass = '') {
 			$this->host = $host;
 			$this->db = $db;
 			$this->charset = $charset;
