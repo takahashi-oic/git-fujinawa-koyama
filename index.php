@@ -14,6 +14,30 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript"></script>
         <title>アンケート収集公開APIトップページ</title>
+        <!-- CSS -->
+        <style type="text/css">
+            .col {/*親div*/
+                position: relative;/*相対配置*/
+            }
+
+            .col p {
+                font-size: 700%;
+                position: absolute;/*絶対配置*/
+                color: white;/*文字は白に*/
+                top: 50%;
+                left: 50%;
+                /*文字分のずれを修正*/
+                -ms-transform: translate(-50%,-50%);
+                -webkit-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+                margin:0;
+                padding:0;
+            }
+
+            .col img {
+              width: 100%;
+            }
+        </style>
         <script>
             
         </script>
@@ -31,6 +55,9 @@ and open the template in the editor.
         </div>
     </header>
     <body>
-        <img class="responsive-img" src="picture/後楽園.jpg">
+        <div class="col">
+            <img src="picture/後楽園01.jpg" id="kourakuen">
+            <p>OKAYAMA</p>
+        </div>
     </body>
 </html>
