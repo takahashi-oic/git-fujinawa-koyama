@@ -22,7 +22,7 @@
     </header>
     <body>
         <div class="row">
-            <a href="adminLogin.php" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn">確　認</a>
+            <a href="adminLogin.php" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn">送信</a>
         </div>
     </body>
 </html>

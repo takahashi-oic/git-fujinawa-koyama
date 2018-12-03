@@ -20,7 +20,7 @@ and open the template in the editor.
                 position: relative;/*相対配置*/
             }
 
-            .col p {
+            .col p#okayama {
                 font-size: 700%;
                 position: absolute;/*絶対配置*/
                 color: white;/*文字は白に*/
@@ -37,6 +37,15 @@ and open the template in the editor.
             .col img {
               width: 100%;
             }
+            body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
         </style>
         <script>
             
@@ -57,7 +66,15 @@ and open the template in the editor.
     <body>
         <div class="col">
             <img src="picture/後楽園01.jpg" id="kourakuen">
-            <p>OKAYAMA</p>
+            <p id="okayama">OKAYAMA</p>
         </div>
     </body>
+    <footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
 </html>
