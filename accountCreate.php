@@ -10,6 +10,11 @@
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <style type="text/css">
+            #createbtn{
+                
+            }
+        </style>
         <title>アカウント作成</title>
     </head>
     <body>
@@ -30,15 +35,15 @@
                     <div class="row">
                         <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">account_box</i>
-                            <input id="userid" type="text" class="validate" required="required" placeholder="ユーザーID（半角英数字12文字以内）">
+                            <input id="userid" type="text" class="validate" placeholder="ユーザーID（半角英数字12文字以内）"required>
                         </div>
                         <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" type="text" class="validate" required="required" placeholder="password（半角英数字8～20文字以内)">
+                            <input id="password" type="text" class="validate" placeholder="password（半角英数字8～20文字以内)" required>
                         </div>
                     </div>
                     <div class="row">
-                        <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">確認ページへ</a>
+                        <input type="submit" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn" value="確認ページへ">
                     </div>
                 </div>
             </div>

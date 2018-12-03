@@ -38,14 +38,14 @@ and open the template in the editor.
               width: 100%;
             }
             body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+              }
 
-  main {
-    flex: 1 0 auto;
-  }
+              main {
+                flex: 1 0 auto;
+              }
         </style>
         <script>
             
