@@ -71,7 +71,7 @@ and open the template in the editor.
 
         </div>
     </body>
-    <footer class="page-footer">
+    <footer class="page-footer light-green lighten-1">
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text

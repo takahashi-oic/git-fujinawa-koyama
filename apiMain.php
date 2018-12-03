@@ -42,64 +42,55 @@
         </ul>
         <div class="container">
             <div class="row">
-                <div class="col s10 offset-s2">
+                <div class="col s12 offset-s2">
                     <h2>API概要</h2><br>
-                    <div id="color-usage" class="section scrollspy">
-                        <h4 class="truncate">概要</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col s7 ">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                      <td>API Endpoint</td>
-                                      <td>https://kaito.ju-ri.go.jp</td>
-                                    </tr>
-                                    <tr>
-                                      <td>利用可能なHTTPメソッド</td>
-                                      <td>GET</td>
-                                    </tr>
-                                    
-                                    <tr>
-                                      <td>レスポンスデータフォーマット</td>
-                                      <td>Json</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="col s12 m8 offset-s1 x17 offset-x1">
+                        <div id="overview" class="section scrollspy">
+                            <h3 class="header">概要</h3>
+                            <div class="row">
+                            <div class="col s12">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                          <td>API Endpoint</td>
+                                          <td>https://kaito.ju-ri.go.jp</td>
+                                        </tr>
+                                        <tr>
+                                          <td>利用可能なHTTPメソッド</td>
+                                          <td>GET</td>
+                                        </tr>
+
+                                        <tr>
+                                          <td>レスポンスデータフォーマット</td>
+                                          <td>Json</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <p>※APIキーの使い方については <a href="#">API詳細仕様</a>からご覧になれます。</p>
+                        <br><br><br><br><br>
+                        </div>
+                        <div id="api-list" class="section scrollspy">
+                            <h3 class="header">API一覧</h3>
+                            <ul>
+                                <li>・<a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
+                                <li>・<a href="#!" class="blue-text text-darken-2">国一覧</a></li>
+                                <li>・<a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
+                            </ul>
+                            <br><br><br><br><br>
                         </div>
                     </div>
-                    <p>※APIキーの使い方については <a href="#">API詳細仕様</a>からご覧になれます。</p>
-                    <h4 class="truncate">API一覧</h4>
-                    <ul>
-                        <li>・<a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
-                        <li>・<a href="#!" class="blue-text text-darken-2">国一覧</a></li>
-                        <li>・<a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
-                    </ul>
-                    <div class="col s12 m8 offset-m1 x17 offset-x11">
-                        <div id="color-usage" class="section scrollspy">
-                            <h3 class="header">Usage</h3>
-                            <p>testUsage</p>
-                        </div>
-                        <div id="sass" class="section scrollspy">
-                            <h3 class="header">Sass</h3>
-                            <p>testSass</p>
-                        </div>
-                        <div id="palette" class="section scrollspy">
-                            <h3 class="header">Palette</h3>
-                            <p>testPalette</p>
-                        </div>
-                    </div>
-                    <ul class="section table-of-contents">
-                        <li>
-                            <a href="#color-usage">Usage</a>
-                        </li>
-                        <li>
-                            <a href="#sass">Sass</a>
-                        </li>
-                        <li>
-                            <a href="#palette">Color Palette</a>
-                        </li>
-                    </ul>
+                    <div class="col hide-on-small-only m3 x13 offset-x11">
+                        <ul class="section table-of-contents pinned">
+                            <li>
+                                <a href="#overview">概要</a>
+                            </li>
+                            <li>
+                                <a href="#api-list">API一覧</a>
+                            </li>
+                        </ul>
+                    </div>   
                 </div>
             </div>
         </div>
