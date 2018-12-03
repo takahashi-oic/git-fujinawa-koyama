@@ -8,25 +8,21 @@
             $password = '';//パス
             $pdo = new PDO($dsn, $username, $password);
             
-            //ここから処理
-            $stmt = $pdo->prepare("select result from questionnaire_result");
+            //---ここから処理---
+            $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");
             $stmt->execute();
             
-            $workArray = array();
-            //結果取得
+            $resultArray = array();
+            //結果取得 連想配列へ
             while($row = $stmt -> fetch()){
-                $workArray[] = $row['result'];
+                $resultArray[$row['result']] = $row['count'];
             }
-            //結果の数を数える
-            $resultArray = array_count_values($workArray);
-            arsort($resultArray);
             //test
-            echo("work<br>");
-            print_r($workArray);
-            echo("<br>count<br>");
-            print_r($resultArray);
+            /*echo("count<br>");
+            print_r($resultArray);*/
             
-            //ここまで処理
+            //---ここまで処理---
+            
         } catch (PDOException $e) {
             //エラー
             header('Content-Type: text/plain; charset=UTF-8', true, 500);
