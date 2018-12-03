@@ -71,11 +71,11 @@ and open the template in the editor.
 
         </div>
     </body>
-    <footer class="page-footer light-green lighten-1">
+    <footer class="page-footer light-green darken-1">
         <div class="footer-copyright">
             <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                © 2018 Copyright Text
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
             </div>
         </div>
     </footer>
