@@ -12,6 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <title>アカウント作成</title>
     </head>
+    <body>
     <header>
         <div class="card-panel row s12 light-green lighten-1"><span class="white-text">管理者用アカウント作成</span></div>
         <div class="col s12">
@@ -22,7 +23,6 @@
             </ul>
         </div>
     </header>
-    <body>
         <br><br><br>
         <form　action="accountConfirm.php" method="post">
             <div class="row">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">送信</a>
+                        <a href="accountConfirm.php" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">確認ページへ</a>
                     </div>
                 </div>
             </div>

@@ -57,7 +57,7 @@ and open the template in the editor.
     <body>
         <div class="col">
             <img src="picture/後楽園01.jpg" id="kourakuen">
-            <p>OKAYAMA</p>
+            <p>OKINAWA</p>
         </div>
     </body>
 </html>
