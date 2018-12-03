@@ -79,7 +79,7 @@
                 <li><a href="#!">グラフ３</a></li>
             </ul>
         </div>
-        <canvas id="jsontest" />
+        <canvas id="myChart" class="" />
                 
         <script>
         $(function(){
@@ -129,8 +129,8 @@
                 }
             };
         document.getElementById("piechart").onclick = function() {
-            var ctx = document.getElementById("jsontest").getContext('2d');
-            ctx.canvas.height = 280;//グラフの高さ
+            var ctx = document.getElementById("myChart").getContext('2d');
+            ctx.canvas.height = 400;//グラフの高さ
             var myChart = new Chart(ctx, config);
         };
         

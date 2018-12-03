@@ -25,7 +25,7 @@
     </header>
     
         <br><br><br>
-        <form　action="accountConfirm.php" method="post">
+        <form action="accountConfirm.php" method="post">
             <div class="row">
                 <div class="col s4 offset-s4 z-depth-3">
                     <div class="row">
