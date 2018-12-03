@@ -79,8 +79,10 @@
                 <li><a href="#!">グラフ３</a></li>
             </ul>
         </div>
-        <canvas id="myChart" class="" />
+        <canvas id="myChart" class=""/>
                 
+        
+        <!-- ここからjavascript -->
         <script>
         $(function(){
             $('.dropdown-tr').dropdown();
@@ -124,13 +126,17 @@
                     labels: labels
                 },
                 options: {
-                    responsive: true,//グラフの横幅
+                    responsive: false,//グラフの横幅自動調整
                     maintainAspectRatio: false
                 }
             };
+            
+        var ctx = document.getElementById("myChart").getContext('2d');
+        ctx.canvas.height = 600;//グラフの高さ
+        ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+        
+        /*円グラフ*/
         document.getElementById("piechart").onclick = function() {
-            var ctx = document.getElementById("myChart").getContext('2d');
-            ctx.canvas.height = 400;//グラフの高さ
             var myChart = new Chart(ctx, config);
         };
         
