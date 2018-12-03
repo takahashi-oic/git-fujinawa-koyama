@@ -44,7 +44,9 @@
             <div class="row">
                 <div class="col s10 offset-s2">
                     <h2>API概要</h2><br>
-                    <h4 class="truncate">概要</h4>
+                    <div id="color-usage" class="section scrollspy">
+                        <h4 class="truncate">概要</h4>
+                    </div>
                     <div class="row">
                         <div class="col s7 ">
                             <table>
@@ -72,6 +74,31 @@
                         <li>・<a href="#!" class="blue-text text-darken-2">性別一覧</a></li>
                         <li>・<a href="#!" class="blue-text text-darken-2">国一覧</a></li>
                         <li>・<a href="#!" class="blue-text text-darken-2">観光地一覧</a></li>
+                    </ul>
+                    <div class="col s12 m8 offset-m1 x17 offset-x11">
+                        <div id="color-usage" class="section scrollspy">
+                            <h3 class="header">Usage</h3>
+                            <p>testUsage</p>
+                        </div>
+                        <div id="sass" class="section scrollspy">
+                            <h3 class="header">Sass</h3>
+                            <p>testSass</p>
+                        </div>
+                        <div id="palette" class="section scrollspy">
+                            <h3 class="header">Palette</h3>
+                            <p>testPalette</p>
+                        </div>
+                    </div>
+                    <ul class="section table-of-contents">
+                        <li>
+                            <a href="#color-usage">Usage</a>
+                        </li>
+                        <li>
+                            <a href="#sass">Sass</a>
+                        </li>
+                        <li>
+                            <a href="#palette">Color Palette</a>
+                        </li>
                     </ul>
                 </div>
             </div>
