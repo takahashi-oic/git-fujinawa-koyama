@@ -23,7 +23,7 @@
             </ul>
         </div>
     </header>
-    
+
         <br><br><br>
         <form action="accountConfirm.php" method="post">
             <div class="row">
