@@ -44,7 +44,9 @@
             <div class="row">
                 <div class="col s10 offset-s2">
                     <h2>API概要</h2><br>
-                    <h4 class="truncate">概要</h4>
+                    <div id="color-usage" class="section scrollspy">
+                        <h4 class="truncate">概要</h4>
+                    </div>
                     <div class="row">
                         <div class="col s7 ">
                             <table>
