@@ -66,7 +66,9 @@ and open the template in the editor.
     <body>
         <div class="col">
             <img src="picture/後楽園01.jpg" id="kourakuen">
+
             <p id="okayama">OKAYAMA</p>
+
         </div>
     </body>
     <footer class="page-footer">
