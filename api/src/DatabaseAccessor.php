@@ -27,6 +27,12 @@
 		// endregion field
 
 		// region function
+		private $ipAddr = array(
+			'ishisaka' => '192.168.201.177',
+			'juri' => '192.168.201.99',
+			'koyama' => '192.168.201.106',
+		);
+
 		/**
 		 * ## Result constructor.
 		 * @param string $host アクセス先IP

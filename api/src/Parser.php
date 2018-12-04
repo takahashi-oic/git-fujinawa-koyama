@@ -51,7 +51,6 @@
 		}
 
 		function __construct(array $query) {
-			http_response_code(404);
 			try {
 				$this->db = new DatabaseAccessor();
 				$this->query = $query;
@@ -73,7 +72,7 @@
 						$this->result = "FormatError";
 				}
 			} catch(PDOException $E) {
-				$this->result = "{$E->getCode()}";
+				$this->result = "{$E->getMessage()}";
 			}
 		}
 
@@ -134,7 +133,7 @@
 				$idx++;
 			}
 
-			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			return $this->jsonFormat($result);
 		}
 
 		public function toXml(): String {
@@ -197,7 +196,7 @@
 				$idx++;
 			}
 
-			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			return $this->jsonFormat($result);
 		}
 
 		public function toXml(): String {
@@ -264,7 +263,7 @@
 				$idx++;
 			}
 
-			return json_encode($result, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			return $this->jsonFormat($result);
 		}
 
 		public function toXml(): String {

@@ -68,16 +68,18 @@
 					<h2>API詳細仕様</h2>
 					<br>
 
-					<h4 class="truncate">利用方法</h4>
+					<h4 class="truncate" id="purpose">開発目的</h4>
 					<div class="row">
-						<p>
-							このAPIは、専門学校岡山情報ビジネス学院・情報スペシャリスト学科3年が卒業開発のために開発したAPIです。
-							<br>
-							「ITを用いて岡山県を盛り上げる」をテーマに開発されています。
-						</p>
+						<div class="col s7 ">
+							<p>
+								このAPIは、専門学校岡山情報ビジネス学院・情報スペシャリスト学科3年が卒業開発のために開発したAPIです。
+								<br>
+								「ITを用いて岡山県を盛り上げる」をテーマに開発されています。
+							</p>
+						</div>
 					</div>
 
-					<h4 class="truncate">レスポンスのContent-Typeについて</h4>
+					<h4 class="truncate" id="response">Content-Typeについて</h4>
 					<p>charsetはすべてUTF-8です。</p>
 					<div class="row">
 						<div class="col s7 ">
@@ -100,18 +102,29 @@
 						</div>
 					</div>
 
-					<h4 class="truncate">使用例</h4>
-					<div>
-						<div>
-							<p>HTTPリクエスト</p>
-							<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
-						</div>
+					<h4 class="truncate" id="sample">使用例</h4>
+					<div class="row">
+						<div class="col s7">
+							<div>
+								<p>HTTPリクエスト</p>
+								<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
+							</div>
 
-						<div>
-							<p>HTTPレスポンス</p>
-							<pre class="prettyprint"><?php include_once('./api/database.php') ?></pre>
+							<div>
+								<p>HTTPレスポンス</p>
+								<pre class="prettyprint"><?php include_once('./api/database.php') ?></pre>
+							</div>
 						</div>
 					</div>
+
+					<div class="col hide-on-small-only m3 x13 offset-x11">
+						<ul class="section table-of-contents pinned">
+							<li><a href="#purpose">開発目的</a></li>
+							<li><a href="#response">レスポンスのContent-Typeについて</a></li>
+							<li><a href="#sample">使用例</a></li>
+						</ul>
+					</div>
+
 				</div>
 			</div>
 		</div>
