@@ -140,7 +140,17 @@
                     labels: labels
                 },
                 options: {
-                    responsive: true,//グラフの横幅自動調整
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false,//グラフの横幅自動調整
                     maintainAspectRatio: false
                 }
             };
@@ -158,7 +168,7 @@
             if(myChart){
                 myChart.destroy();
             }
-            ctx.canvas.height = 600;//グラフの高さ
+            ctx.canvas.height = 500;//グラフの高さ
             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
             myChart = new Chart(ctx, pieConfig);
         };
@@ -168,7 +178,7 @@
             if(myChart){
                 myChart.destroy();
             }
-            ctx.canvas.height = 600;//グラフの高さ
+            ctx.canvas.height = 300;//グラフの高さ
             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
             myChart = new Chart(ctx, barConfig);
         };
