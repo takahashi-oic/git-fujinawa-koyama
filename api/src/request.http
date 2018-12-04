@@ -1,0 +1,36 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+
+GET http://127.0.0.1/git-fujinawa-koyama/api/
+
+### database.php?format=json
+GET https://127.0.0.1/git-fujinawa-koyama/api/database.php?format=csv
+
+### database.php?format=json
+GET https://127.0.0.1/git-fujinawa-koyama/api/database.php?format=json
+
+### questionnaire.php?format=json&id=1
+GET https://127.0.0.1/git-fujinawa-koyama/api/questionnaire.php?format=json&id=1
+
+### item.php?format=json&id=1
+GET https://127.0.0.1/git-fujinawa-koyama/api/item.php?format=json&id=1
+
+
+###
+
+
+# RESAS
+### 都道府県
+GET https://opendata.resas-portal.go.jp/api/v1/prefectures
+X-API-KEY: BKnLvbfVB5U6FsbAurarhvDlv6I8421iF4s2ppOw
+
+### 市区町村
+GET https://opendata.resas-portal.go.jp/api/v1/cities?prefCode=
+X-API-KEY: BKnLvbfVB5U6FsbAurarhvDlv6I8421iF4s2ppOw
+
+###
