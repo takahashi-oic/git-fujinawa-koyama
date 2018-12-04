@@ -33,7 +33,6 @@
         }
         ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,8 +48,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         
         <title>グラフ作成ページ</title>
-        
-        
     </head>
 
     <body>
@@ -72,7 +69,7 @@
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" id="piechart">円グラフ</a></li>
-                <li><a href="#!">棒グラフ</a></li>
+                <li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
                 <li><a href="#!">グラフ２</a></li>
@@ -90,25 +87,18 @@
         </script>
         
         <script>
-            
+            // ---ここから円グラフ---
             //phpからJSON key=場所val=数
             var json = <?php echo json_encode($resultArray); ?>
             
             //配列に変換
             var data = new Array(json.length);
             var labels = new Array(json.length);
-            //参考
-            //https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/values
             
             data = Object.values(json);
             labels = Object.keys(json);
             
-            //test
-            console.log(json);
-            console.log(data);
-            console.log(labels);
-            
-            var config = {
+            var pieConfig = {
                 type: 'pie',
                 data:{
                     datasets:[{
@@ -130,16 +120,68 @@
                     maintainAspectRatio: false
                 }
             };
-            
+            // ---ここまで円グラフ---
+            // ---ここから棒グラフ---
+            var barConfig = {
+                type: 'bar',
+                data:{
+                    datasets:[{
+                            data: data,
+                            backgroundColor: [
+                                "#2ecc71",
+                                "#3498db",
+                                "#95a5a6",
+                                "#9b59b6",
+                                "#f1c40f",
+                                "#e74c3c",
+                                "#34495e"
+                                ]
+                    }],
+                    labels: labels
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false,//グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで棒グラフ---
+        //グローバル
+        var myChart;
+        
         var ctx = document.getElementById("myChart").getContext('2d');
-        ctx.canvas.height = 600;//グラフの高さ
-        ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+        
+        
         
         /*円グラフ*/
         document.getElementById("piechart").onclick = function() {
-            var myChart = new Chart(ctx, config);
+            //myChartの中身があれば空に
+            if(myChart){
+                myChart.destroy();
+            }
+            ctx.canvas.height = 500;//グラフの高さ
+            ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+            myChart = new Chart(ctx, pieConfig);
         };
-        
+        /*棒グラフ*/
+        document.getElementById("barchart").onclick = function() {
+            //myChartの中身があれば空に
+            if(myChart){
+                myChart.destroy();
+            }
+            ctx.canvas.height = 300;//グラフの高さ
+            ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+            myChart = new Chart(ctx, barConfig);
+        };
         </script>
     </body>
 </html>

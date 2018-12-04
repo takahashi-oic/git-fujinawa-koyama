@@ -51,6 +51,7 @@
 		}
 
 		function __construct(array $query) {
+			http_response_code(404);
 			try {
 				$this->db = new DatabaseAccessor();
 				$this->query = $query;
@@ -69,10 +70,10 @@
 						$this->result = $this->toXml();
 						break;
 					default:
-						$this->result = "ERROR";
+						$this->result = "FormatError";
 				}
 			} catch(PDOException $E) {
-				$this->result = "[{$E->getCode()}] - <pre>{$E->getTrace()}</pre>";
+				$this->result = "{$E->getCode()}";
 			}
 		}
 

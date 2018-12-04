@@ -1,6 +1,17 @@
 <?php
-
+	switch(rand(0, 2)) {
+		case 0:
+			$_GET['format'] = 'json';
+			break;
+		case 1:
+			$_GET['format'] = 'xml';
+			break;
+		case 2:
+			$_GET['format'] = 'csv';
+			break;
+	}
 ?>
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -13,19 +24,25 @@
 
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<style type="text/css">
 
-		</style>
+		<!-- 使用例の外部CSS読込みJavaScript -->
+		<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+		<style type="text/css"></style>
+
 		<title>アンケートAPI-API詳細仕様</title>
 	</head>
-	<!--<header>
+
+	<!--
+	<header>
 			<div class="card-panel row s12 light-green lighten-1"><span class="white-text">API仕様書</span></div>
 			<div class="col s12">
 				<ul class="tabs">
 					<li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
 				</ul>
 			</div>
-	</header>-->
+	</header>
+	-->
+
 	<body>
 		<ul id="slide-out" class="sidenav sidenav-fixed">
 			<div class="row">
@@ -44,11 +61,13 @@
 				<li><a href="#!" class="blue-text text-darken-2">購入したもの一覧</a></li>
 			</div>
 		</ul>
+		<?php include_once('api/src/nav.php'); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col s10 offset-s2">
 					<h2>API詳細仕様</h2>
 					<br>
+
 					<h4 class="truncate">利用方法</h4>
 					<div class="row">
 						<p>
@@ -82,8 +101,17 @@
 					</div>
 
 					<h4 class="truncate">使用例</h4>
-					<?php $_GET['format'] = 'json'; ?>
-					<pre><?php include_once('./api/database.php') ?></pre>
+					<div>
+						<div>
+							<p>HTTPリクエスト</p>
+							<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
+						</div>
+
+						<div>
+							<p>HTTPレスポンス</p>
+							<pre class="prettyprint"><?php include_once('./api/database.php') ?></pre>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
