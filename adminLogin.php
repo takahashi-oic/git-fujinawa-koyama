@@ -16,6 +16,11 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript"></script>
         <title>管理者用ログインページ</title>
+        <style type="text/css">
+            #loginbox{
+                
+            }
+        </style>
         <script>
             
         </script>
@@ -33,7 +38,7 @@ and open the template in the editor.
         <br><br><br>
         <form>
             <div class="row">
-                <div class="col s4 offset-s4 z-depth-3">
+                <div class="col s4 offset-s4 z-depth-2" id="loginbox">
                     <div class="row">
                         <div class="input-field col s8 offset-s2">
                             <i class="material-icons prefix">account_box</i>

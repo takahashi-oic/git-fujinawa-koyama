@@ -12,7 +12,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <style type="text/css">
             #createbtn{
-                
+                color:white;
+                outline: none;
             }
         </style>
         <title>アカウント作成</title>
@@ -31,7 +32,7 @@
         <br><br><br>
         <form action="accountConfirm.php" method="post">
             <div class="row">
-                <div class="col s4 offset-s4 z-depth-3">
+                <div class="col s4 offset-s4 z-depth-2">
                     <div class="row">
                         <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">account_box</i>
