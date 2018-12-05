@@ -17,6 +17,7 @@
         //$_POSTで受け取る
         $userid = $_POST['userid'];
         $password = $_POST['password'];
+
         ?>
         <title>アカウント確認</title>
     </head>
@@ -65,6 +66,7 @@
                     ?>
                 </div>
             </div>
+
         </form>
 
 
