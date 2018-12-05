@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <?php
            try{
-    $pdo = new PDO('mysql:host=localhost;dbname=questionnaire_db;charset=utf8','test','test');
+    $pdo = new PDO('mysql:host=192.168.201.99;dbname=questionnaire_db;charset=utf8','user','');
     
  
   } catch (PDOException $e) {
@@ -49,6 +49,7 @@
                              </div>
                              <div class="row">
                      </div>
+                        <input type="button" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn" value="戻る" onclick="history.back()">
                         <input type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn" value="送信" onSubmit="jump()">
                         <script>
 

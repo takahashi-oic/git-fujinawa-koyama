@@ -9,6 +9,10 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>アンケート作成ページ</title>
         <script type="text/javascript">
+            function next(){
+                //TOPページにジャンプさせる
+                location.href = 'http://localhost/git-fujinawa-koyama/src/questionnaireOverview.php';
+            }
             function itemChange(id){
                 //↑変更したセレクトボックスのidをとってくる
                 //とってきたidの最後にある数字をとる
@@ -145,7 +149,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form>
+        <form action="questionnaireOverview.php" method="post">
             <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <th>項目選択</th>
@@ -203,8 +207,12 @@ and open the template in the editor.
     
                     <button id="addButton" type="button" onclick="questAdd()">追加</button>
                 </td>
+                <td>
+                    <input type="submit" value="プレビュー">
+                </td>
             </tr>
             </tfoot>
+            
         </form>
     </body>
 </html>
