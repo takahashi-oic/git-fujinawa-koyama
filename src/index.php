@@ -1,3 +1,4 @@
+<!-- 利用者用ホーム画面 -->
 <!DOCTYPE html>
 <html>
     <head>
