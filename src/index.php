@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -65,7 +60,7 @@ and open the template in the editor.
     </header>
     <body>
         <div class="col">
-            <img src="picture/後楽園01.jpg" id="kourakuen">
+            <img src="../picture/後楽園01.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 
