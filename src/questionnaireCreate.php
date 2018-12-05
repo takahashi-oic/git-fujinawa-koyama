@@ -9,10 +9,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>アンケート作成ページ</title>
         <script type="text/javascript">
-            function next(){
-                //TOPページにジャンプさせる
-                location.href = 'http://localhost/git-fujinawa-koyama/src/questionnaireOverview.php';
-            }
             function itemChange(id){
                 //↑変更したセレクトボックスのidをとってくる
                 //とってきたidの最後にある数字をとる
