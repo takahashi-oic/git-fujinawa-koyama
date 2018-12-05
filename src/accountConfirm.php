@@ -38,14 +38,14 @@
                     <div class="row">
                         <div class="input-field col s9 offset-s1">
                             <?php
-                            echo '<input id="userid" name="setuserid" type="text" class="validate" value="';
+                            echo '<input disabled id="userid" name="setuserid" type="text" class="validate" value="';
                             print_r($userid);
                             echo '">';
                             ?>
                         </div>
                         <div class="input-field col s9 offset-s1">
                             <?php
-                            echo '<input id="password" name="setpassword" type="text" class="validate" value="';
+                            echo '<input disabled id="password" name="setpassword" type="text" class="validate" value="';
                             print_r($password);
                             echo '">';
                             ?>
