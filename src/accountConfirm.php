@@ -34,42 +34,31 @@
         </div>
     </header>
     <body>
-        <form method="post">
+        <form>
               <div class="row">
                     <div class="col s4 offset-s4 z-depth-3">
                          <div class="row">
                                  <div class="input-field col s9 offset-s1">
 
-                                     <input id="userid" name="setuserid" type="text" class="validate">
+                                     <input id="userid" type="text" class="validate" disabled value="<?php echo $userid?>">
                                  </div>
                                  <div class="input-field col s9 offset-s1">
 
-                                     <input id="password" name="setpassword" type="text" class="validate">
+                                     <input id="password" type="text" class="validate" disabled value="<?php echo $password ?>">
                                  </div>
                              </div>
                              <div class="row">
                      </div>
-                        <input type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn" value="送信" onSubmit="jump()">
-                        <script>
-
-                                function jump(){
-                                   //TOPページにジャンプさせる
-                                   location.href = 'http://localhost/git-fujinawa-koyama/src/index.php';
-                                }
-
-                        </script>
+                        <button type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn"  onclick="add()">送信</button>
+                       
                         <?php
-                         if(true == isset($_POST['setuserid'])&&true == isset($_POST['setpassword'])){ 
-                         //$_POSTで受け取る
-                         $setuserid = $_POST['setuserid'];
-                         $setpassword = $_POST['setpassword'];
-                         $pdo->exec("INSERT INTO account(user_id,password) "."VALUES ('$setuserid', '$setpassword')");
-                         }
+                        function add(){
+                            $pdo->exec("INSERT INTO account(user_id,password) "."VALUES ('$userid', '$password')");
+        
+                        }
                      ?>
                  </div>
            </div>
         </form>
-                    
-       
     </body>
 </html>
