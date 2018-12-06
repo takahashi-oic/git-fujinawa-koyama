@@ -9,7 +9,7 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript"></script>
-        <title>アンケート収集公開APIトップページ</title>
+        <title>管理者トップページ</title>
         <!-- CSS -->
         <style type="text/css">
             .col {/*親div*/
@@ -49,12 +49,14 @@
         
     </head>
     <header>
-        <div class="card-panel row s12 orange darken-3"><span class="white-text">アンケート公開収集APIトップページ</span></div>
+        <nav>
+            <div class="nav-wrapper orange darken-3">
+                <a class="brand-logo">管理者トップページ</a>
+            </div>
+        </nav>
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3" id="home"><a href="index.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
-            <li class="tab col s3" id="chart"><a class="active" href="chartCreate.php"><span class="orange-text text-darken-3">グラフ作成</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="orange-text text-darken-3">API仕様書</span></a></li>
             <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
           </ul>
         </div>
