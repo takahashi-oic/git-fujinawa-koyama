@@ -145,7 +145,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form>
+        <form action="questionnaireOverview.php" method="post">
             <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <th>項目選択</th>
@@ -203,8 +203,12 @@ and open the template in the editor.
     
                     <button id="addButton" type="button" onclick="questAdd()">追加</button>
                 </td>
+                <td>
+                    <input type="submit" value="プレビュー">
+                </td>
             </tr>
             </tfoot>
+            
         </form>
     </body>
 </html>

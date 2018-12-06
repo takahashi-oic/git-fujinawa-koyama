@@ -50,10 +50,10 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="row">
-                        <a href="admin.php" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">Sign in</a>
+                        <a href="admin.php" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">サインイン</a>
                     </div>
                     <div class="row">
-                        <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">Create Account</a>
+                        <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">アカウント作成</a>
                     </div>
                 </div>
             </div>
