@@ -32,10 +32,10 @@ and open the template in the editor.
             </div>
         </nav>
         <div class="col s12">
-          <ul class="tabs">
-              <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="orange-text text-darken-3">API仕様書</span></a></li>
-          </ul>
+            <ul class="tabs">
+                <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                <li class="tab col s3" id="api"><a href="apiMain.php"><span class="orange-text text-darken-3">API仕様書</span></a></li>
+            </ul>
         </div>
     </header>
     <body>
@@ -54,10 +54,14 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="row">
-                        <a href="admin.php" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">サインイン</a>
+                        <div class="orange darken-3">
+                            <a href="admin.php" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">サインイン</a>
+                        </div>
                     </div>
                     <div class="row">
-                        <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">アカウント作成</a>
+                        <div class="orange darken-3">
+                            <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">アカウント作成</a>
+                        </div>
                     </div>
                 </div>
             </div>

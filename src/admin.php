@@ -28,7 +28,7 @@
         </nav>
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+              <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
             <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
 	          <li class="tab col s3" id="api">
 		          <a href="apiMain.php">
