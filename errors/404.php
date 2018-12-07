@@ -1,4 +1,7 @@
-<?php http_response_code(404); ?>
+<?php
+	declare(strict_types = 1);
+	http_response_code(404);
+?>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -9,10 +12,10 @@
 	</head>
 
 	<body>
-		<h1>404 Not FOUND!</h1>
+		<h1>404 Not Found!</h1>
 		<p>お探しのURLは存在しませんでした。</p>
-		<a href="http://127.0.0.1/git-fujinawa-koyama/index.php">アンケート収集公開APIトップページ</a>
+		<a href="http://127.0.0.1/git-fujinawa-koyama/src/index.php">アンケート収集公開APIトップページ</a>
 		<br>
-		<a href="http://127.0.0.1/git-fujinawa-koyama/apiMain.php">アンケートAPI-API概要</a>
+		<a href="http://127.0.0.1/git-fujinawa-koyama/src/apiMain.php">アンケートAPI-API概要</a>
 	</body>
 </html>

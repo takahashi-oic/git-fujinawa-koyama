@@ -1,10 +1,11 @@
 <?php
+	// region header
+	declare(strict_types = 1);
 	require_once "ContentType.php";
 	include_once "Parser.php";
+	// endregion header
 
-	ini_set('display_errors', 0);
-
-	switch(strtolower($_GET['format'])) {
+	if(key_exists('format', $_GET)) switch(strtolower($_GET['format'])) {
 		case 'json':
 			$content = ContentType::JSON;
 			break;
@@ -17,7 +18,10 @@
 		default:
 			$content = 'text/plain';
 	}
+	else $content = 'text/plain';
 
-	if($_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'])
-		header("Content-Type: {$content}; charset=utf-8");
-?>
+	/*
+	 * Content-Typeの制御
+	 * 直接リダイレクトされた場合は変更
+	 */
+	if($_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF']) header("Content-Type: {$content}; charset=utf-8");

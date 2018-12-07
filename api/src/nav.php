@@ -1,11 +1,14 @@
 <?php
-	$root = "http://127.0.0.1/git-fujinawa-koyama/";
+	declare(strict_types = 1);
+	$root = '';
 
+	/**
+	 * @param string $href リンク先
+	 * @param string $value 表示する内容
+	 * @return string API一覧リスト構造
+	 */
 	function api_list(string $href, string $value): string {
-		return "
-		<li>
-		<a href=\"{$href}\" class=\"blue-text text-darken-2\">{$value}</a>
-		</li>";
+		return "<li><a href=\"{$href}\" class=\"blue-text text-darken-2\">{$value}</a></li>\n";
 	}
 
 ?>
@@ -21,12 +24,13 @@
 		<p>　はじめに</p>
 		<li><a href="<?= $root ?>apiMain.php#" class="blue-text text-darken-2">API概要</a></li>
 		<li><a href="<?= $root ?>Moredetail.php#" class="blue-text text-darken-2">API詳細仕様</a></li>
-		<p>　API一覧</p>
 
+		<p>　API一覧</p>
 		<?= api_list("#!", "全集計結果") ?>
 		<?= api_list("#!", "アンケートごとの集計結果") ?>
 		<?= api_list("#!", "性別一覧") ?>
 		<?= api_list("#!", "国一覧") ?>
+		<?= api_list("#!", "空港一覧") ?>
 		<?= api_list("#!", "観光地一覧") ?>
 		<?= api_list("#!", "購入したもの一覧") ?>
 
