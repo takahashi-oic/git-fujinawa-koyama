@@ -18,7 +18,6 @@
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-                    <li class="tab col s3" id="home"><a href=""><span class="light-green-text text-lighten-1">Name2</span></a></li>
                     <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
                 </ul>
             </div>
@@ -35,7 +34,7 @@
                         </div>
                         <div class="input-field col s9 offset-s1">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" name="password" type="text" class="validate" required="required" placeholder="password（半角英数字8～20文字以内)">
+                            <input id="password" name="password" type="text" class="validate" required="required" placeholder="パスワード（半角英数字8～20文字以内)">
                         </div>
                     </div>
                     <div class="row">

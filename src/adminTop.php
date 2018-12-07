@@ -56,14 +56,14 @@
         </nav>
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+              <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
             <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
           </ul>
         </div>
     </header>
     <body>
         <div class="col">
-            <img src="../picture/後楽園01.jpg" id="kourakuen">
+            <img src="../picture/美観地区.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 
