@@ -1,4 +1,5 @@
 <?php
+	declare(strict_types = 1);
 	abstract class Enumeration {
 		private $value;
 
@@ -23,4 +24,3 @@
 			return (string)$this->value;
 		}
 	}
-?>
