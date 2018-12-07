@@ -74,6 +74,7 @@
                     </ul>
                 </div>
             </header>
+            <p>このアカウントは既に登録されています</p>
             <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
         
         </body>
