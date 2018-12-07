@@ -1,5 +1,19 @@
 <!DOCTYPE html>
-
+<?php
+                    try {
+                            $pdo = new PDO('mysql:host=192.168.201.99;dbname=questionnaire_db;charset=utf8', 'user', '');
+                        } catch (PDOException $e) {
+                            header('Content-Type: text/plain; charset=UTF-8', true, 500);
+                            exit($e->getMessage());
+                        }
+                    if (true == isset($_POST['setuserid']) && true == isset($_POST['setpassword'])) {
+                        //$_POSTで受け取る
+                        $setuserid = $_POST['setuserid'];
+                        $setpassword = $_POST['setpassword'];
+                        $stmt = $pdo->prepare("INSERT INTO account(user_id,password) " . "VALUES ('$setuserid', '$setpassword')");
+                        $stmt->execute();
+                    }
+                    ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -29,9 +43,9 @@
             <div class="row">
                 <div class="container col s4 offset-s4">
                     <p>あなたのユーザーIDは</p>
-                    <br><!--ユーザーID表示<br>消して良い-->
+                    <br><?php  echo $setuserid;?><br>
                     <p>パスワードは</p>
-                    <br><!--パスワード表示<br>消して良い-->
+                    <br><?php  echo $setpassword;?>
                     <p>です。</p>
                     <br>
                     <button id="btn" class="waves-effect waves-light btn light-green lighten-1" onclick="location.href='adminLogin.php'">終了する</button>
