@@ -55,10 +55,12 @@
             </div>
         </nav>
         <div class="col s12">
-          <ul class="tabs">
-              <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
-            <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
-          </ul>
+            <ul class="tabs">
+                  <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                  <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
+                  <li class="tab col s3" id="create"><a href="accountCreate.php"><span class="orange-text text-darken-3">管理者用アカウント作成</span></a></li>
+                  <li class="tab col s3" id="index"><a href="index.php"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
+            </ul>
         </div>
     </header>
     <body>
@@ -68,7 +70,7 @@
             <p id="okayama">OKAYAMA</p>
 
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col s4">
                 <div class="card">
                     <div class="card-content">
@@ -91,7 +93,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </body>
     <footer class="page-footer orange darken-3">
         <div class="footer-copyright">
