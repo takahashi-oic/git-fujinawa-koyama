@@ -28,7 +28,11 @@
     </head>
     <body>
         <header>
-            <div class="card-panel row s12 light-green lighten-1"><span class="white-text">管理者用アカウント作成</span></div>
+            <nav>
+                <div class="nav-wrapper orange darken-3">
+                    <a class="brand-logo">管理者トップページ</a>
+                </div>
+            </nav>
             <!--<div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
@@ -47,7 +51,7 @@
                     <br><?php  echo $setpassword;?>
                     <p>です。</p>
                     <br>
-                    <button id="btn" class="waves-effect waves-light btn light-green lighten-1" onclick="location.href='adminLogin.php'">終了する</button>
+                    <button id="btn" class="waves-effect waves-light btn orange darken-3" onclick="location.href='adminLogin.php'">終了する</button>
                 </div>
             </div>
         </form>
