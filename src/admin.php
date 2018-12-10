@@ -1,3 +1,10 @@
+<?php 
+        session_start();
+        if(isset($_SESSION["userid"])){
+            $mess = $_SESSION["userid"]."さんようこそ";
+        }else{
+            $mess = "ログインしてください";
+        }?>
 <!DOCTYPE html>
 
 <html>
@@ -22,13 +29,14 @@
             <div class="nav-wrapper light-green lighten-1">
                 <a class="brand-logo">管理者用ページ</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><button id="logout" class="waves-effect waves-light btn light-green lighten-1 z-depth-0" onclick="location.href='adminLogin.php'">ログアウト</button></li>
+                    <li><?php echo $mess;?></li>
+                    <li><button id="logout" class="waves-effect waves-light btn light-green lighten-1 z-depth-0" onclick="location.href='adminLogout.php'">ログアウト</button></li>
                 </ul>
             </div>
         </nav>
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+            <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
             <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
 	          <li class="tab col s3" id="api">
 		          <a href="apiMain.php">

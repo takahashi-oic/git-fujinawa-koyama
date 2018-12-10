@@ -43,11 +43,11 @@ and open the template in the editor.
                     <div class="row">
                         <div class="input-field col s8 offset-s2">
                             <i class="material-icons prefix">account_box</i>
-                            <input id="userid" type="text" class="validate" name="userid" required="required">
+                            <input id="userid" type="password" class="validate" name="userid" required="required">
                         </div>
                         <div class="input-field col s8 offset-s2">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" type="text" class="validate" name="password" required="required">
+                            <input id="password" type="password" class="validate" name="password" required="required">
                         </div>
                     </div>
                         

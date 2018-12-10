@@ -12,9 +12,10 @@
         $stmt->execute();
         $login = $stmt->fetch();
         if($login[0]==$userid && $login[1]==$password){
-            header('Location: admin.php');
-            exit();
-        }else{
+            $_SESSION['userid'] = $userid;
+           header('Location: admin.php');
+           exit();
+           }else{
             header('Location: adminLogin.php');
             exit();
         }
