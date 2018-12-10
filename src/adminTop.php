@@ -50,7 +50,7 @@
     </head>
     <header>
         <nav>
-            <div class="nav-wrapper orange darken-3">
+            <div class="nav-wrapper deep-orange darken-2">
                 <a class="brand-logo">管理者トップページ</a>
             </div>
         </nav>
@@ -95,7 +95,7 @@
             </div>
         </div>-->
     </body>
-    <footer class="page-footer orange darken-3">
+    <footer class="page-footer deep-orange darken-2">
         <div class="footer-copyright">
             <div class="container">
                 © 2018 Copyright 卒研　藤縄藩
