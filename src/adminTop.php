@@ -44,7 +44,9 @@
               }
         </style>
         <script>
-            
+            function index() {
+                window.open('index.php');
+            }
         </script>
         
     </head>
@@ -59,7 +61,7 @@
                   <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
                   <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
                   <li class="tab col s3" id="create"><a href="accountCreate.php"><span class="orange-text text-darken-3">管理者用アカウント作成</span></a></li>
-                  <li class="tab col s3" id="index"><a href="index.php"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
+                  <li class="tab col s3" id="index"><a href="#" onclick="index();return false;"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
             </ul>
         </div>
     </header>
