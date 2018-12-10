@@ -10,7 +10,8 @@
                         //$_POSTで受け取る
                         $setuserid = $_POST['setuserid'];
                         $setpassword = $_POST['setpassword'];
-                        $stmt = $pdo->prepare("INSERT INTO account(user_id,password) " . "VALUES ('$setuserid', '$setpassword')");
+                        $hash = password_hash($_POST['setpassword'], PASSWORD_DEFAULT);
+                        $stmt = $pdo->prepare("INSERT INTO account(user_id,password) " . "VALUES ('$setuserid', '$hash')");
                         $stmt->execute();
                     }
                     ?>
