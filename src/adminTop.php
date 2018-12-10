@@ -70,7 +70,7 @@
             <p id="okayama">OKAYAMA</p>
 
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col s4">
                 <div class="card">
                     <div class="card-content">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col s4">
+            <div class="col s4">
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">グラフを作成</span>
@@ -92,8 +92,8 @@
                         <a href="chartCreate.php" class="blue-text text-darken-2">グラフを作成する</a>
                     </div>
                 </div>
-            </div>-->
-        </div>
+            </div>
+        </div>-->
     </body>
     <footer class="page-footer orange darken-3">
         <div class="footer-copyright">
