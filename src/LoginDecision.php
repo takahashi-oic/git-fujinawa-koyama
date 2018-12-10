@@ -11,7 +11,7 @@
         $stmt = $pdo->prepare("SELECT user_id,password FROM account WHERE user_id='$userid'");
         $stmt->execute();
         $login = $stmt->fetch();
-        if($login[0]==$userid && $login[1]==$password){
+        if($login[0]==$userid && password_verify($password, $login[1])){
             $_SESSION['userid'] = $userid;
            header('Location: admin.php');
            exit();
@@ -21,4 +21,4 @@
         }
      
         ?>
-     
+    
