@@ -55,7 +55,8 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">API仕様書</span>
-                        <p>アンケート結果をもとに掲載してるデータをプログラムが取得できる機能をAPIで提供しています。</p>
+                        <p></p>
+                        <img src="../picture/book.jpg" id="book">
                     </div>
                     <div class="card-action">
                         <a href="apiMain.php" class="blue-text text-darken-2">API仕様書はこちら</a>
@@ -66,7 +67,8 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">アンケートを作成</span>
-                        <p>データをもとに自由に組み合わせ、欲しいデータを円グラフや棒グラフなどにグラフ化できる機能です。</p>
+                        <p></p>
+                        <img src="../picture/answer.jpg" id="answer">
                     </div>
                     <div class="card-action">
                         <a href="chartCreate.php" class="blue-text text-darken-2">グラフを作成する</a>
