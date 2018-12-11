@@ -60,7 +60,7 @@
     </header>
     <body>
         <div class="col">
-            <img src="../picture/後楽園01.jpg" id="kourakuen">
+            <img src="../picture/後楽園free.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 
