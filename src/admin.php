@@ -50,10 +50,40 @@
         </div>
     </header>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <div class="row">
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">API仕様書</span>
+                        <p>アンケート結果をもとに掲載してるデータをプログラムが取得できる機能をAPIで提供しています。</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="apiMain.php" class="blue-text text-darken-2">API仕様書はこちら</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">アンケートを作成</span>
+                        <p>データをもとに自由に組み合わせ、欲しいデータを円グラフや棒グラフなどにグラフ化できる機能です。</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="chartCreate.php" class="blue-text text-darken-2">グラフを作成する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
+    <br><br><br>
+    <footer class="page-footer deep-orange darken-2">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Copyright 卒研藤縄藩
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+            </div>
+        </div>
+    </footer>
 </html>
 
 
