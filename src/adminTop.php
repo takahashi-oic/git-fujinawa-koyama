@@ -44,13 +44,15 @@
               }
         </style>
         <script>
-            
+            function index() {
+                window.open('index.php');
+            }
         </script>
         
     </head>
     <header>
         <nav>
-            <div class="nav-wrapper orange darken-3">
+            <div class="nav-wrapper deep-orange darken-2">
                 <a class="brand-logo">管理者トップページ</a>
             </div>
         </nav>
@@ -59,7 +61,7 @@
                   <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
                   <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
                   <li class="tab col s3" id="create"><a href="accountCreate.php"><span class="orange-text text-darken-3">管理者用アカウント作成</span></a></li>
-                  <li class="tab col s3" id="index"><a href="index.php"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
+                  <li class="tab col s3" id="index"><a href="#" onclick="index();return false;"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
             </ul>
         </div>
     </header>
@@ -95,7 +97,7 @@
             </div>
         </div>-->
     </body>
-    <footer class="page-footer orange darken-3">
+    <footer class="page-footer deep-orange darken-2">
         <div class="footer-copyright">
             <div class="container">
                 © 2018 Copyright 卒研　藤縄藩

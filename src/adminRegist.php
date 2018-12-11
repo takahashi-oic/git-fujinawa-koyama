@@ -30,7 +30,7 @@
     <body>
         <header>
             <nav>
-                <div class="nav-wrapper orange darken-3">
+                <div class="nav-wrapper deep-orange darken-2">
                     <a class="brand-logo">管理者トップページ</a>
                 </div>
             </nav>

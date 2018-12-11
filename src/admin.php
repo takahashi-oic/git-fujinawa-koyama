@@ -26,7 +26,7 @@
                 <button id="logout" class="waves-effect waves-light btn right-align" onclick="location.href='adminLogin.php'">ログアウト</button>
         </div>-->
         <nav>
-            <div class="nav-wrapper light-green lighten-1">
+            <div class="nav-wrapper deep-orange darken-2">
                 <a class="brand-logo">管理者用ページ</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><?php echo $mess;?></li>
