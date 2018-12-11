@@ -30,7 +30,7 @@
                 <a class="brand-logo">管理者用ページ</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><?php echo $mess;?></li>
-                    <li><button id="logout" class="waves-effect waves-light btn light-green lighten-1 z-depth-0" onclick="location.href='adminLogout.php'">ログアウト</button></li>
+                    <li><button id="logout" class="waves-effect waves-light btn deep-orange darken-2 z-depth-0" onclick="location.href='adminLogout.php'">ログアウト</button></li>
                 </ul>
             </div>
         </nav>
