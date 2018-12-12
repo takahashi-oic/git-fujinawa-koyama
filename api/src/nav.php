@@ -43,8 +43,6 @@
 	}
 
 ?>
-
-<?php print_r($_SESSION) ?>
 <ul id="slide-out" class="sidenav sidenav-fixed">
 	<div class="row">
 		<a href="<?= homebtn($root) ?>">

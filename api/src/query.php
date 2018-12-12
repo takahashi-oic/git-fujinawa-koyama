@@ -1,4 +1,5 @@
-<?php declare(strict_types = 1);
+<?php
+	declare(strict_types = 1);
 	function http_err(int $code) {
 		http_response_code($code);
 		exit($code);
