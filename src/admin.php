@@ -38,10 +38,10 @@
             </div>
         </nav>
         <div class="col s12">
-          <ul class="tabs">
-              <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-            <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
-	          <li class="tab col s3" id="api">
+            <ul class="tabs">
+                <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+                <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
+	        <li class="tab col s3" id="api">
 		          <a href="apiMain.php">
 			          <span class="light-green-text text-lighten-1">API仕様書</span>
 		          </a>
@@ -51,27 +51,29 @@
     </header>
     <body>
         <div class="row">
-            <div class="col s4">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">API仕様書</span>
-                        <p></p>
-                        <img src="../picture/book.jpg" id="book">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Card Title</span>
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div class="card-action">
-                        <a href="apiMain.php" class="blue-text text-darken-2">API仕様書はこちら</a>
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
                     </div>
                 </div>
             </div>
-            <div class="col s4">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">アンケートを作成</span>
-                        <p></p>
-                        <img src="../picture/answer.jpg" id="answer">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Card Title</span>
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div class="card-action">
-                        <a href="chartCreate.php" class="blue-text text-darken-2">グラフを作成する</a>
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
                     </div>
                 </div>
             </div>
