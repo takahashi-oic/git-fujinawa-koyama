@@ -7,7 +7,7 @@
 	 */
 	abstract class DBAccess {
 		// region field
-		protected $pdo = null;
+		protected $pdo;
 		/** ## アクセス先IP */
 		private $host;
 		/** ## アクセス先DB */
@@ -23,7 +23,6 @@
 		// endregion field
 
 		// region function
-
 		/**
 		 * ## Result constructor.
 		 * @param string $host アクセス先IP
@@ -52,16 +51,14 @@
 	 */
 	class Select
 		extends DBAccess {
-		protected $stmt = "SELECT * FROM questionnaire_result WHERE TRUE";
-
 		/**
 		 * ## SELECT実行関数
 		 * @param string $where 条件文
 		 * @return PDOStatement SQL実行結果
 		 */
 		public function query(string $where = 'TRUE'): PDOStatement {
-			$this->stmt = "SELECT * FROM questionnaire_result WHERE {$where}";
-			$result = $this->pdo->query($this->stmt);
+			$stmt = "SELECT * FROM questionnaire_result WHERE {$where}";
+			$result = $this->pdo->query($stmt);
 
 			if($result instanceof PDOStatement) return $result;
 			else return null;

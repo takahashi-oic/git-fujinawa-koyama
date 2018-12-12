@@ -1,9 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
+	declare(strict_types = 1);
 	include_once "DBAccess.php";
 
 	/**
-	 * ## Class Parser
-	 * 取得結果変換抽象クラス
+	 * ## 取得結果解析クラス
 	 * @package api
 	 */
 	abstract class Parser {
@@ -25,8 +25,7 @@
 			try {
 				$this->db = new Select();
 				$this->query = $query;
-				if(array_key_exists('format', $query)) $format = strtolower($query['format']);
-				else $format = null;
+				if(key_exists('format', $query)) $format = strtolower($query['format']); else $format = null;
 
 				switch($format) {
 					case 'csv':
@@ -38,20 +37,22 @@
 					case 'xml':
 						$this->result = $this->toXml();
 						break;
+
 					default:
 						return;
 				}
 			} catch(PDOException $e) {
-				$this->result = "{$e->getMessage()}";
+				$this->result = '400';
+				http_response_code(400);
 			}
 		}
 
 		/**
+		 * ## timestamp検索用関数
 		 * @return String LIKE timestamp
 		 */
 		protected function timeFormat(): String {
-			if(array_key_exists('year', $this->query)) $year = $this->query['year'];
-			else $year = '____';
+			if(array_key_exists('year', $this->query)) $year = $this->query['year']; else $year = '____';
 
 			$month = '__';
 			if(array_key_exists('month', $this->query)) switch(strlen($this->query['month'])) {
@@ -67,7 +68,8 @@
 		}
 
 		/**
-		 * @param $json
+		 * ## JSON形式化関数
+		 * @param array $json JSON形式にしたい配列
 		 * @return string フォーマットされたJSON
 		 */
 		protected function jsonFormat($json): string {
@@ -105,21 +107,22 @@
 		// endregion function
 	}
 
+	/**
+	 * ## データベース解析クラス
+	 * データベースの中にある全てのデータを解析する
+	 */
 	class DBParser
 		extends Parser {
 		protected function toCSV(): string {
 			$result = '';
-
 			$select = $this->db->query($where = "{$this->timeFormat()}");
-
 			$length = $select->columnCount();
 
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
 				$cnt = 0;
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($cnt++ < $length - 1) $result .= ',';
-					else $result .= "\n";
+					if($cnt++ < $length - 1) $result .= ','; else $result .= "\n";
 				}
 			}
 
@@ -159,11 +162,14 @@
 		}
 	}
 
+	/**
+	 * ## アンケート結果解析クラス
+	 * アンケートごとのデータを解析する
+	 */
 	class QuestionnaireParser
 		extends Parser {
 		protected function toCSV(): string {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$result = '';
 
@@ -174,8 +180,7 @@
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($value < $length - 1) $result .= ',';
-					else $result .= "\n";
+					if($value < $length - 1) $result .= ','; else $result .= "\n";
 				}
 			}
 
@@ -188,8 +193,7 @@
 				'result' => array()
 			);
 
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$select = $this->db->query($where = "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
@@ -203,8 +207,7 @@
 		}
 
 		protected function toXml(): String {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$select = $this->db->query($where = "questionnaire_num = {$id} AND {$this->timeFormat()}");
 
@@ -221,11 +224,14 @@
 		}
 	}
 
+	/**
+	 * ## 項目結果解析クラス
+	 * 項目ごとのデータを解析する
+	 */
 	class ItemParser
 		extends Parser {
 		protected function toCSV(): string {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$result = '';
 
@@ -236,8 +242,7 @@
 			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($value < $length - 1) $result .= ',';
-					else $result .= "\n";
+					if($value < $length - 1) $result .= ','; else $result .= "\n";
 				}
 			}
 
@@ -250,8 +255,7 @@
 				'result' => array()
 			);
 
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$select = $this->db->query($where = "item_num = {$id} AND {$this->timeFormat()}");
 
@@ -265,8 +269,7 @@
 		}
 
 		protected function toXml(): String {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id'];
-			else return 'ERROR';
+			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
 
 			$select = $this->db->query($where = "item_num = {$id} AND {$this->timeFormat()}");
 
@@ -282,4 +285,3 @@
 			return $this->xmlFormat($root);
 		}
 	}
-

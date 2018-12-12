@@ -1,7 +1,8 @@
 <?php
 	// region header
 	declare(strict_types = 1);
-	require_once "ContentType.php";
+	// ini_set("ERROR_DISPLAY", "Off");
+	include_once "ContentType.php";
 	include_once "Parser.php";
 	// endregion header
 
@@ -15,6 +16,7 @@
 		case 'xml':
 			$content = ContentType::XML;
 			break;
+
 		default:
 			$content = 'text/plain';
 	}
