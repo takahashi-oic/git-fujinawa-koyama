@@ -9,7 +9,7 @@
         <title>変更後</title>
         <script type="text/javascript">
             function screenTransition(){
-                document.location.href = "http://localhost/収集公開API/questionnairecopy.php";
+                document.location.href = "questionnaireCreate.php";
             }
             
             function sendCreatedata(){
