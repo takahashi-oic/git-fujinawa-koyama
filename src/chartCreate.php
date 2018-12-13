@@ -1,4 +1,5 @@
 <?php
+    session_start();
 try {
     //DB接続
     //host localhost,192.168.201.xxxなど 106koya 99 ju
@@ -56,7 +57,11 @@ try {
 
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+                    <?php if(isset($_SESSION["userid"])){?>
+                    <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                    <?php }else {?>
+                        <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+                    <?php               }?>
                     <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
                 </ul>
             </div>
