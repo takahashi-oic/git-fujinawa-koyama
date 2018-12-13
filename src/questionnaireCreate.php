@@ -304,7 +304,7 @@ and open the template in the editor.
                     }
                 }
                 
-                document.location.href='http://localhost/収集公開API/createPreview.php';
+                document.location.href='createPreview.php';
             }
             
             function init(){
