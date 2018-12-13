@@ -74,7 +74,7 @@
     </header>
     <body>
         <div class="col">
-            <img src="../picture/美観地区.jpg" id="kourakuen">
+            <img src="../picture/美観地区free.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 

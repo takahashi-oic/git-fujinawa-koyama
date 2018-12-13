@@ -1,0 +1,3 @@
+<Limit GET>
+	Allow from *
+</Limit>

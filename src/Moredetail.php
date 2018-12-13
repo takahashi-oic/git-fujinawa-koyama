@@ -88,13 +88,13 @@
 
 						<div id="sample" class="section scrollspy">
 							<h3 id="header">使用例</h3>
-							<div class="">
+							<div>
 								<p>HTTPリクエスト</p>
 								<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
 
 								<p>HTTPレスポンス</p>
 								<pre class="prettyprint"><?php include_once('../api/database.php') ?></pre>
-							</div>
+								</p>
 						</div>
 					</div>
 				</div>
