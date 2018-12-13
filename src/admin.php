@@ -41,12 +41,9 @@
             <ul class="tabs">
                 <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
                 <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
-	        <li class="tab col s3" id="api">
-		          <a href="apiMain.php">
-			          <span class="light-green-text text-lighten-1">API仕様書</span>
-		          </a>
-	          </li>
-          </ul>
+	        <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
+                <li class="tab col s3" id="index"><a href="chartCreate.php"><span class="orange-text text-darken-3">グラフ作成</span></a></li>
+            </ul>
         </div>
     </header>
     <body>
