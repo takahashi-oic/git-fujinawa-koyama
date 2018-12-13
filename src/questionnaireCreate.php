@@ -316,7 +316,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form>
+        <form action="questionnaireOverview.php" method="post">
             <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
@@ -382,8 +382,12 @@ and open the template in the editor.
                     </div>
 
                 </td>
+                <td>
+                    <input type="submit" value="プレビュー">
+                </td>
             </tr>
             </tfoot>
+            
         </form>
     </body>
 </html>

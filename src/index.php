@@ -1,3 +1,4 @@
+<!-- 利用者用ホーム画面 -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,13 +55,12 @@
             <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
             <li class="tab col s3" id="chart"><a class="active" href="chartCreate.php"><span class="light-green-text text-lighten-1">グラフ作成</span></a></li>
             <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
-            <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="light-green-text text-lighten-1">管理者用ログイン</span></a></li>
           </ul>
         </div>
     </header>
     <body>
         <div class="col">
-            <img src="../picture/後楽園01.jpg" id="kourakuen">
+            <img src="../picture/後楽園free.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 

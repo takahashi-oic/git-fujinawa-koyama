@@ -5,11 +5,11 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-
-GET http://127.0.0.1/git-fujinawa-koyama/api/
+### data
+POST http://localhost/git-fujinawa-koyama/api/item.php?format=json&id=1; SELECT * FROM airport
 
 ### database.php?format=json
-GET https://127.0.0.1/git-fujinawa-koyama/api/database.php?format=csv
+GET https://localhost/git-fujinawa-koyama/api/database.php?format=csv
 
 ### database.php?format=json
 GET https://127.0.0.1/git-fujinawa-koyama/api/database.php?format=json
@@ -26,11 +26,11 @@ GET https://127.0.0.1/git-fujinawa-koyama/api/item.php?format=json&id=1
 
 # RESAS
 ### 都道府県
-GET https://opendata.resas-portal.go.jp/api/v1/prefectures
+POST https://opendata.resas-portal.go.jp/api/v1/prefectures
 X-API-KEY: BKnLvbfVB5U6FsbAurarhvDlv6I8421iF4s2ppOw
 
 ### 市区町村
-GET https://opendata.resas-portal.go.jp/api/v1/cities?prefCode=
+ https://opendata.resas-portal.go.jp/api/v1/cities?prefCode=0
 X-API-KEY: BKnLvbfVB5U6FsbAurarhvDlv6I8421iF4s2ppOw
 
 ###

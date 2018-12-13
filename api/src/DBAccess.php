@@ -1,17 +1,13 @@
 <?php
-	// region header
-	namespace api;
-	use PDO;
-	use PDOStatement;
-
-	// endregion header
+	declare(strict_types = 1);
 
 	/**
 	 * ## Result Table Manager
 	 * @see PDO
 	 */
-	class DatabaseAccessor {
+	abstract class DBAccess {
 		// region field
+		protected $pdo;
 		/** ## アクセス先IP */
 		private $host;
 		/** ## アクセス先DB */
@@ -27,12 +23,6 @@
 		// endregion field
 
 		// region function
-		private $ipAddr = array(
-			'ishisaka' => '192.168.201.177',
-			'juri' => '192.168.201.99',
-			'koyama' => '192.168.201.106',
-		);
-
 		/**
 		 * ## Result constructor.
 		 * @param string $host アクセス先IP
@@ -41,7 +31,7 @@
 		 * @param string $user DBアクセスユーザー
 		 * @param string $pass DBアクセスパスワード
 		 */
-		public function __construct(string $host = '192.168.201.99', string $db = 'questionnaire_db', string $charset = 'utf8', string $user = 'testdb', string $pass = '') {
+		public function __construct(string $host = '192.168.201.177', string $db = 'questionnaire_db', string $charset = 'utf8', string $user = 'testdb', string $pass = '') {
 			$this->host = $host;
 			$this->db = $db;
 			$this->charset = $charset;
@@ -49,25 +39,28 @@
 
 			$this->user = $user;
 			$this->pass = $pass;
-		}
 
-		/**
-		 * ## SELECT実行関数
-		 * @param string $select 選択列
-		 * @param string $from 使用テーブル
-		 * @param string $where 条件文
-		 * @return PDOStatement
-		 */
-		public function select(string $select, string $from, string $where = "TRUE"): PDOStatement {
-			$pdo = new PDO($this->dsn, $this->user);
-
-			$sql = "SELECT {$select} FROM {$from} WHERE {$where}";
-
-			$result = $pdo->query($sql);
-			if($result instanceof PDOStatement)
-				return $result;
-			else return null;
+			$this->pdo = new PDO($this->dsn, $this->user);
 		}
 		// endregion function
 	}
-?>
+
+	/**
+	 * ## Class Select
+	 * @package src\Database
+	 */
+	class Select
+		extends DBAccess {
+		/**
+		 * ## SELECT実行関数
+		 * @param string $where 条件文
+		 * @return PDOStatement SQL実行結果
+		 */
+		public function query(string $where = 'TRUE'): PDOStatement {
+			$stmt = "SELECT * FROM questionnaire_result WHERE {$where}";
+			$result = $this->pdo->query($stmt);
+
+			if($result instanceof PDOStatement) return $result;
+			else return null;
+		}
+	}

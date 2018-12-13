@@ -1,8 +1,8 @@
 <?php
-	use api\ItemParser;
+	declare(strict_types = 1);
 
-	include_once "src/Query.php";
-	include_once "src/Parser.php";
-	include_once "src/setter.php";
+	require_once "src/query.php";
+	require_once "src/Parser.php";
+	require_once "src/setter.php";
 	$parser = new ItemParser($_GET);
 ?><?= $parser->result; ?>

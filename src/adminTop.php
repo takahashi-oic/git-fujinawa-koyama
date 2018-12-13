@@ -1,3 +1,4 @@
+<!-- 管理者用ホーム画面 -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +9,7 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript"></script>
-        <title>アンケート収集公開APIトップページ</title>
+        <title>管理者トップページ</title>
         <!-- CSS -->
         <style type="text/css">
             .col {/*親div*/
@@ -43,29 +44,35 @@
               }
         </style>
         <script>
-            
+            function index() {
+                window.open('index.php');
+            }
         </script>
         
     </head>
     <header>
-        <div class="card-panel row s12 orange darken-3"><span class="white-text">アンケート公開収集APIトップページ</span></div>
+        <nav>
+            <div class="nav-wrapper deep-orange darken-2">
+                <a class="brand-logo">管理者トップページ</a>
+            </div>
+        </nav>
         <div class="col s12">
-          <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
-            <li class="tab col s3" id="chart"><a class="active" href="chartCreate.php"><span class="orange-text text-darken-3">グラフ作成</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="orange-text text-darken-3">API仕様書</span></a></li>
-            <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
-          </ul>
+            <ul class="tabs">
+                  <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                  <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
+                  <li class="tab col s3" id="create"><a href="accountCreate.php"><span class="orange-text text-darken-3">管理者用アカウント作成</span></a></li>
+                  <li class="tab col s3" id="index"><a href="#" onclick="index();return false;"><span class="orange-text text-darken-3">利用者ページへ</span></a></li>
+            </ul>
         </div>
     </header>
     <body>
         <div class="col">
-            <img src="../picture/後楽園01.jpg" id="kourakuen">
+            <img src="../picture/美観地区free.jpg" id="kourakuen">
 
             <p id="okayama">OKAYAMA</p>
 
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col s4">
                 <div class="card">
                     <div class="card-content">
@@ -88,9 +95,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </body>
-    <footer class="page-footer orange darken-3">
+    <footer class="page-footer deep-orange darken-2">
         <div class="footer-copyright">
             <div class="container">
                 © 2018 Copyright 卒研　藤縄藩

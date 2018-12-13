@@ -1,4 +1,10 @@
 <?php
+	declare(strict_types = 1);
+
+	/**
+	 * ## Class Enumeration
+	 * 列挙型を疑似的に再現したクラス
+	 */
 	abstract class Enumeration {
 		private $value;
 
@@ -23,4 +29,3 @@
 			return (string)$this->value;
 		}
 	}
-?>

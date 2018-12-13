@@ -4,12 +4,12 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>アンケート収集公開API 404ページ</title>
+		<title>アンケート収集公開API 403ページ</title>
 	</head>
 
 	<body>
-		<h1>404 Not Found!</h1>
-		<p>お探しのURLは存在しませんでした。</p>
+		<h1>403 Forbidden!</h1>
+		<p>そのURLは、アクセスを禁止されています</p>
 		<a href="http://127.0.0.1/git-fujinawa-koyama/src/index.php">アンケート収集公開APIトップページ</a>
 		<br>
 		<a href="http://127.0.0.1/git-fujinawa-koyama/src/apiMain.php">アンケートAPI-API概要</a>

@@ -143,12 +143,25 @@ try {
             var colorSet = [
                 "#9ccc65",
                 "#039be5",
-                "#f57c00",
+                "#ff9800",
                 "#5e35b1",
                 "#fdd835",
                 "#e53935",
-                "#3949ab",
-                "#00897b"
+                "#d4e157",
+                "#4fc3f7",
+                "#ffb74d",
+                "#ab47bc",
+                //--区切り--
+                "#9ccc65",
+                "#039be5",
+                "#ff9800",
+                "#5e35b1",
+                "#fdd835",
+                "#e53935",
+                "#d4e157",
+                "#4fc3f7",
+                "#ffb74d",
+                "#ab47bc"
             ];
 
             var pieConfig = {
@@ -163,7 +176,7 @@ try {
                 options: {
                     responsive: false, //グラフの横幅自動調整
                     maintainAspectRatio: false
-                },
+                }
                 //plugins: [dataLabelPlugin]
             };
             // ---ここまで円グラフ---
