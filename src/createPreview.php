@@ -9,7 +9,7 @@
         <title>変更後</title>
         <script type="text/javascript">
             function screenTransition(){
-                document.location.href = "questionnairecopy.php";
+                document.location.href = "questionnaireCreate.php";
             }
             
             function sendCreatedata(){
