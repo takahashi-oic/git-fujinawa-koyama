@@ -114,7 +114,7 @@ and open the template in the editor.
                         +    '<tr id="box' + (2 + zobun) + '" style="display: none;">'
                         +        '<th>項目作成</th>'
                         +        '<td>'
-                        +            '<textarea name="itemtext" rows="4" cols="40" placeholder="アンケートの本文を入力"></textarea><br>'
+                        +            '<textarea id="textarea' + view_count + '" name="itemtext" rows="4" cols="40" placeholder="アンケートの本文を入力"></textarea><br>'
                         +            '<select id="changeFormat' + view_count + '" name="format">'
                         +                '<option value="format1" selected>ラジオボタン</option>'
                         +                '<option value="format2">チェックボックス</option>'
@@ -136,6 +136,177 @@ and open the template in the editor.
                 }
             }
             
+            function pageTransition(){
+                localStorage.clear();
+                //項目がいくつあるかカウントする
+                var div_count = document.querySelectorAll("div").length;
+                localStorage.setItem('div_countkey', div_count);
+                
+                var questionsnum; 
+                var questionsval;
+                var selectval;
+                var formatval;
+                var textareaval;
+                var textboxval;
+                
+                //項目の数だけ繰り返す
+                for(questionsnum = 1;questionsnum <= div_count;questionsnum++){
+                    switch(questionsnum){
+                        case 1:
+                            //questionsvalで既存と自由のどちらを選んだか
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '1'){
+                                //selectvalで既存項目のアンケートの種類で何番目を選んだか
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '2'){
+                                //formatvalで自由項目のどのフォーマットを選んだか
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                //textareavalで自由項目の問題文になにが書いてあるか
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 1;i <= 5;i++){
+                                    //textboxvalで自由項目の選択肢になにが書いてあるか
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 2:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '3'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '4'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 6;i <= 10;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 3:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '5'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '6'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 11;i <= 15;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 4:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '7'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '8'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 16;i <= 20;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 5:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '9'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '10'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 21;i <= 25;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 6:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '11'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '12'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 26;i <= 30;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 7:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '13'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '14'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 31;i <= 35;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                        case 8:
+                            questionsval = document.getElementById('changeSelect' + questionsnum).value;
+                            localStorage.setItem('questionskey' + questionsnum, questionsval);
+                            if(questionsval == '15'){
+                                selectval = document.getElementById('changeItem' + questionsnum).value;
+                                localStorage.setItem('selectkey' + questionsnum, selectval);
+                            }else if(questionsval == '16'){
+                                formatval = document.getElementById('changeFormat' + questionsnum).value;
+                                textareaval = document.getElementById('textarea' + questionsnum).value;
+                                localStorage.setItem('formatkey' + questionsnum, formatval);
+                                localStorage.setItem('textareakey' + questionsnum, textareaval);
+                                
+                                for(var i = 36;i <= 40;i++){
+                                    textboxval = document.getElementById('textbox' + i).value;
+                                    localStorage.setItem(('textboxkey' + i), textboxval);
+                                }
+                            }
+                            break;
+                    }
+                }
+                
+                document.location.href='http://localhost/収集公開API/createPreview.php';
+            }
+            
             function init(){
                 itemChange('changeSelect1');
             }
@@ -147,6 +318,15 @@ and open the template in the editor.
     <body>
         <form>
             <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <button id="addButton" type="button" onclick="questAdd()">追加</button>
+                </td>
+                <td>
+                    <button id="previewButton" type="button" onclick="pageTransition()">プレビュー</button>
+                </td>
+            </tr>
+            
             <tr>
                 <th>項目選択</th>
                 <td>
@@ -178,7 +358,7 @@ and open the template in the editor.
             <tr id="box2" style>
                 <th>項目作成</th>
                 <td>
-                    <textarea name="itemtext" rows="4" cols="40" placeholder="アンケートの本文を入力"></textarea><br>
+                    <textarea id="textarea1" name="itemtext" rows="4" cols="40" placeholder="アンケートの本文を入力"></textarea><br>
                     <select id="changeFormat1" name="format">
                         <option value="format1" selected>ラジオボタン</option>
                         <option value="format2">チェックボックス</option>
@@ -200,8 +380,7 @@ and open the template in the editor.
                     
                     <div id="add">
                     </div>
-    
-                    <button id="addButton" type="button" onclick="questAdd()">追加</button>
+
                 </td>
             </tr>
             </tfoot>
