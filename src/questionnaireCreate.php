@@ -304,7 +304,7 @@ and open the template in the editor.
                     }
                 }
                 
-                document.location.href='createPreview.php';
+                document.location.href="createPreview.php";
             }
             
             function init(){
@@ -316,7 +316,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form action="questionnaireOverview.php" method="post">
+        <form>
             <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
@@ -384,7 +384,6 @@ and open the template in the editor.
                 </td>
             </tr>
             </tfoot>
-            
         </form>
     </body>
 </html>
