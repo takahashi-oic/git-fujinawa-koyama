@@ -31,14 +31,11 @@
         ?>
         <body>
             <header>
-                <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アカウント確認</span></div>
-                <div class="col s12">
-                    <ul class="tabs">
-                        <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-                        <li class="tab col s3" id="home"><a href=""><span class="light-green-text text-lighten-1">Name2</span></a></li>
-                        <li class="tab col s3" id="api"><a href=""><span class="light-green-text text-lighten-1">Name3</span></a></li>
-                    </ul>
-                </div>
+                <nav>
+                    <div class="nav-wrapper deep-orange darken-2">
+                        <a class="brand-logo">アカウント確認</a>
+                    </div>
+                </nav>
             </header>
             <form action="adminRegist.php" method="post">
                 <div class="row">
@@ -65,18 +62,18 @@
     <?php } else { ?>
         <body>
               <header>
-                <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アカウント確認</span></div>
-                <div class="col s12">
-                    <ul class="tabs">
-                        <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-                        <li class="tab col s3" id="home"><a href=""><span class="light-green-text text-lighten-1">Name2</span></a></li>
-                        <li class="tab col s3" id="api"><a href=""><span class="light-green-text text-lighten-1">Name3</span></a></li>
-                    </ul>
-                </div>
+                <nav>
+                    <div class="nav-wrapper deep-orange darken-2">
+                        <a class="brand-logo">アカウント確認</a>
+                    </div>
+                </nav>
             </header>
-            <p>このアカウントは既に登録されています</p>
-            <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
-        
+            <div class="row">
+                <div class="container col s4 offset-s4">
+                    <p class="center-align">このアカウントは既に登録されています</p>
+                    <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">アカウント作成に戻る</button>
+                </div>
+            </div>
         </body>
           
     <?php } ?>

@@ -41,18 +41,17 @@
                 </ul>
             </div>-->
         </header>
-
         <br><br><br>
         <form action="adminLogin.php" method="post">
             <div class="row">
                 <div class="container col s4 offset-s4">
                     <p>あなたのユーザーIDは</p>
-                    <br><?php  echo $setuserid;?><br>
+                    <p><?php  echo $setuserid;?></p>
                     <p>パスワードは</p>
-                    <br><?php  echo $setpassword;?>
+                    <p><?php  echo $setpassword;?></p>
                     <p>です。</p>
                     <br>
-                    <button id="btn" class="waves-effect waves-light btn orange darken-3" onclick="location.href='adminLogin.php'">終了する</button>
+                    <button id="btn" class="waves-effect waves-light btn orange darken-3 col s4 offset-s4" onclick="location.href='adminLogin.php'">終了する</button>
                 </div>
             </div>
         </form>
