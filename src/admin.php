@@ -49,7 +49,7 @@
                 <div class="col m6">
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <a href="adminTop.php">
+                            <a href="apiMain.php">
                                 <img src="../picture/book.jpg">
                                 <span class="card-title blue-text text-darken-2">API仕様書</span>
                             </a>
@@ -59,7 +59,7 @@
                 <div class="col m6">
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <a href="#">
+                            <a href="questionnaireCreate.php">
                                 <img src="../picture/アンケート.jpg">
                                 <span class="card-title blue-text text-darken-2">アンケート作成</span>
                             </a>
