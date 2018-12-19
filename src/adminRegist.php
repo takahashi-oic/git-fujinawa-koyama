@@ -44,7 +44,7 @@
         <br><br><br>
         <form action="adminLogin.php" method="post">
             <div class="row">
-                <p class="col s4 offset-s4">内容を<font size="4" color="yellow">必ず</font>確認してください</p>
+                <p class="col s4 offset-s4">内容を<font size="4" color="red">必ず</font>確認してください</p>
                 <div class="container grey lighten-3 col s4 offset-s4">
                     <p><font size="5">あなたのユーザーIDは<b class="red-text"><?php  echo $setuserid;?></b></font></p>
                     <p><font size="5">パスワードは<b class="red-text"><?php  echo $setpassword;?></b></font></p>

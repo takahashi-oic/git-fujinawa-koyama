@@ -18,6 +18,7 @@
         //$_POSTで受け取る
         $userid = $_POST['userid'];
         $password = $_POST['password'];
+        
         ?>
         <title>アカウント確認</title>
     </head>
@@ -38,21 +39,26 @@
                 </nav>
             </header>
             <form action="adminRegist.php" method="post">
+                <p class=" center-align col s4 offset-s4">内容を<font size="4" color="red">必ず</font>確認してください</p>
                 <div class="row">
                     <div class="col s4 offset-s4 z-depth-3">
+                        
                         <div class="row">
                             <div class="input-field col s9 offset-s1">
                                 <input type="hidden" id="setuserid" name="setuserid"  class="validate" value="<?php echo $userid ?>">
-                                <p><?php echo $userid ?></p>
+                                <p>ユーザーID：<?php echo $userid ?></p>
                             </div>
                             <div class="input-field col s9 offset-s1">
                                 <input type="hidden" id="setpassword" name="setpassword"  class="validate" value="<?php echo $password ?>">
-                                <p><?php echo $password ?></p>
+                                <p>パスワード：<?php echo $password ?></p>
                             </div>
                         </div>
-
-                        <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
-                        <button type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn">送信</button>
+                        <div class="col s4 offset-s1">
+                            <button type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn">送信</button>
+                        </div>
+                        <div class="col s4 offset-s1">
+                            <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
+                        </div>
                     </div>
                 </div>
 
@@ -64,14 +70,22 @@
               <header>
                 <nav>
                     <div class="nav-wrapper deep-orange darken-2">
-                        <a class="brand-logo">アカウント確認</a>
+                        <a class="brand-logo">登録エラー</a>
                     </div>
                 </nav>
             </header>
             <div class="row">
-                <div class="container col s4 offset-s4">
-                    <p class="center-align">このアカウントは既に登録されています</p>
-                    <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">アカウント作成に戻る</button>
+                <p class="center-align"><font size="5">このアカウントは既に登録されています</font></p>
+                <div class="container grey lighten-3 col s4 offset-s4">
+                    <p><font size="5">ユーザーID:<b class="red-text"><?php  echo $userid;?></b></font></p>
+                    <p><font size="5">パスワード:<b class="red-text"><?php  echo $password;?></b></font></p>
+                    <br>
+                    <p><font size="3">再度登録しなおしてください。</font></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <button type="button" class="waves-effect waves-light btn col s4 offset-s4 " id="returnBtn" onclick="history.back()">アカウント作成に戻る</button>
                 </div>
             </div>
         </body>
