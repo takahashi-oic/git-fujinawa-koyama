@@ -38,8 +38,9 @@
                     </div>
                 </nav>
             </header>
+            <br><br><br><br>
             <form action="adminRegist.php" method="post">
-                <p class=" center-align col s4 offset-s4">内容を<font size="4" color="red">必ず</font>確認してください</p>
+                
                 <div class="row">
                     <div class="col s4 offset-s4 z-depth-3">
                         
@@ -53,12 +54,13 @@
                                 <p>パスワード：<?php echo $password ?></p>
                             </div>
                         </div>
-                        <div class="col s4 offset-s1">
-                            <button type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="okBtn">送信</button>
+                        <div class="col s5 offset-s1">
+                            <button type="submit" class="waves-effect waves-light btn orange darken-3 col s8 offset-s2" id="okBtn">送信</button>
                         </div>
-                        <div class="col s4 offset-s1">
-                            <button type="button" class="waves-effect waves-light btn col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
+                        <div class="col s5">
+                            <button type="button" class="waves-effect waves-light btn orange darken-3 col s8 offset-s2" id="returnBtn" onclick="history.back()">戻る</button>
                         </div>
+                        <p class="col">送信する前に内容を<font size="4" color="red">必ず</font>確認してください</p>
                     </div>
                 </div>
 
@@ -85,7 +87,7 @@
             </div>
             <div class="row">
                 <div class="col s6 offset-s3">
-                    <button type="button" class="waves-effect waves-light btn col s4 offset-s4 " id="returnBtn" onclick="history.back()">アカウント作成に戻る</button>
+                    <button type="button" class="waves-effect waves-light btn orange darken-3 col s4 offset-s4 " id="returnBtn" onclick="history.back()">アカウント作成に戻る</button>
                 </div>
             </div>
         </body>
