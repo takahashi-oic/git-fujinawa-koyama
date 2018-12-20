@@ -3,5 +3,5 @@ Options -Indexes
 <IfModule >
 	RewriteEngine On
 	RewriteBase /
-	RewriteRule ^$ http://sotuken2018q.herokuapp.com/src/
+	RewriteRule ^$ http://sotuken2018q.herokuapp.com/src/index.php
 </IfModule>
