@@ -3,7 +3,6 @@
             try {
                 $url = parse_url(getenv('DATABASE_URL'));
                 $dsn = sprintf('pgsql:host=%s;abname=%s',$url['host'],substr($url['path'],1));
-                
                 $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
             } catch (PDOException $e) {
                 header('Content-Type: text/plain; charset=UTF-8', true, 500);
