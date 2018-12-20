@@ -11,7 +11,7 @@ and open the template in the editor.
         <script type="text/javascript">
             function itemChange(id){
                 //↑変更したセレクトボックスのidをとってくる
-                //とってきたidの最後にある数字をとる
+                //↓とってきたidの最後にある数字をとる
                 var idnum = id.slice(-1);
                 if(document.getElementById('changeSelect' + idnum)){
                     var count = 0;
@@ -316,7 +316,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form action="questionnaireOverview.php" method="post">
+        <form>
             <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
@@ -382,10 +382,8 @@ and open the template in the editor.
                     </div>
 
                 </td>
-                
             </tr>
             </tfoot>
-            
         </form>
     </body>
 </html>

@@ -37,7 +37,8 @@
                                     case 'item1':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>出身国</th>'
+                                                viewnum + ':'
+                                            +   '<th>出身国</th>'
                                             +        '<td>'
                                             +            '<select  name="country">'
                                             +                '<option value="アメリカ" selected>アメリカ</option>'
@@ -45,13 +46,14 @@
                                             +                '<option value="韓国">韓国</option>'
                                             +            '</select>'
                                             +        '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item2':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>年齢</th>'
+                                                viewnum + ':'
+                                            +   '<th>年齢</th>'
                                             +        '<td>'
                                             +            '<input type="radio" name="age' + viewnum + '" value="0~9" checked>0~9'
                                             +            '<input type="radio" name="age' + viewnum + '" value="10~19">10~19'
@@ -63,24 +65,26 @@
                                             +            '<input type="radio" name="age' + viewnum + '" value="70~79">70~79'
                                             +            '<input type="radio" name="age' + viewnum + '" value="80+">80+'
                                             +        '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item3':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>性別</th>'
+                                                viewnum + ':'
+                                            +   '<th>性別</th>'
                                             +        '<td>'
                                             +            '<input type="radio" name="sex' + viewnum + '" value="男" checked>男'
                                             +            '<input type="radio" name="sex' + viewnum + '" value="女">女'
                                             +        '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item4':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>入出国空港</th>'
+                                                viewnum + ':'
+                                            +   '<th>入出国空港</th>'
                                             +        '<td>'
                                             +        '入国'
                                             +            '<select name="airport">'
@@ -97,13 +101,14 @@
                                             +                '<option value="羽田空港">羽田空港</option>'
                                             +            '</select>'
                                             +        '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item5':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>周遊ルート</th>'
+                                                viewnum + ':'
+                                            +   '<th>周遊ルート</th>'
                                             +        '<td>'
                                             +            '<select name="Tourism1">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
@@ -136,42 +141,45 @@
                                             +                '<option value="大原美術館">大原美術館</option>'
                                             +            '</select>'
                                             +        '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item6':
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = 
-                                                '<th>購入物</th>'
+                                                viewnum + ':'
+                                            +   '<th>購入物</th>'
                                             +       '<td>'
                                             +            '<input type="text" name="Purchases1" placeholder="印象に残った購入物 第一位">'
                                             +            '<input type="text" name="Purchases2" placeholder="印象に残った購入物 第二位">'
                                             +            '<input type="text" name="Purchases3" placeholder="印象に残った購入物 第三位">'
                                             +       '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item7':
                                         var div_element = document.createElement("div");
-                                        div_element.innerHTML =     
-                                                '<th>目的</th>'
+                                        div_element.innerHTML = 
+                                                viewnum + ':'
+                                            +   '<th>目的</th>'
                                             +        '<td>'
                                             +            '<input type="radio" name="purpose' + viewnum + '" value="ビジネス" checked>ビジネス'
                                             +            '<input type="radio" name="purpose' + viewnum + '" value="観光">観光'
                                             +            '<input type="radio" name="purpose' + viewnum + '" value="家族・友人に会いに">家族・友人に会いに'
                                             +            '<input type="radio" name="purpose' + viewnum + '" value="その他">その他'
                                             +        '</td>';       
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item8':
                                         var div_element = document.createElement("div");
-                                        div_element.innerHTML =                                                 
-                                                '<th>SNS</th>'
+                                        div_element.innerHTML = 
+                                                viewnum + ':'
+                                            +   '<th>SNS</th>'
                                             +       '<td>'
                                             +        '<input type="text" name="sns"　placeholder="一番使用しているSNSは何ですか？">'
                                             +       '</td>';        
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                             }
@@ -186,9 +194,10 @@
                         case '16':
                             var tvalue = localStorage.getItem('textareakey' + viewnum);
                             var div_element = document.createElement("div");
-                                div_element.innerHTML =                                                 
-                                        '<th>' + tvalue + '</th>';     
-                                var parent_object = document.getElementById("add");
+                                div_element.innerHTML = 
+                                        viewnum + ':'
+                                    +   '<th>' + tvalue + '</th>';     
+                                var parent_object = document.getElementById("add" + viewnum);
                                 parent_object.appendChild(div_element);
                                 
                                 var forvalue = localStorage.getItem('formatkey' + viewnum);
@@ -198,7 +207,7 @@
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '<td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         for(var tbcount = 1;tbcount <= 5;tbcount++){
                                             var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
@@ -209,20 +218,20 @@
                                             var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                         '<input type="radio" name="radioname' + viewnum + '" id="radioid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
-                                            var parent_object = document.getElementById("add");
+                                            var parent_object = document.getElementById("add" + viewnum);
                                             parent_object.appendChild(div_element);
                                         }
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'format2':
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '<td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         for(var tbcount = 1;tbcount <= 5;tbcount++){
                                             var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
@@ -233,13 +242,13 @@
                                             var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                         '<input type="checkbox" name="checkname' + viewnum + '" id="cheackboxid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
-                                            var parent_object = document.getElementById("add");
+                                            var parent_object = document.getElementById("add" + viewnum);
                                             parent_object.appendChild(div_element);
                                         }
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'format3':
@@ -263,14 +272,14 @@
                                             +       '</td>';
                                         var div_element = document.createElement("div");
                                         div_element.innerHTML = select_html;
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;        
                                     case 'format4':
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '<td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         for(var tbcount = 1;tbcount <= 5;tbcount++){
                                             var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
@@ -281,20 +290,20 @@
                                             var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                         '<input type="text" name="textboxname' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '">';
-                                            var parent_object = document.getElementById("add");
+                                            var parent_object = document.getElementById("add" + viewnum);
                                             parent_object.appendChild(div_element);
                                         }
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'format5':
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '<td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         for(var tbcount = 1;tbcount <= 5;tbcount++){
                                             var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
@@ -305,13 +314,13 @@
                                             var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                         '<textarea  name="itemtext" rows="4" cols="40" id="textarea' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '"></textarea>';           
-                                            var parent_object = document.getElementById("add");
+                                            var parent_object = document.getElementById("add" + viewnum);
                                             parent_object.appendChild(div_element);
                                         }
                                         var div_element = document.createElement("div");
                                             div_element.innerHTML =                                                 
                                                     '</td>';
-                                        var parent_object = document.getElementById("add");
+                                        var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
                                         break;
                                 }
@@ -320,7 +329,21 @@
             }
             
             function test(){
-                var mydiv = document.getElementById("add");
+                var mydiv = document.getElementById("add1");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add2");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add3");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add4");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add5");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add6");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add7");
+                alert(mydiv.innerHTML);
+                var mydiv = document.getElementById("add8");
                 alert(mydiv.innerHTML);
             }
             
@@ -332,10 +355,24 @@
     </head>
     
     <body>
-        <form action="questionnaireRegist.php" method="post">
-            <table border="0" cellspacing="0" cellpadding="0">
-                <div id="add">
-                </div>    
+        <form>
+            <table id="addtable" border="0" cellspacing="0" cellpadding="0">
+                <div id="add1">
+                </div>
+                <div id="add2">
+                </div>
+                <div id="add3">
+                </div>
+                <div id="add4">
+                </div>
+                <div id="add5">
+                </div>
+                <div id="add6">
+                </div>
+                <div id="add7">
+                </div>
+                <div id="add8">
+                </div>
             </table>
             <tfoot>
             <tr>

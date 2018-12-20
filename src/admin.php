@@ -39,52 +39,44 @@
         </nav>
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-                <li class="tab col s3" id="home"><a href="questionnaireCreate.php"><span class="light-green-text text-lighten-1">アンケート作成</span></a></li>
-	        <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
-                <li class="tab col s3" id="index"><a href="chartCreate.php"><span class="orange-text text-darken-3">グラフ作成</span></a></li>
-            </ul>
+                <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+          </ul>
         </div>
     </header>
     <body>
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <a href="apiMain.php">
+                                <img src="../picture/book.jpg">
+                                <span class="card-title blue-text text-darken-2">API仕様書</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <a href="questionnaireCreate.php">
+                                <img src="../picture/アンケート.jpg">
+                                <span class="card-title blue-text text-darken-2">アンケート作成</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <br><br><br>
-    <footer class="page-footer deep-orange darken-2">
+    <!--<footer class="page-footer deep-orange darken-2">
         <div class="footer-copyright">
             <div class="container">
                 © 2018 Copyright 卒研藤縄藩
-                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
         </div>
-    </footer>
+    </footer>-->
 </html>
 
 
