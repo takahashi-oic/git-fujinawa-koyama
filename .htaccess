@@ -2,5 +2,5 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	RewriteRule /src /src/index.php
+	RewriteRule ^$ /src/index.php
 </IfModule>
