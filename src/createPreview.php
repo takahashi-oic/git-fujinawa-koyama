@@ -13,15 +13,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>変更後</title>
+        <title>変更　後</title>
         <script type="text/javascript">
             function screenTransition(){
                 document.location.href = "questionnaireCreate.php";
             }
             
             function sendCreatedata(){
+                //localstorageから項目の総数をとってくる
                 var count = localStorage.getItem('div_countkey');
+                //viewnum 現在処理している項目の番号を指す countの分だけ繰り返す
                 for(var viewnum = 1;viewnum <= count;viewnum++){
+                    //questions 既存項目なら奇数 自由項目なら偶数 が入っている
                     var questions = localStorage.getItem('questionskey' + viewnum);
                     switch(questions){
                         case '1':
@@ -32,10 +35,13 @@
                         case '11':
                         case '13':
                         case '15':
+                            //svalue 既存項目のなにを選んだか が入っている
                             var svalue = localStorage.getItem('selectkey' + viewnum);
                             switch(svalue){
                                     case 'item1':
+                                        //div_element divタグで囲う
                                         var div_element = document.createElement("div");
+                                        //div_element 中身を入れる
                                         div_element.innerHTML = 
                                                 viewnum + ':'
                                             +   '<th>出身国</th>'
@@ -46,7 +52,9 @@
                                             +                '<option value="韓国">韓国</option>'
                                             +            '</select>'
                                             +        '</td>';
+                                        //parent_object add'x' というidを取得
                                         var parent_object = document.getElementById("add" + viewnum);
+                                        //取得したidのところにdivタグと中身を入れる
                                         parent_object.appendChild(div_element);
                                         break;
                                     case 'item2':
@@ -192,159 +200,162 @@
                         case '12':
                         case '14':
                         case '16':
+                            //tvalue 設定した項目の問題文 が入っている
                             var tvalue = localStorage.getItem('textareakey' + viewnum);
                             var div_element = document.createElement("div");
-                                div_element.innerHTML = 
-                                        viewnum + ':'
-                                    +   '<th>' + tvalue + '</th>';     
-                                var parent_object = document.getElementById("add" + viewnum);
-                                parent_object.appendChild(div_element);
-                                
-                                var forvalue = localStorage.getItem('formatkey' + viewnum);
-                                
-                                switch(forvalue){
-                                    case 'format1':
-                                        var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '<td>';
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        for(var tbcount = 1;tbcount <= 5;tbcount++){
-                                            var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
-                                            if(tbvalue == '' || tbvalue == null){
-                                                tbcount += 5;
-                                                break;
-                                            }
-                                            var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                        '<input type="radio" name="radioname' + viewnum + '" id="radioid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
-                                            var parent_object = document.getElementById("add" + viewnum);
-                                            parent_object.appendChild(div_element);
+                            div_element.innerHTML = 
+                                    viewnum + ':'
+                                +   '<th>' + tvalue + '</th>';     
+                            var parent_object = document.getElementById("add" + viewnum);
+                            parent_object.appendChild(div_element);
+                            //forvalue 自由項目のformatの何を選んだか が入っている
+                            var forvalue = localStorage.getItem('formatkey' + viewnum);
+                            switch(forvalue){
+                                case 'format1':
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '<td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    //tbcount 自由項目の問題の選択肢の数を指す 空白かnullが入っているとそこ以上の選択肢は表示されない
+                                    for(var tbcount = 1;tbcount <= 5;tbcount++){
+                                        var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
+                                        if(tbvalue == '' || tbvalue == null){
+                                            tbcount += 5;
+                                            break;
                                         }
                                         var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '</td>';
+                                        div_element.innerHTML =                                                 
+                                                    '<input type="radio" name="radioname' + viewnum + '" id="radioid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
                                         var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
-                                        break;
-                                    case 'format2':
-                                        var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '<td>';
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        for(var tbcount = 1;tbcount <= 5;tbcount++){
-                                            var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
-                                            if(tbvalue == '' || tbvalue == null){
-                                                tbcount += 5;
-                                                break;
-                                            }
-                                            var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                        '<input type="checkbox" name="checkname' + viewnum + '" id="cheackboxid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
-                                            var parent_object = document.getElementById("add" + viewnum);
-                                            parent_object.appendChild(div_element);
+                                    }
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '</td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    break;
+                                case 'format2':
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '<td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    for(var tbcount = 1;tbcount <= 5;tbcount++){
+                                        var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
+                                        if(tbvalue == '' || tbvalue == null){
+                                            tbcount += 5;
+                                            break;
                                         }
                                         var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '</td>';
+                                        div_element.innerHTML =                                                 
+                                                    '<input type="checkbox" name="checkname' + viewnum + '" id="cheackboxid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue;
                                         var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
-                                        break;
-                                    case 'format3':
-                                        
-                                        var select_html =                                                 
-                                                    '<td>'
-                                            +            '<select  name="country">';
-                                        
-                                        for(var tbcount = 1;tbcount <= 5;tbcount++){
-                                            var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
-                                            if(tbvalue == '' || tbvalue == null){
-                                                tbcount += 5;
-                                                break;
-                                            }
-                                            select_html +=                                                 
-                                                            '<option id="selectboxid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue + '</option>';
-                                            
+                                    }
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '</td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    break;
+                                case 'format3':
+
+                                    var select_html =                                                 
+                                                '<td>'
+                                        +            '<select  name="country">';
+
+                                    for(var tbcount = 1;tbcount <= 5;tbcount++){
+                                        var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
+                                        if(tbvalue == '' || tbvalue == null){
+                                            tbcount += 5;
+                                            break;
                                         }
-                                            select_html +=  
-                                                        '</select>'
-                                            +       '</td>';
-                                        var div_element = document.createElement("div");
-                                        div_element.innerHTML = select_html;
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        break;        
-                                    case 'format4':
-                                        var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '<td>';
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        for(var tbcount = 1;tbcount <= 5;tbcount++){
-                                            var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
-                                            if(tbvalue == '' || tbvalue == null){
-                                                tbcount += 5;
-                                                break;
-                                            }
-                                            var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                        '<input type="text" name="textboxname' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '">';
-                                            var parent_object = document.getElementById("add" + viewnum);
-                                            parent_object.appendChild(div_element);
-                                        }
-                                        var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '</td>';
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        break;
-                                    case 'format5':
-                                        var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '<td>';
-                                        var parent_object = document.getElementById("add" + viewnum);
-                                        parent_object.appendChild(div_element);
-                                        for(var tbcount = 1;tbcount <= 5;tbcount++){
-                                            var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
-                                            if(tbvalue == '' || tbvalue == null){
-                                                tbcount += 5;
-                                                break;
-                                            }
-                                            var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                        '<textarea  name="itemtext" rows="4" cols="40" id="textarea' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '"></textarea>';           
-                                            var parent_object = document.getElementById("add" + viewnum);
-                                            parent_object.appendChild(div_element);
+                                        select_html +=                                                 
+                                                        '<option id="selectboxid' + (tbcount + ((viewnum-1) * 5)) + '" value="' + tbvalue + '">' + tbvalue + '</option>';
+
+                                    }
+                                        select_html +=  
+                                                    '</select>'
+                                        +       '</td>';
+                                    var div_element = document.createElement("div");
+                                    div_element.innerHTML = select_html;
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    break;        
+                                case 'format4':
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '<td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    for(var tbcount = 1;tbcount <= 5;tbcount++){
+                                        var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
+                                        if(tbvalue == '' || tbvalue == null){
+                                            tbcount += 5;
+                                            break;
                                         }
                                         var div_element = document.createElement("div");
-                                            div_element.innerHTML =                                                 
-                                                    '</td>';
+                                        div_element.innerHTML =                                                 
+                                                    '<input type="text" name="textboxname' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '">';
                                         var parent_object = document.getElementById("add" + viewnum);
                                         parent_object.appendChild(div_element);
-                                        break;
-                                }
+                                    }
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '</td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    break;
+                                case 'format5':
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '<td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    for(var tbcount = 1;tbcount <= 5;tbcount++){
+                                        var tbvalue = localStorage.getItem('textboxkey' + (tbcount + ((viewnum-1) * 5)));
+                                        if(tbvalue == '' || tbvalue == null){
+                                            tbcount += 5;
+                                            break;
+                                        }
+                                        var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                    '<textarea  name="itemtext" rows="4" cols="40" id="textarea' + (tbcount + ((viewnum-1) * 5)) + '" placeholder="' + tbvalue + '" value="' + tbvalue + '"></textarea>';           
+                                        var parent_object = document.getElementById("add" + viewnum);
+                                        parent_object.appendChild(div_element);
+                                    }
+                                    var div_element = document.createElement("div");
+                                        div_element.innerHTML =                                                 
+                                                '</td>';
+                                    var parent_object = document.getElementById("add" + viewnum);
+                                    parent_object.appendChild(div_element);
+                                    break;
+                            }
                     }
                 }
             }
             
             function test(){
-                var mydiv = document.getElementById("add1");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add2");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add3");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add4");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add5");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add6");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add7");
-                alert(mydiv.innerHTML);
-                var mydiv = document.getElementById("add8");
-                alert(mydiv.innerHTML);
+                var mydiv1 = document.getElementById("add1");
+                var mydiv2 = document.getElementById("add2");
+                var mydiv3 = document.getElementById("add3");
+                var mydiv4 = document.getElementById("add4");
+                var mydiv5 = document.getElementById("add5");
+                var mydiv6 = document.getElementById("add6");
+                var mydiv7 = document.getElementById("add7");
+                var mydiv8 = document.getElementById("add8");
+                var view = mydiv1.innerHTML;
+                view += mydiv2.innerHTML;
+                view += mydiv3.innerHTML;
+                view += mydiv4.innerHTML;
+                view += mydiv5.innerHTML;
+                view += mydiv6.innerHTML;
+                view += mydiv7.innerHTML;
+                view += mydiv8.innerHTML;
+                localStorage.setItem('localhtml', view);
+                document.location.href = "testPHPfile.php";
             }
             
             function init(){
