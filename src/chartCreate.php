@@ -3,11 +3,10 @@
 try {
     //DB接続
     //host localhost,192.168.201.xxxなど 106koya 99 ju
-    $dsn = 'mysql:dbname=questionnaire_db;host=192.168.201.99;charset=utf8mb4'; //mysql
-    //$username = 'root';//ユーザー root
-    $username = 'user'; //ユーザー user
-    $password = ''; //パス
-    $pdo = new PDO($dsn, $username, $password);
+     $url = parse_url(getenv('DATABASE_URL'));
+                $dsn = sprintf('pgsql:host=%s;abname=%s',$url['host'],substr($url['path'],1));
+                
+                $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
 
     //---ここから処理---
     $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");

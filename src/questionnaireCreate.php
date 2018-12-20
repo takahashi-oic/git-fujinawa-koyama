@@ -382,9 +382,7 @@ and open the template in the editor.
                     </div>
 
                 </td>
-                <td>
-                    <input type="submit" value="プレビュー">
-                </td>
+                
             </tr>
             </tfoot>
             

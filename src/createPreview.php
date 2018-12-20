@@ -1,8 +1,15 @@
-<!--/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */-->
+<?php
+                    try {
+                            $url = parse_url(getenv('DATABASE_URL'));
+                $dsn = sprintf('pgsql:host=%s;abname=%s',$url['host'],substr($url['path'],1));
+                
+                $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
+                        } catch (PDOException $e) {
+                            header('Content-Type: text/plain; charset=UTF-8', true, 500);
+                            exit($e->getMessage());
+                        }
+                    
+                    ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -76,7 +83,7 @@
                                                 '<th>入出国空港</th>'
                                             +        '<td>'
                                             +        '入国'
-                                            +            '<select name="format">'
+                                            +            '<select name="airport">'
                                             +                '<option value="岡山空港" selected>岡山空港</option>'
                                             +                '<option value="鳥取空港">鳥取空港</option>'
                                             +                '<option value="関西国際空港">関西国際空港</option>'
@@ -98,31 +105,31 @@
                                         div_element.innerHTML = 
                                                 '<th>周遊ルート</th>'
                                             +        '<td>'
-                                            +            '<select name="format">'
+                                            +            '<select name="Tourism1">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
                                             +                '<option value="美観地区">美観地区</option>'
                                             +                '<option value="後楽園">後楽園</option>'
                                             +                '<option value="大原美術館">大原美術館</option>'
                                             +            '</select>'
-                                            +            '<select name="format">'
+                                            +            '<select name="Tourism2">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
                                             +                '<option value="美観地区">美観地区</option>'
                                             +                '<option value="後楽園">後楽園</option>'
                                             +                '<option value="大原美術館">大原美術館</option>'
                                             +            '</select>'
-                                            +            '<select name="format">'
+                                            +            '<select name="Tourism3">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
                                             +                '<option value="美観地区">美観地区</option>'
                                             +                '<option value="後楽園">後楽園</option>'
                                             +                '<option value="大原美術館">大原美術館</option>'
                                             +            '</select>'
-                                            +            '<select name="format">'
+                                            +            '<select name="Tourism4">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
                                             +                '<option value="美観地区">美観地区</option>'
                                             +                '<option value="後楽園">後楽園</option>'
                                             +                '<option value="大原美術館">大原美術館</option>'
                                             +            '</select>'
-                                            +            '<select name="format">'
+                                            +            '<select name="Tourism5">'
                                             +                '<option value="岡山城" selected>岡山城</option>'
                                             +                '<option value="美観地区">美観地区</option>'
                                             +                '<option value="後楽園">後楽園</option>'
@@ -137,9 +144,9 @@
                                         div_element.innerHTML = 
                                                 '<th>購入物</th>'
                                             +       '<td>'
-                                            +            '<input type="text" name="name" placeholder="印象に残った購入物 第一位">'
-                                            +            '<input type="text" name="name" placeholder="印象に残った購入物 第二位">'
-                                            +            '<input type="text" name="name" placeholder="印象に残った購入物 第三位">'
+                                            +            '<input type="text" name="Purchases1" placeholder="印象に残った購入物 第一位">'
+                                            +            '<input type="text" name="Purchases2" placeholder="印象に残った購入物 第二位">'
+                                            +            '<input type="text" name="Purchases3" placeholder="印象に残った購入物 第三位">'
                                             +       '</td>';
                                         var parent_object = document.getElementById("add");
                                         parent_object.appendChild(div_element);
@@ -162,7 +169,7 @@
                                         div_element.innerHTML =                                                 
                                                 '<th>SNS</th>'
                                             +       '<td>'
-                                            +        '<input type="text" name="name"　value="最も使用しているSNS">'
+                                            +        '<input type="text" name="sns"　placeholder="一番使用しているSNSは何ですか？">'
                                             +       '</td>';        
                                         var parent_object = document.getElementById("add");
                                         parent_object.appendChild(div_element);
@@ -325,7 +332,7 @@
     </head>
     
     <body>
-        <form>
+        <form action="questionnaireRegist.php" method="post">
             <table border="0" cellspacing="0" cellpadding="0">
                 <div id="add">
                 </div>    
@@ -336,7 +343,8 @@
                     <button id="addButton" type="button" onclick="screenTransition()">戻る</button>
                 </td>
                 <td>
-                    <button id="confirmButton" type="button" onclick="test()">作成</button>
+                    
+                    <button id="confirmButton" type="submit" >送信</button>
                 </td>
             </tr>
             </tfoot>
