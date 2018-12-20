@@ -4,7 +4,7 @@ try {
     //DB接続
     //host localhost,192.168.201.xxxなど 106koya 99 ju
             $url = parse_url(getenv('DATABASE_URL'));
-            $pdo = new PDO("pgsql:".sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s',$url["host"],$url["port"],$url["user"],$url["dbname"],ltrim($url["path"],"/")));
+            $pdo = new PDO("pgsql:".sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s',$url["host"],$url["port"],$url["user"],$url["pass"],ltrim($url["path"],"/")));
             
 
     //---ここから処理---
