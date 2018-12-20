@@ -56,11 +56,11 @@ and open the template in the editor.
                     </div>
                         
                     <div class="row">
-                        <button type="submit" class="waves-effect waves-light btn col s8 offset-s2" id="loginBtn">サインイン</button>
+                        <button type="submit" class="waves-effect waves-light btn orange darken-3 col s8 offset-s2" id="loginBtn">サインイン</button>
                     </div>
                     <div class="row">
                         <div class="orange darken-3">
-                            <a href="accountCreate.php" class="waves-effect waves-light btn col s8 offset-s2" id="Account">アカウント作成</a>
+                            <a href="accountCreate.php" class="waves-effect waves-light btn orange darken-3 col s8 offset-s2" id="Account">アカウント作成</a>
                         </div>
                     </div>
                 </div>
