@@ -1,3 +1,6 @@
 Options -Indexes
 
-ErrorDocument 400 400
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule ^(.*)$ src/index.php
+</IfModule>

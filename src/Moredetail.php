@@ -1,15 +1,23 @@
 <?php
 	declare(strict_types = 1);
+
+	// 表示形式決定
 	switch(rand(0, 2)) {
 		case 0:
 			$_GET['format'] = 'json';
 			break;
+
 		case 1:
 			$_GET['format'] = 'xml';
 			break;
+
 		case 2:
 			$_GET['format'] = 'csv';
 			break;
+
+		// 何かあった時のため
+		default:
+			$_GET['format'] = 'json';
 	}
 ?>
 
@@ -25,26 +33,29 @@
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-		<!-- 使用例の外部CSS読込みJavaScript -->
+		<?php // 使用例の外部CSS読込みJavaScript ?>
 		<script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 		<style type="text/css"></style>
 
 		<title>アンケートAPI-API詳細仕様</title>
 	</head>
 
-	<!--
+	<?php /*
 	<header>
-			<div class="card-panel row s12 light-green lighten-1"><span class="white-text">API仕様書</span></div>
-			<div class="col s12">
-				<ul class="tabs">
-					<li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-				</ul>
-			</div>
+	<div class="card-panel row s12 light-green lighten-1"><span class="white-text">API仕様書</span></div>
+	<div class="col s12">
+	<ul class="tabs">
+		<li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
+	</ul>
+	</div>
 	</header>
-	-->
+	*/ ?>
 
 	<body>
-		<?php include_once('../api/src/nav.php'); ?>
+		<?php
+			// left_nav
+			include_once('../api/src/nav.php');
+		?>
 		<div class="container">
 			<div class="row">
 				<div class="col s12 offset-s2">
@@ -57,7 +68,7 @@
 							<p>
 								このAPIは、専門学校岡山情報ビジネス学院・情報スペシャリスト学科3年が卒業開発のために開発したAPIです。
 								<br>
-								「ITを用いて岡山県を盛り上げる」をテーマに開発されています。
+								「ITを用いて岡山県を盛り上げる」ことをテーマに開発されています。
 							</p>
 						</div>
 
@@ -93,12 +104,13 @@
 								<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
 
 								<p>HTTPレスポンス</p>
-								<pre class="prettyprint"><?php include_once('../api/database.php') ?></pre>
-								</p>
+								<pre class="prettyprint"><?php include '../api/database.php' ?></pre>
+							</div>
 						</div>
 					</div>
 				</div>
 
+				<?php // right_nav ?>
 				<div class="col hide-on-small-only m3 x13 offset-x11">
 					<ul class="section table-of-contents pinned">
 						<li><a href="#purpose">開発目的</a></li>
