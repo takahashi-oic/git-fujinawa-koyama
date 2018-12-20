@@ -1,6 +1,7 @@
 Options -Indexes
 
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteRule ^$ /src/index.php
+<IfModule >
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^$ http://sotuken2018q.herokuapp.com/
 </IfModule>
