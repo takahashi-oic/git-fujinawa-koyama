@@ -1,6 +1,1 @@
 Options -Indexes
-
-<IfModule >
-	RewriteEngine On
-	RewriteBase /
-</IfModule>
