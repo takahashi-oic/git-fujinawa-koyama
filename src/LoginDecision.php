@@ -1,7 +1,9 @@
         <?php
         session_start();
             try {
-                $pdo = new PDO('mysql:host=192.168.201.99;dbname=questionnaire_db;charset=utf8', 'user', '');
+                $url = parse_url(getenv('DATABASE_URL'));
+                $dsn = sprintf('pgsql:host=%s;abname=%s',$url['host'],substr($url['path'],1));
+                $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
             } catch (PDOException $e) {
                 header('Content-Type: text/plain; charset=UTF-8', true, 500);
                 exit($e->getMessage());
