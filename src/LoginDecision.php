@@ -2,8 +2,8 @@
         session_start();
             try {
                 $url = parse_url(getenv('DATABASE_URL'));
-                $dsn = sprintf('pgsql:host=%s;dbname=%s',$url['host'],substr($url['path'],1));
-                $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
+               
+                $pdo = new PDO("pgsql;".sprintf('pgsql:host=%s;port=%s;user=%s;password=%s;dbname=%s',$url["host"],$url["port"],$url["user"],$url["dbname"],ltrim($url["path"],"/")));
             } catch (PDOException $e) {
                 header('Content-Type: text/plain; charset=UTF-8', true, 500);
                 exit($e->getMessage());

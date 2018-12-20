@@ -3,9 +3,9 @@
 try {
     //DB接続
     //host localhost,192.168.201.xxxなど 106koya 99 ju
-                $url = parse_url(getenv('DATABASE_URL'));
-                $dsn = sprintf('pgsql:host=%s;dbname=%s',$url['host'],substr($url['path'],1));
-                $pdo = new PDO($dsn,$url['user'],$url[`pass`]);
+             $url = parse_url(getenv('DATABASE_URL'));
+             $pdo = new PDO("pgsql;".sprintf('pgsql:host=%s;port=%s;user=%s;password=%s;dbname=%s',$url["host"],$url["port"],$url["user"],$url["dbname"],ltrim($url["path"],"/")));
+            
 
     //---ここから処理---
     $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");
