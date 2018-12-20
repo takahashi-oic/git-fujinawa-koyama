@@ -11,7 +11,7 @@ and open the template in the editor.
         <script type="text/javascript">
             function itemChange(id){
                 //↑変更したセレクトボックスのidをとってくる
-                //とってきたidの最後にある数字をとる
+                //↓とってきたidの最後にある数字をとる
                 var idnum = id.slice(-1);
                 if(document.getElementById('changeSelect' + idnum)){
                     var count = 0;
