@@ -304,7 +304,7 @@ and open the template in the editor.
                     }
                 }
                 
-                document.location.href="createPreview.php";
+                document.location.href='createPreview.php';
             }
             
             function init(){

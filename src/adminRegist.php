@@ -31,7 +31,7 @@
         <header>
             <nav>
                 <div class="nav-wrapper deep-orange darken-2">
-                    <a class="brand-logo">管理者トップページ</a>
+                    <a class="brand-logo">アカウント確認</a>
                 </div>
             </nav>
             <!--<div class="col s12">
@@ -41,18 +41,17 @@
                 </ul>
             </div>-->
         </header>
-
         <br><br><br>
         <form action="adminLogin.php" method="post">
             <div class="row">
-                <div class="container col s4 offset-s4">
-                    <p>あなたのユーザーIDは</p>
-                    <br><?php  echo $setuserid;?><br>
-                    <p>パスワードは</p>
-                    <br><?php  echo $setpassword;?>
-                    <p>です。</p>
-                    <br>
-                    <button id="btn" class="waves-effect waves-light btn orange darken-3" onclick="location.href='adminLogin.php'">終了する</button>
+                <p class="col s4 offset-s4">内容を<font size="4" color="red">必ず</font>確認してください</p>
+                <div class="container grey lighten-3 col s4 offset-s4">
+                    <p><font size="5">あなたのユーザーIDは<b class="red-text"><?php  echo $setuserid;?></b></font></p>
+                    <p><font size="5">パスワードは<b class="red-text"><?php  echo $setpassword;?></b></font></p>
+                    <p><font size="5">です。</font></p>
+                </div>
+                <div class="col s12">
+                    <button id="btn" class="waves-effect waves-light btn orange darken-3 col s2 offset-s5" onclick="location.href='adminLogin.php'">終了する</button>
                 </div>
             </div>
         </form>
