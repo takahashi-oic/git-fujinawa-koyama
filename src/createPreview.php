@@ -7,6 +7,7 @@
                             exit($e->getMessage());
                         }
                     
+            echo $_SERVER["REQUEST_URI"];
                     ?>
 <html>
     <head>
