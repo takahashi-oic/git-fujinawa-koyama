@@ -367,7 +367,7 @@
     
     <body>
         <form action="questionnaireRegist.php" method="post">
-            <input type="text" name="ques" value="<?php echo $ques ?>">
+            <input type="hidden" name="ques" value="<?php echo $ques ?>">
             <table id="addtable" border="0" cellspacing="0" cellpadding="0">
                 <div id="add1">
                 </div>
