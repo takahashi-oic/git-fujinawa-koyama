@@ -366,7 +366,7 @@
     </head>
     
     <body>
-        <form action="questionnaireRegist.php" method="post">
+        <form>
             <table id="addtable" border="0" cellspacing="0" cellpadding="0">
                 <div id="add1">
                 </div>
