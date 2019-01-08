@@ -391,7 +391,7 @@
                     <button id="addButton" type="button" onclick="screenTransition()">戻る</button>
                 </td>
                 <td>
-                    <input type="hidden" name="ques" value=<?php echo $ques ?>>
+                    <input type="hidden" name="ques" value="<?php echo $ques ?>">
                     <button id="confirmButton" type="submit" >作成</button>
                 </td>
             </tr>
