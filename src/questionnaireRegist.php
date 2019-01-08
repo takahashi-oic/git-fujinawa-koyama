@@ -7,6 +7,6 @@
                 header('Content-Type: text/plain; charset=UTF-8', true, 500);
                 exit($e->getMessage());
             }
-            require_once "createPreview.php";
+            $ques = $_POST['ques'];
             echo $ques;
              ?>

@@ -17,9 +17,10 @@
             exit($e->getMessage());
         }
 
-        //$_POSTで受け取る
-        $userid = $_POST['userid'];
+        //$_POSTで受け取る$userid = $_POST['userid'];
         $password = $_POST['password'];
+        $userid = $_POST['userid'];
+        
         
         ?>
         <title>アカウント確認</title>
