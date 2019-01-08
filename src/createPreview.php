@@ -7,8 +7,8 @@
                             exit($e->getMessage());
                         }
                     
-           $url = (empty($_SERVER["HTTPS"])?"http://":"https://").$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-           echo $url;
+           $ques = urlencode((empty($_SERVER["HTTPS"])?"http://":"https://").$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
+           echo $ques;
                     ?>
 <html>
     <head>
@@ -366,7 +366,7 @@
     </head>
     
     <body>
-        <form>
+        <form action="questionnaireRegist.php" method="post">
             <table id="addtable" border="0" cellspacing="0" cellpadding="0">
                 <div id="add1">
                 </div>
@@ -392,7 +392,7 @@
                 </td>
                 <td>
                     
-                    <button id="confirmButton" type="submit" >送信</button>
+                    <button id="confirmButton" type="submit" >作成</button>
                 </td>
             </tr>
             </tfoot>
