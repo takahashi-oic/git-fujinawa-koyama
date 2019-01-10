@@ -10,7 +10,7 @@
             $date = new DateTime();
             $dbdate = $date->format('Y-m-d H:i:s');
             $ques = $_POST['ques'];
-            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(url,conversion _data,create_date)"."VALUES ('$ques', '$ques','$dbdate')");
+            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_num,url,conversion _data,create_date)"."VALUES (1,'$ques', '$ques','$dbdate')");
             $stmt->execute();
             
              ?>
