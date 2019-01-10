@@ -1,3 +1,1 @@
 Options -Indexes
-
-# RedirectMatch ^/$ http://localhost/git-fujinawa-koyama/src$1
