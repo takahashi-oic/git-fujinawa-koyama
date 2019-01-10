@@ -4,7 +4,7 @@
 	include_once('AutoLoader.php');
 
 	$query = new src\api\Question();
-	$database = $query->query(1);
+	$data = $query->query(1);
 
 	$result = function() {
 		http_response_code(401);
@@ -16,15 +16,15 @@
 
 		switch(strtolower($_GET['format'])) {
 			case 'csv':
-				$result = $fmt->toCsv($database);
+				$result = $fmt->toCsv($data);
 				break;
 
 			case 'json':
-				$result = $fmt->toJson($database);
+				$result = $fmt->toJson($data);
 				break;
 
 			case 'xml':
-				$result = $fmt->toXml($database);
+				$result = $fmt->toXml($data);
 				break;
 		}
 	}
