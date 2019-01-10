@@ -2,6 +2,7 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
+		use DOMDocument;
 		use PDOStatement;
 		use SimpleXMLElement;
 
