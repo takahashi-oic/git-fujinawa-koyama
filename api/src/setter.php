@@ -10,9 +10,11 @@
 		case 'json':
 			$content = ContentType::JSON;
 			break;
+
 		case 'csv':
 			$content = ContentType::CSV;
 			break;
+
 		case 'xml':
 			$content = ContentType::XML;
 			break;
@@ -22,7 +24,7 @@
 	}
 	else $content = 'text/plain';
 
-	/*
+	/**
 	 * Content-Typeの制御
 	 * 直接リダイレクトされた場合は変更
 	 */

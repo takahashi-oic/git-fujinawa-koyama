@@ -1,7 +1,8 @@
 <?php
 	declare(strict_types = 1);
+
 	/** ## Rootドキュメント */
-	$root = '/git-fujinawa-koyama/src/';
+	$root = __DIR__ . '\\';
 
 	/** ## APIリスト管理クラス */
 	class APIDispatcher {
@@ -15,7 +16,7 @@
 
 		// region function
 		/**
-		 * ## Li constructor.
+		 * ## APIDispatcher constructor.
 		 * @param string $href リンク先
 		 * @param string $value 表示名
 		 */

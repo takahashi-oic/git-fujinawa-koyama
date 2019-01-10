@@ -7,4 +7,3 @@
 	$result = $query->query(1);
 
 	while($column = $result->fetch()) echo $column;
-
