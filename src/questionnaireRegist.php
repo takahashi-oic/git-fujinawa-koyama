@@ -8,10 +8,9 @@
                 exit($e->getMessage());
             }
             $date = new DateTime();
-            $num = 1;
             $dbdate = $date->format('Y-m-d H:i:s');
             $ques = $_POST['ques'];
-            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_num,questionnaire_url,create_date,conversion_data)"."VALUES ('$num','$ques','$dbdate','$ques')");
+            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_url,create_date,conversion_data)"."VALUES ('$ques','$dbdate','$ques')");
             $stmt->execute();
             
              ?>
