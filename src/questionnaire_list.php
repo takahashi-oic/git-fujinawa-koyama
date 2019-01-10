@@ -13,7 +13,7 @@ try {
                        foreach ($stmt as $row) {
                             $enurl = base64_decode($row['questionnaire_url']);
                             echo $row['create_date'].$enurl;
-                            echo '<br>';
-                        }
-?>
+                            ?>
+                        <a href="<?php$enurl ?>"></a><br>
+                                <?php}?>
 
