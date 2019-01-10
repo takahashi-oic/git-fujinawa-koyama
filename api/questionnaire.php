@@ -1,8 +1,10 @@
 <?php
 	declare(strict_types = 1);
 
-	include_once "src/query.php";
-	include_once "src/Parser.php";
-	include_once "src/setter.php";
-	$parser = new QuestionnaireParser($_GET);
-?><?= $parser->result; ?>
+	include_once('AutoLoader.php');
+
+	$query = new src\api\Question();
+	$result = $query->query(1);
+
+	while($column = $result->fetch()) echo $column;
+

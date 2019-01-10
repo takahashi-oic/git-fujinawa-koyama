@@ -1,11 +1,9 @@
 <?php
 	declare(strict_types = 1);
+	/** ## Rootドキュメント */
 	$root = '/git-fujinawa-koyama/src/';
 
-	/**
-	 * ## Class APIDispatcher
-	 * APIリストの値を管理するクラス
-	 */
+	/** ## APIリスト管理クラス */
 	class APIDispatcher {
 		// region field
 		/** ## リンク先 */
@@ -36,16 +34,30 @@
 		// endregion function
 	}
 
-	session_start();
-	function homebtn($root) {
-		if(isset($_SESSION['userid'])) $home = 'admin'; else $home = 'index';
+	/**
+	 * ## 遷移先決定関数
+	 * @param string $root Rootドキュメント
+	 * @return string HOME遷移
+	 */
+	function home(string $root) {
+		session_start();
+		if(isset($_SESSION['userid'])) $home = 'admin';
+		else $home = 'index';
 		return $root . $home . '.php';
+	}
+
+	/**
+	 * ## APIリスト表示関数
+	 * @param \APIDispatcher ...$list 表示するAPIリスト
+	 */
+	function print_list(array $list) {
+		foreach($list as $elem) echo $elem;
 	}
 
 ?>
 <ul id="slide-out" class="sidenav sidenav-fixed">
 	<div class="row">
-		<a href="<?= homebtn($root) ?>">
+		<a href="<?= home($root) ?>">
 			<i class="medium material-icons left black-text" id="homebtn">home</i>
 		</a>
 	</div>
@@ -53,11 +65,10 @@
 	<div>
 		<p>　はじめに</p>
 		<?php
-			$list = array(
+			print_list(array(
 				new APIDispatcher('apiMain.php', 'API概要'),
 				new APIDispatcher('Moredetail.php', 'API詳細仕様')
-			);
-			foreach($list as $elem) print $elem;
+			));
 		?>
 		<!--
 		<li><a href="apiMain.php#" class="blue-text text-darken-2">API概要</a></li>
@@ -66,7 +77,7 @@
 
 		<p>　API一覧</p>
 		<?php
-			$list = array(
+			print_list(array(
 				new APIDispatcher('#!', '全集計結果'),
 				new APIDispatcher('#!', 'アンケートごとの結果'),
 				new APIDispatcher('#!', '性別一覧'),
@@ -74,8 +85,7 @@
 				new APIDispatcher('#!', '空港一覧'),
 				new APIDispatcher('#!', '観光地一覧'),
 				new APIDispatcher('#!', '購入したもの一覧'),
-			);
-			foreach($list as $elem) print $elem;
+			));
 		?>
 
 		<!--

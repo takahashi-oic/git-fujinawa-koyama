@@ -1,7 +1,7 @@
 <?php
 	// region header
 	declare(strict_types = 1);
-	// ini_set("ERROR_DISPLAY", "Off");
+	ini_set("ERROR_DISPLAY", "Off");
 	include_once "ContentType.php";
 	include_once "Parser.php";
 	// endregion header

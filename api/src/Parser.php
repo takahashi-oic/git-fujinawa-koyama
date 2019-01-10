@@ -1,5 +1,6 @@
 <?php
 	declare(strict_types = 1);
+
 	include_once "DBAccess.php";
 
 	/**
@@ -14,20 +15,17 @@
 		protected $query;
 		/** ## DB接続 */
 		protected $db;
+		protected $select;
 		// endregion field
 
 		// region function
 		/**
 		 * Parser constructor.
-		 * @param array $query 指定された表示形式
 		 */
-		public function __construct(array $query) {
+		public function __construct() {
 			try {
-				$this->db = new Select();
-				$this->query = $query;
-				if(key_exists('format', $query)) $format = strtolower($query['format']); else $format = null;
-
-				switch($format) {
+				$this->db = new Select;
+				if(key_exists('format', $_GET)) switch(strtolower($_GET['format'])) {
 					case 'csv':
 						$this->result = $this->toCSV();
 						break;
@@ -39,12 +37,24 @@
 						break;
 
 					default:
-						return;
+						$this->error(400);
 				}
+				else $this->error(400);
 			} catch(PDOException $e) {
-				$this->result = '400';
-				http_response_code(400);
+				error_log($e->getMessage());
+				$this->result = 400;
+				$this->error($this->result);
 			}
+		}
+
+		/**
+		 * ## 異常終了関数
+		 * @param int $code HTTPレスポンスコード
+		 * @see http_response_code()
+		 */
+		protected function error(int $code) {
+			http_response_code($code);
+			exit($code);
 		}
 
 		/**
@@ -52,15 +62,16 @@
 		 * @return String LIKE timestamp
 		 */
 		protected function timeFormat(): String {
-			if(array_key_exists('year', $this->query)) $year = $this->query['year']; else $year = '____';
+			if(key_exists('year', $_GET)) $year = $_GET['year'];
+			else $year = '____';
 
 			$month = '__';
-			if(array_key_exists('month', $this->query)) switch(strlen($this->query['month'])) {
+			if(array_key_exists('month', $_GET)) switch(strlen($_GET['month'])) {
 				case 1:
-					$month = '0' . $this->query['month'];
+					$month = '0' . $_GET['month'];
 					break;
 				case 2:
-					$month = $this->query['month'];
+					$month = $_GET['month'];
 					break;
 			}
 
@@ -73,7 +84,11 @@
 		 * @return string フォーマットされたJSON
 		 */
 		protected function jsonFormat($json): string {
-			return json_encode($json, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			$opt = 0;
+			$opt += JSON_NUMERIC_CHECK;
+			// $opt += JSON_PRETTY_PRINT;
+			$opt += JSON_UNESCAPED_UNICODE;
+			return json_encode($json, $opt);
 		}
 
 		/**
@@ -113,16 +128,25 @@
 	 */
 	class DBParser
 		extends Parser {
+		public function __construct() {
+			try {
+				parent::__construct();
+				$this->select = $this->db->query($where = $this->timeFormat());
+			} catch(Exception $e) {
+				echo 'データベースにエラーが発生しました';
+			}
+		}
+
 		protected function toCSV(): string {
 			$result = '';
-			$select = $this->db->query($where = "{$this->timeFormat()}");
-			$length = $select->columnCount();
+			$length = $this->select->columnCount();
 
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$cnt = 0;
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($cnt++ < $length - 1) $result .= ','; else $result .= "\n";
+					if($cnt++ < $length - 1) $result .= ',';
+					else $result .= "\n";
 				}
 			}
 
@@ -131,14 +155,11 @@
 
 		protected function toJson(): string {
 			$result = array(
-				'msg' => null,
-				'result' => array()
+				'msg' => null, 'result' => array()
 			);
 
-			$select = $this->db->query($where = "{$this->timeFormat()}");
-
 			$idx = 0;
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result['result'] += array($idx => $col);
 				$idx++;
 			}
@@ -150,10 +171,8 @@
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 
-			$select = $this->db->query($where = "{$this->timeFormat()}");
-
 			$msg = $root->addChild('msg');
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result = $root->addChild('result');
 				foreach($col as $key => $value) $result->addChild($key, $value);
 			}
@@ -162,25 +181,48 @@
 		}
 	}
 
+	abstract class NonDBParser
+		extends Parser {
+		protected $id;
+		protected $select;
+
+		function __construct(string $column) {
+			parent::__construct();
+			if(key_exists('id', $_GET)) try {
+				$where = "{$column} =";
+				$this->id = $where . str_replace(',', " OR {$where} ", $_GET['id']);
+				$this->select = $this->db->query($this->id . ' AND ' . $this->timeFormat());
+			} catch(Exception $e) {
+				http_response_code(400);
+				exit(400);
+			}
+			else {
+				http_response_code(400);
+				exit(400);
+			}
+		}
+	}
+
 	/**
 	 * ## アンケート結果解析クラス
 	 * アンケートごとのデータを解析する
 	 */
 	class QuestionnaireParser
-		extends Parser {
-		protected function toCSV(): string {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
+		extends NonDBParser {
+		public function __construct() {
+			parent::__construct('questionnaire_num');
+		}
 
+		protected function toCSV(): string {
 			$result = '';
 
-			$select = $this->db->query($where = "questionnaire_num = {$id} AND {$this->timeFormat()}");
+			$length = $this->select->columnCount();
 
-			$length = $select->columnCount();
-
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($value < $length - 1) $result .= ','; else $result .= "\n";
+					if($value < $length - 1) $result .= ',';
+					else $result .= "\n";
 				}
 			}
 
@@ -189,16 +231,11 @@
 
 		protected function toJson(): string {
 			$result = array(
-				'msg' => null,
-				'result' => array()
+				'msg' => null, 'result' => array()
 			);
 
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
-
-			$select = $this->db->query($where = "questionnaire_num = {$id} AND {$this->timeFormat()}");
-
 			$idx = 0;
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result['result'] += array($idx => $col);
 				$idx++;
 			}
@@ -207,15 +244,11 @@
 		}
 
 		protected function toXml(): String {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
-
-			$select = $this->db->query($where = "questionnaire_num = {$id} AND {$this->timeFormat()}");
-
 			$header = '<?xml version="1.0" encoding="UTF-8"?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 			$api = $root->addChild('msg');
 
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result = $api->addChild('result');
 				foreach($col as $key => $value) $result->addChild($key, $value);
 			}
@@ -229,20 +262,21 @@
 	 * 項目ごとのデータを解析する
 	 */
 	class ItemParser
-		extends Parser {
-		protected function toCSV(): string {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
+		extends NonDBParser {
+		public function __construct() {
+			parent::__construct('item_num');
+		}
 
+		protected function toCSV(): string {
 			$result = '';
 
-			$select = $this->db->query($where = "item_num = {$id} AND {$this->timeFormat()}");
+			$length = $this->select->columnCount();
 
-			$length = $select->columnCount();
-
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				foreach($col as $value) {
 					$result .= strval($value);
-					if($value < $length - 1) $result .= ','; else $result .= "\n";
+					if($value < $length - 1) $result .= ',';
+					else $result .= "\n";
 				}
 			}
 
@@ -251,16 +285,11 @@
 
 		protected function toJson(): string {
 			$result = array(
-				'msg' => null,
-				'result' => array()
+				'msg' => null, 'result' => array()
 			);
 
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
-
-			$select = $this->db->query($where = "item_num = {$id} AND {$this->timeFormat()}");
-
 			$idx = 0;
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result['result'] += array($idx => $col);
 				$idx++;
 			}
@@ -269,15 +298,11 @@
 		}
 
 		protected function toXml(): String {
-			if(array_key_exists('id', $this->query)) $id = $this->query['id']; else return 'ERROR';
-
-			$select = $this->db->query($where = "item_num = {$id} AND {$this->timeFormat()}");
-
 			$header = '<?xml version="1.0" encoding="UTF-8"?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 			$api = $root->addChild('msg');
 
-			while($col = $select->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $this->select->fetch(PDO::FETCH_ASSOC)) {
 				$result = $api->addChild('result');
 				foreach($col as $key => $value) $result->addChild($key, $value);
 			}

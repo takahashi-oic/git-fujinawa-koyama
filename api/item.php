@@ -4,5 +4,5 @@
 	require_once "src/query.php";
 	require_once "src/Parser.php";
 	require_once "src/setter.php";
-	$parser = new ItemParser($_GET);
+	$parser = new ItemParser;
 ?><?= $parser->result; ?>
