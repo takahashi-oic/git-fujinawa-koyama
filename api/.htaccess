@@ -1,1 +1,5 @@
 Allow from all
+
+<Limit GET>
+	Allow from all
+</Limit>
