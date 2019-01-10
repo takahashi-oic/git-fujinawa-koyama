@@ -6,4 +6,5 @@
 	$query = new src\api\Question();
 	$result = $query->query(1);
 
-	while($column = $result->fetch()) echo $column;
+	$fmt = new src\api\formatter\JsonFormat();
+	echo $fmt->convert($result);
