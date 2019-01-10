@@ -7,7 +7,7 @@
 	$database = $query->query(1);
 
 	$result = function() {
-		http_err(401);
+		http_response_code(401);
 		exit(401);
 	};
 
