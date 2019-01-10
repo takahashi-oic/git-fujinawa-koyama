@@ -11,7 +11,8 @@ try {
                         $sql = "SELECT questionnaire_url,create_date FROM questionnaire_info ";
                         $stmt = $pdo->query($sql);
                        foreach ($stmt as $row) {
-                            echo $row['create_date'].$row['questionnaire_url'];
+                            $enurl = base64_decode($row['questionnaire_url']);
+                            echo $row['create_date'].$enurl;
                             echo '<br>';
                         }
 ?>
