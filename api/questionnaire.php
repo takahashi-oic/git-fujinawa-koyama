@@ -1,27 +1,27 @@
 <?php
 	declare(strict_types = 1);
 
-	ini_set('display_errors', 1);
-
 	include_once('AutoLoader.php');
 
 	$query = new src\api\Question();
-	$result = $query->query(1);
+	$database = $query->query(1);
+
+	$result = function() {
+		http_err(403);
+		exit(403);
+	};
 
 	if(key_exists('format', $_GET)) {
+		$fmt = new src\api\Format();
+
 		switch(strtolower($_GET['format'])) {
 			case 'json':
-				$fmt = new src\api\formatter\JsonFormat();
-				echo $fmt->convert($result);
+				$result = $fmt->toJson($database);
 				break;
 
 			case 'xml':
-				$fmt = new src\api\formatter\XmlFormat();
-				echo $fmt->convert($result);
+				$result = $fmt->toXml($database);
 				break;
-
-			default:
-				http_err(403);
-				return;
 		}
 	}
+?><?= $result ?>
