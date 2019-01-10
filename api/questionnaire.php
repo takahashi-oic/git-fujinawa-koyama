@@ -1,6 +1,8 @@
 <?php
 	declare(strict_types = 1);
 
+	echo "test"
+
 	/*
 	include_once('AutoLoader.php');
 
