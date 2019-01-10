@@ -2,6 +2,8 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
+		use PDO;
+
 		/**
 		 * ## Class Question
 		 * @package database
