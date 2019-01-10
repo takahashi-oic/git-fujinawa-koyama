@@ -15,6 +15,23 @@
 			/** @var array データベース内容 */
 			protected $data = array('msg' => null, 'result' => array());
 
+			protected function toCsv(PDOStatement $database): string {
+				$result = '';
+				$length = $database->columnCount();
+
+				while($col = $database->fetch(PDO::FETCH_ASSOC)) {
+					$cnt = 0;
+					foreach($col as $value) {
+						$result .= strval($value);
+						if($cnt++ < $length - 1) $result .= ',';
+						else $result .= "\n";
+					}
+				}
+
+				return $result;
+			}
+
+
 			function toJson(PDOStatement $database): string {
 				$idx = 0;
 				while($col = $database->fetch()) {

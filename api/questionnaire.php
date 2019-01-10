@@ -7,8 +7,8 @@
 	$database = $query->query(1);
 
 	$result = function() {
-		http_err(403);
-		exit(403);
+		http_err(401);
+		exit(401);
 	};
 
 	if(key_exists('format', $_GET)) {
