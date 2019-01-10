@@ -11,11 +11,7 @@
 		class Problem
 			extends Select {
 			/** ## SQLQuery */
-			private static $sql = "
-				SELECT *
-				FROM item
-				WHERE problem_num = :num
-			";
+			private static $sql = "SELECT * FROM item WHERE problem_num = :num";
 
 			/**
 			 * ## SQL実行関数
