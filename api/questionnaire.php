@@ -1,6 +1,8 @@
 <?php
 	declare(strict_types = 1);
 
+	ini_set('ErrorDisplay', 1);
+
 	include_once('AutoLoader.php');
 
 	$query = new src\api\Question();
