@@ -69,6 +69,7 @@
                   <li class="tab col s3" id="adminLogin"><a href="adminLogin.php"><span class="orange-text text-darken-3">管理者用ログイン</span></a></li>
                   <li class="tab col s3" id="create"><a href="accountCreate.php"><span class="orange-text text-darken-3">管理者用アカウント作成</span></a></li>
                   <li class="tab col s3" id="index"><a href="chartCreate.php"><span class="orange-text text-darken-3">グラフ作成</span></a></li>
+                  <li class="tab col s3" id="index"><a href="questionnaire_list.php"><span class="orange-text text-darken-3">アンケート一覧</span></a></li>
             </ul>
         </div>
     </header>
