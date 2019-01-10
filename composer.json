@@ -1,8 +1,9 @@
 {
-    "require": {
-	    "php": "7.2.4",
-	    "ext-dom": "*",
-	    "ext-pdo": "*",
-	    "ext-simplexml": "*"
-    }
+	"require": {
+		"php": "7.2.4",
+		"ext-dom": "*",
+		"ext-json": "*",
+		"ext-pdo": "*",
+		"ext-simplexml": "*"
+	}
 }

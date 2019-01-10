@@ -3,6 +3,7 @@
 
 	namespace src\api {
 		use DOMDocument;
+		use PDO;
 		use PDOStatement;
 		use SimpleXMLElement;
 
