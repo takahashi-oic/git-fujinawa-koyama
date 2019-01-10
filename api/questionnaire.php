@@ -1,6 +1,7 @@
 <?php
 	declare(strict_types = 1);
 
+	/*
 	include_once('AutoLoader.php');
 
 	$query = new src\api\Question();
@@ -28,4 +29,4 @@
 				break;
 		}
 	}
-?><?= $result ?>
+?><?= $result */ ?>
