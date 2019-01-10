@@ -1,7 +1,7 @@
 <?php
 	declare(strict_types = 1);
 
-	ini_set('ErrorDisplay', 1);
+	ini_set('display_errors', 1);
 
 	include_once('AutoLoader.php');
 
