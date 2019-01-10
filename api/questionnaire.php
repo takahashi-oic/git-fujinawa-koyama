@@ -15,6 +15,10 @@
 		$fmt = new src\api\Format();
 
 		switch(strtolower($_GET['format'])) {
+			case 'csv':
+				$result = $fmt->toCsv($database);
+				break;
+
 			case 'json':
 				$result = $fmt->toJson($database);
 				break;

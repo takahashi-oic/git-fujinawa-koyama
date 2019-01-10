@@ -15,7 +15,7 @@
 			/** @var array データベース内容 */
 			protected $data = array('msg' => null, 'result' => array());
 
-			protected function toCsv(PDOStatement $database): string {
+			public function toCsv(PDOStatement $database): string {
 				$result = '';
 				$length = $database->columnCount();
 
@@ -31,8 +31,7 @@
 				return $result;
 			}
 
-
-			function toJson(PDOStatement $database): string {
+			public function toJson(PDOStatement $database): string {
 				$idx = 0;
 				while($col = $database->fetch()) {
 					$this->data['result'] += array($idx => $col);
@@ -46,7 +45,7 @@
 				return json_encode($this->data, $opt);
 			}
 
-			function toXml(PDOStatement $database): string {
+			public function toXml(PDOStatement $database): string {
 				$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 				$root = new SimpleXMLElement($header . '<api></api>');
 
