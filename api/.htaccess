@@ -1,3 +1,0 @@
-<LimitExcept GET>
-	Deny from all
-</LimitExcept>
