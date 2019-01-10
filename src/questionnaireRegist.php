@@ -9,8 +9,9 @@
             }
             $date = new DateTime();
             $ques = $_POST['ques'];
-            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_url,conversion_data,create_date)"."VALUES (1,'$ques','$ques','$date')");
+            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_num,questionnaire_url,conversion_data,create_date)"."VALUES (nextval('questionnaire_info_questionnaire_num_seq'),'$ques','$ques','$date')"."RETURNING questionnaire_num;");
             $stmt->execute();
+            
             
              ?>
 <input type="button" value="終了" onClick="location.href='admin.php'">
