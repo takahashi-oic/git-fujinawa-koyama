@@ -2,7 +2,7 @@
 	declare(strict_types = 1);
 
 	/** ## Rootドキュメント */
-	$root = __DIR__ . '\\';
+	$root = '/src/';
 
 	/** ## APIリスト管理クラス */
 	class APIDispatcher {
