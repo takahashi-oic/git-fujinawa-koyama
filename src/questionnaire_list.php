@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 try {
                             $url = parse_url(getenv('DATABASE_URL'));
@@ -8,7 +9,7 @@ try {
                             exit($e->getMessage());
                         }
                         $sql = "SELECT questionnaire_url,create_date FROM questionnaire_info ";
-                        $stmt = $dbh->query($sql);
+                        $stmt = $pdo->query($sql);
                        foreach ($stmt as $row) {
                             echo $row['create_date'].$row['questionnaire_url'];
                             echo '<br>';
