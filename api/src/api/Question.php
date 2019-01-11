@@ -8,10 +8,15 @@
 		 * ## Class Question
 		 * @package database
 		 */
-		class Question
-			extends Select {
+		class Question {
 			/** ## SQLQuery */
 			private static $sql = "SELECT * FROM item WHERE question_num = :num";
+			private $db;
+
+			public function __construct() {
+				$url = parse_url(getenv('DATABASE_URL'));
+				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+			}
 
 			/**
 			 * ## SQL実行関数
