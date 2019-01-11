@@ -13,7 +13,7 @@
 			 * 初期化関数
 			 */
 			public function __construct() {
-				$this->db = Database::getInstance()->use();
+				$this->db = Database::getInstance()->connect();
 			}
 		}
 	}

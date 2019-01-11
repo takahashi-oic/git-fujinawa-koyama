@@ -10,6 +10,7 @@
 			private static $instance;
 			/** ## データベース */
 			private $db;
+
 			/**
 			 * ## DBAccess constructor.
 			 * @see \PDO
@@ -41,6 +42,6 @@
 			 * ## {@link db データベース}取得関数
 			 * @return PDO DB接続状態
 			 */
-			public function use(): PDO { return $this->db; }
+			public function connect(): PDO { return $this->db; }
 		}
 	}
