@@ -29,14 +29,6 @@
 		}
 	}
 
-	$query = new Question();
-	$data = $query->query(1);
-
-	$result = function() {
-		http_response_code(401);
-		exit(401);
-	};
-
 	/**
 	 * ## Trait Format
 	 * データベースの表示形式を変更する
@@ -45,6 +37,11 @@
 		/** @var array データベース内容 */
 		protected $data = array('msg' => null, 'result' => array());
 
+		/**
+		 * ## データ形成変更関数
+		 * @param \PDOStatement $database 表示データベース
+		 * @return string データベース内容(CSV)
+		 */
 		public function toCsv(PDOStatement $database): string {
 			$result = '';
 			$length = $database->columnCount();
@@ -61,6 +58,11 @@
 			return $result;
 		}
 
+		/**
+		 * ## データ形成変更関数
+		 * @param \PDOStatement $database 表示データベース
+		 * @return string データベース内容(CSV)
+		 */
 		public function toJson(PDOStatement $database): string {
 			$idx = 0;
 			while($col = $database->fetch()) {
@@ -75,6 +77,11 @@
 			return json_encode($this->data, $opt);
 		}
 
+		/**
+		 * ## データ形成変更関数
+		 * @param \PDOStatement $database 表示データベース
+		 * @return string データベース内容(CSV)
+		 */
 		public function toXml(PDOStatement $database): string {
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
@@ -91,6 +98,16 @@
 			return $dom->saveXML();
 		}
 	}
+
+
+	/*
+	$query = new Question();
+	$data = $query->query(1);
+
+	$result = function() {
+		http_response_code(401);
+		exit(401);
+	};
 
 	if(key_exists('format', $_GET)) {
 		$fmt = new Format();
@@ -109,4 +126,6 @@
 				break;
 		}
 	}
-?><?= $result ?>
+	*/
+?><?= // $result
+	"test" ?>
