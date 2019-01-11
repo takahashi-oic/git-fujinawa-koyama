@@ -100,7 +100,6 @@
 	}
 
 
-	/*
 	$query = new Question();
 	$data = $query->query(1);
 
@@ -126,6 +125,4 @@
 				break;
 		}
 	}
-	*/
-?><?= // $result
-	"test" ?>
+?><?= $result ?>
