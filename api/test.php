@@ -3,9 +3,7 @@
 
 	$url = parse_url(getenv('DATABASE_URL'));
 	$db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
-
-	$query = $db->prepare("INSERT INTO test(date) VALUES :num");
 	for($idx = 0; $idx < 100; $idx++) {
-		$query->bindParam(":num", rand(0, 100));
-		$query->execute();
+		$rand = rand(1, 100);
+		$db->query("INSERT INTO test(date) VALUES (${rand})");
 	}
