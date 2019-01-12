@@ -2,8 +2,8 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
+		use PDO;
 		use PDOStatement;
-		use src\database\DBAccess as Database;
 
 		class Select {
 			private static $sql = "SELECT * FROM :tbl WHERE TRUE";
@@ -16,7 +16,10 @@
 			 * 初期化関数
 			 */
 			public function __construct() {
-				$this->db = Database::getInstance()->connect();
+				// $this->db = Database::getInstance()->connect();
+				$url = parse_url(getenv('DATABASE_URL'));
+				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+
 			}
 
 			public function query(string $tbl): PDOStatement {
