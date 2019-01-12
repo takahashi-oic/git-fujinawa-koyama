@@ -3,7 +3,11 @@
 
 	include_once('AutoLoader.php');
 
-	$query = new src\api\Select();
+	try {
+		$query = new src\api\Select();
+	} catch(Exception $e) {
+		echo $e->getMessage();
+	}
 	/*
 	$data = $query->query('age');
 
