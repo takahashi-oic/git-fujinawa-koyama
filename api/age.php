@@ -1,10 +1,32 @@
 <?php
 	declare(strict_types = 1);
 
-	include_once('AutoLoader.php');
+	class Select {
+		private static $sql = "SELECT * FROM :tbl WHERE TRUE";
+
+		/** ## データベース */
+		protected $db;
+
+		/**
+		 * ## Select constructor.
+		 * 初期化関数
+		 * @throws \Exception
+		 */
+		public function __construct() {
+			// $this->db = Database::getInstance()->connect();
+			$url = parse_url(getenv('DATABASE_URL'));
+			if($url instanceof PDO) $this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+			else throw new Exception("env is false");
+		}
+
+		public function query(string $tbl): PDOStatement {
+			$query = $this->db->query(str_replace(':tbl', $tbl, self::$sql));
+			return $query;
+		}
+	}
 
 	try {
-		$query = new src\api\Select();
+		$query = new Select();
 	} catch(Exception $e) {
 		echo $e->getMessage();
 	}
