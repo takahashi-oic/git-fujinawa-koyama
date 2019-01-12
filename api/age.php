@@ -2,7 +2,7 @@
 	declare(strict_types = 1);
 
 	$query = new src\api\Select();
-	$data = $query->query('age');
+	// $data = $query->query('age');
 
 	/*
 	$result = function() {
