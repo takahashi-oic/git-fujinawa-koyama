@@ -14,11 +14,13 @@
 			/**
 			 * ## Select constructor.
 			 * 初期化関数
+			 * @throws \Exception
 			 */
 			public function __construct() {
 				// $this->db = Database::getInstance()->connect();
 				$url = parse_url(getenv('DATABASE_URL'));
-				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+				if($url instanceof PDO) $this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+				else throw new \Exception("env is false");
 			}
 
 			public function query(string $tbl): PDOStatement {
