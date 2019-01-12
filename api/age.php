@@ -1,10 +1,11 @@
 <?php
 	declare(strict_types = 1);
 
-	$query = new src\api\Select();
-	// $data = $query->query('age');
+	require_once('AutoLoader.php');
 
-	/*
+	$query = new src\api\Select();
+	$data = $query->query('age');
+
 	$result = function() {
 		http_response_code(401);
 		exit(401);
