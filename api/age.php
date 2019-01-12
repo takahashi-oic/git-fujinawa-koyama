@@ -4,6 +4,7 @@
 	include_once('AutoLoader.php');
 
 	$query = new src\api\Select();
+	/*
 	$data = $query->query('age');
 
 	$result = function() {

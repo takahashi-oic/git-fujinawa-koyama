@@ -1,8 +1,3 @@
-Allow from all
-
-<Limit GET>
-	Allow from all
-</Limit>
-
-Options +Indexes
-
+<LimitExcept GET>
+	Deny from all
+</LimitExcept>
