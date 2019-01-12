@@ -1,12 +1,10 @@
 <?php
 	declare(strict_types = 1);
 
-	echo "age";
-
-	/*
 	$query = new src\api\Select();
 	$data = $query->query('age');
 
+	/*
 	$result = function() {
 		http_response_code(401);
 		exit(401);
