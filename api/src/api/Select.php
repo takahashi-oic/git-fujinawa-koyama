@@ -2,6 +2,7 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
+		use Exception;
 		use PDO;
 		use PDOStatement;
 
@@ -20,12 +21,11 @@
 				// $this->db = Database::getInstance()->connect();
 				$url = parse_url(getenv('DATABASE_URL'));
 				if($url instanceof PDO) $this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
-				else throw new \Exception("env is false");
+				else throw new Exception("env is false");
 			}
 
 			public function query(string $tbl): PDOStatement {
-				$query = $this->db->prepare(self::$sql);
-				$query->bindValue(':tbl', $tbl);
+				$query = $this->db->query(str_replace(':tbl', $tbl, self::$sql));
 				return $query;
 			}
 		}
