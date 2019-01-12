@@ -1,10 +1,9 @@
 <?php
 	declare(strict_types = 1);
 
-	include_once('src/api/Select.php');
-	use src\api\Select;
+	include_once('AutoLoader.php');
 
-	$query = new Select();
+	$query = new src\api\Select();
 	$data = $query->query('age');
 
 	$result = function() {
