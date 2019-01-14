@@ -268,7 +268,7 @@ try {
                 }
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-                myChart = new Chart(ctx, barConfig);
+                myChart = new Chart(ctx, sexConfig);
             };
         </script>
     </body>
