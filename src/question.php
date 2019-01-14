@@ -56,9 +56,9 @@
             <p class="black-text">1.出身国</p>
             <select class="browser-default" name="country">
                 <option value="" disabled selected>出身国を選択してください</option>
-                <option value="アメリカ">Option 1</option>
-                <option value="日本">Option 2</option>
-                <option value="韓国">Option 3</option>
+                <option value="アメリカ">アメリカ</option>
+                <option value="日本">日本</option>
+                <option value="韓国">韓国</option>
             </select>
             <p>
                 <p>2.年齢</p><br>
@@ -109,47 +109,47 @@
             <p class="black-text">4.どこの空港から出入国しましたか</p>
             <select class="browser-default" name="inairport">
                 <option value="" disabled selected>入国空港を選択してください</option>
-                <option value="1空港">Option 1</option>
-                <option value="2空港">Option 2</option>
-                <option value="3空港">Option 3</option>
+                <option value="岡山空港">岡山空港</option>
+                <option value="広島空港">広島空港</option>
+                <option value="高松空港">高松空港</option>
             </select>
             <br>
             <select class="browser-default" name="outairport">
                 <option value="" disabled selected>出国空港を選択してください</option>
-                <option value="1空港">Option 1</option>
-                <option value="2空港">Option 2</option>
-                <option value="3空港">Option 3</option>
+                <option value="岡山空港">岡山空港</option>
+                <option value="広島空港">広島空港</option>
+                <option value="高松空港">高松空港</option>
             </select>
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
-            <select class="browser-default">
+            <select class="browser-default" name="Tourism1">
                 <option value="" disabled selected>一番目の観光地を選択してください</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism2">
                 <option value="" disabled selected>二番目の観光地を選択してください</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism3">
                 <option value="" disabled selected>三番目の観光地を選択してください</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism4">
                 <option value="" disabled selected>四番目の観光地を選択してください</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism5">
                 <option value="" disabled selected>五番目の観光地を選択してください</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
@@ -158,17 +158,17 @@
             <p>6.岡山県で何を購入しましたか（印象に残ったものを3つ）</p>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases1">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases2">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases3">
                 </div>
             </div>
             <div>
