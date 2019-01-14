@@ -49,23 +49,16 @@
     </head>
     <header>
         <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート作成</span></div>
-        <div class="col s12">
-          <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-            <li class="tab col s3" id="chart"><a class="active" href="chartCreate.php"><span class="light-green-text text-lighten-1">グラフ作成</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
-          </ul>
-        </div>
     </header>
     <body>
         <form action="questionnaireRegist.php" method="post">
         <div class="container s8">
             <p class="black-text">1.出身国</p>
-            <select class="browser-default">
+            <select class="browser-default" name="country">
                 <option value="" disabled selected>出身国を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="アメリカ">Option 1</option>
+                <option value="日本">Option 2</option>
+                <option value="韓国">Option 3</option>
             </select>
             <p>
                 <p>2.年齢</p><br>
@@ -114,18 +107,18 @@
                 </label>
             </p>
             <p class="black-text">4.どこの空港から出入国しましたか</p>
-            <select class="browser-default">
+            <select class="browser-default" name="inairport">
                 <option value="" disabled selected>入国空港を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="1空港">Option 1</option>
+                <option value="2空港">Option 2</option>
+                <option value="3空港">Option 3</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default" name="outairport">
                 <option value="" disabled selected>出国空港を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="1空港">Option 1</option>
+                <option value="2空港">Option 2</option>
+                <option value="3空港">Option 3</option>
             </select>
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
             <select class="browser-default">
@@ -179,31 +172,31 @@
                 </div>
             </div>
             <div>
-                <p>4.岡山県を訪れた目的はなんですか</p><br>
+                <p>7.岡山県を訪れた目的はなんですか</p><br>
                 <label>
-                    <input name="purpose" type="radio" />
+                    <input name="purpose" type="radio" value="ビジネス"/>
                     <span>ビジネス</span>
                 </label>
                 <label>
-                    <input name="purpose" type="radio" checked/>
+                    <input name="purpose" type="radio" value="観光"/>
                     <span>観光</span>
                 </label>
                 <label>
-                    <input name="purpose" type="radio" checked/>
+                    <input name="purpose" type="radio" value="家族・友人に会いに"/>
                     <span>家族・友人に会いに</span>
                 </label>
                 <br>
                 <label>
                     <input name="purpose" type="radio" checked/>
                     <span>
-                        その他<input id="text" type="text" class="validate">
+                        その他<input name="other" id="text" type="text" class="validate">
                     </span>
                 </label>
             </div>
             <p>8.もっとも使用してるSNSはなんですか（1つ）</p>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" name="sns" class="validate">
                 </div>
             </div>
         </div>
