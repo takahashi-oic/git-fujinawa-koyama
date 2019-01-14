@@ -58,7 +58,7 @@ try {
     </head>
 
     <body>
-        23
+        234
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -104,14 +104,14 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            var json = <?php echo json_encode($resultArray); ?>
+            //var json = <?php //echo json_encode($resultArray); ?>
 
             //配列に変換
-            var data = new Array(json.length);
-            var labels = new Array(json.length);
+            //var data = new Array(json.length);
+            //var labels = new Array(json.length);
 
-            data = Object.values(json);
-            labels = Object.keys(json);
+            //data = Object.values(json);
+            //labels = Object.keys(json);
 
             //--- ラベル
             /*var dataLabelPlugin = {
