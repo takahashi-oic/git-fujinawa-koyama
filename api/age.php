@@ -7,8 +7,6 @@
 	$data = $query->query();
 
 	if($data == null) echo "null";
-	/*
-	$result = null;
 
 	if(key_exists('format', $_GET)) {
 		$fmt = new Format();
@@ -27,3 +25,5 @@
 				break;
 		}
 	}
+
+	echo $result;
