@@ -38,7 +38,7 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toJson(PDOStatement $database): string {
-			header('application/json');
+			// header('application/json');
 
 			$idx = 0;
 			while($col = $database->fetch()) {
