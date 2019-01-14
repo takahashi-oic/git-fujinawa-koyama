@@ -62,7 +62,7 @@
 
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
-			$root->addChild('msg', http_response_code());
+			$msg = $root->addChild('msg', null);
 
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
 				$result = $root->addChild('result');
