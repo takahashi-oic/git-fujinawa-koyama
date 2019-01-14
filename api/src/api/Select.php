@@ -2,30 +2,29 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
-		use Exception;
-		use PDO;
 		use PDOStatement;
+		use src\database\DBAccess as Database;
 
 		class Select {
-			private static $sql = "SELECT * FROM :tbl WHERE TRUE";
-
 			/** ## データベース */
 			protected $db;
+
+			/** ## SQL発行文 */
+			private $sql;
 
 			/**
 			 * ## Select constructor.
 			 * 初期化関数
-			 * @throws \Exception
+			 * @param string $tbl テーブル
+			 * @param string $column 行
 			 */
-			public function __construct() {
-				// $this->db = Database::getInstance()->connect();
-				$url = parse_url(getenv('DATABASE_URL'));
-				if($url instanceof PDO) $this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
-				else throw new Exception("env is false");
+			public function __construct(string $tbl, string $column = '*') {
+				$this->db = Database::getInstance()->connect();
+				$this->sql = "SELECT ${column} FROM ${tbl} WHERE ";
 			}
 
-			public function query(string $tbl): PDOStatement {
-				$query = $this->db->query(str_replace(':tbl', $tbl, self::$sql));
+			public function query(string $where = 'TRUE'): PDOStatement {
+				$query = $this->db->query($this->sql . $where);
 				return $query;
 			}
 		}
