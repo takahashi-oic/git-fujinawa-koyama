@@ -5,7 +5,7 @@
 
 	try {
 		$query = new src\api\Select('age');
-		$data = $query->query();
+		//$data = $query->query();
 	} catch(Exception $e) {
 		echo $e->getMessage();
 	}
