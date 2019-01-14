@@ -1,7 +1,7 @@
 <?php
 	declare(strict_types = 1);
 
-	$query = new Select('age');
+	$query = new Select('airport');
 	$data = $query->query();
 
 	$fmt = new Format();
