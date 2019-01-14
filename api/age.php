@@ -1,6 +1,8 @@
 <?php
 	declare(strict_types = 1);
 
+	require_once('Select.php');
+
 	$query = new Select('age');
 	$data = $query->query();
 
