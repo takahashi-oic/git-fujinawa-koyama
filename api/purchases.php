@@ -4,7 +4,7 @@
 	require_once('Select.php');
 	require_once('Format.php');
 
-	$query = new Select('inandout_airport');
+	$query = new Select('purchases1 p1 LEFT JOIN purchases2 p2 ON p1.answer_num = p2.answer_num LEFT JOIN purchases3 p3 ON p1.answer_num = p3.answer_num');
 	$data = $query->query();
 
 	$fmt = new Format();

@@ -56,7 +56,7 @@
                                     <tbody>
                                         <tr>
                                           <td>API Endpoint</td>
-                                          <td>https://kaito.ju-ri.go.jp</td>
+	                                        <td>http://sotuken2018q.herokuapp.com/api/age.php</td>
                                         </tr>
                                         <tr>
                                           <td>利用可能なHTTPメソッド</td>

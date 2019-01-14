@@ -21,6 +21,10 @@
 			case 'xml':
 				$result = $fmt->toXml($data);
 				break;
+
+			default:
+				http_response_code(400);
+				exit(400);
 		}
 		echo $result;
 	} else {

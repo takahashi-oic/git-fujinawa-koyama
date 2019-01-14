@@ -4,7 +4,7 @@
 	require_once('Select.php');
 	require_once('Format.php');
 
-	$query = new Select('inandout_airport');
+	$query = new Select('purpose');
 	$data = $query->query();
 
 	$fmt = new Format();
