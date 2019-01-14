@@ -14,8 +14,8 @@
 		 */
 		public function __construct() {
 			// $this->db = Database::getInstance()->connect();
-				$url = parse_url(getenv('DATABASE_URL'));
-				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+			$url = parse_url(getenv('DATABASE_URL'));
+			$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
 		}
 
 		public function query(string $tbl): PDOStatement {
@@ -26,31 +26,30 @@
 
 	try {
 		$query = new Select();
-	$data = $query->query('age');
+		$data = $query->query('age');
 
-	$result = function() {
-		http_response_code(401);
-		exit(401);
-	};
+		$result = function() {
+			http_response_code(401);
+			exit(401);
+		};
 
-	if(key_exists('format', $_GET)) {
-		$fmt = new src\api\Format();
+		if(key_exists('format', $_GET)) {
+			$fmt = new src\api\Format();
 
-		switch(strtolower($_GET['format'])) {
-			case 'csv':
-				$result = $fmt->toCsv($data);
-				break;
+			switch(strtolower($_GET['format'])) {
+				case 'csv':
+					$result = $fmt->toCsv($data);
+					break;
 
-			case 'json':
-				$result = $fmt->toJson($data);
-				break;
+				case 'json':
+					$result = $fmt->toJson($data);
+					break;
 
-			case 'xml':
-				$result = $fmt->toXml($data);
-				break;
+				case 'xml':
+					$result = $fmt->toXml($data);
+					break;
+			}
 		}
-	}
-
 	} catch(Exception $e) {
 		echo $e->getTrace();
 	}
