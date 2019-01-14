@@ -58,7 +58,6 @@ try {
     </head>
 
     <body>
-        23456
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -228,9 +227,8 @@ try {
                 data: {
                     labels: ['男性', '女性'],
                     datasets: [{
-                            label: ['男性'],
                             data: [129, 123],
-                            backgroundColor: ['blue', 'red']
+                            backgroundColor: ['#2196f3', '#f44336']
                         }]
                 },
                 options: {
