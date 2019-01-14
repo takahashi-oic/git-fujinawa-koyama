@@ -104,7 +104,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);  ?>
+            //var json = <?php //echo json_encode($resultArray);      ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -224,29 +224,27 @@ try {
             // ---ここまで棒グラフ---
             // ---ここから性別---
             var sexConfig = {
-                /*type: 'bar',
-                 data: {
-                 //labels: ["男性", "女性"],
-                 datasets: [{
-                 label: '男',
-                 data: [128]
-                 }, {
-                 label: '女',
-                 data: [114]
-                 }]
-                 }*/
                 type: 'bar',
-                data: {
-                    labels: ["M", "T", "W", "R", "F", "S", "S"],
-                    datasets: [{
-                            label: 'apples',
-                            data: [12, 19, 3, 17, 28, 24, 7]
-                        }, {
-                            label: 'oranges',
-                            data: [30, 29, 5, 5, 20, 3, 10]
-                        }]
+                data:{
+                    labels['男性','女性'],
+                    datasets:[{
+                            data:[129,118],
+                            backgroundColor:['blue'.'red']
+                    }]
                 }
-            }
+            };
+            /*type: 'bar',
+             data: {
+             labels: ["M", "T", "W", "R", "F", "S", "S"],
+             datasets: [{
+             label: 'apples',
+             data: [12, 19, 3, 17, 28, 24, 7]
+             }, {
+             label: 'oranges',
+             data: [30, 29, 5, 5, 20, 3, 10]
+             }]
+             }
+             }*/
             // ---ここまで性別---
             //グローバル
             var myChart;
