@@ -58,7 +58,7 @@ try {
     </head>
 
     <body>
-        1
+        2
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -224,7 +224,7 @@ try {
             // ---ここまで棒グラフ---
             // ---ここから性別---
             var sexConfig = {
-                type: 'bar',
+                /*type: 'bar',
                 data: {
                     //labels: ["男性", "女性"],
                     datasets: [{
@@ -234,7 +234,18 @@ try {
                             label: '女',
                             data: [114]
                         }]
-                }
+                }*/
+                   type: 'bar',
+  data: {
+    labels: ["M", "T", "W", "R", "F", "S", "S"],
+    datasets: [{
+      label: 'apples',
+      data: [12, 19, 3, 17, 28, 24, 7]
+    }, {
+      label: 'oranges',
+      data: [30, 29, 5, 5, 20, 3, 10]
+    }]
+  }
             });
             // ---ここまで性別---
             //グローバル
