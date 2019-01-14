@@ -69,50 +69,46 @@
             <p>
                 <p>2.年齢</p><br>
                 <label>
-                    <input name="age" type="radio" />
-                    <span>0～9</span>
-                </label>
-                <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="10" />
                     <span>10～19</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" checked/>
+                    <input name="age" type="radio" value="20"/>
                     <span>20～29</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="30"/>
                     <span>30～39</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="40"/>
                     <span>40～49</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="50"/>
                     <span>50～59</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="60"/>
                     <span>60～69</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="70"/>
                     <span>70～79</span>
                 </label>
                 <label>
-                    <input name="age" type="radio" />
+                    <input name="age" type="radio" value="80"/>
                     <span>80+</span>
                 </label>
             </p>
             <p>
                 <p>3.性別</p><br>
                 <label>
-                    <input name="group1" type="radio" checked/>
+                    <input name="group1" type="radio" value="男"/>
                     <span>男性</span>
                 </label>
                 <label>
-                    <input name="group1" type="radio" />
+                    <input name="group1" type="radio" value="女"/>
                     <span>女性</span>
                 </label>
             </p>

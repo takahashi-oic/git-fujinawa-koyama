@@ -58,7 +58,7 @@ try {
     </head>
 
     <body>
-        234
+        23456
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -104,7 +104,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray); ?>
+            //var json = <?php //echo json_encode($resultArray);  ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -180,47 +180,47 @@ try {
                 "#ab47bc"
             ];
 
-            var pieConfig = {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                            data: data,
-                            backgroundColor: colorSet
-                        }],
-                    labels: labels
-                },
-                options: {
-                    responsive: false, //グラフの横幅自動調整
-                    maintainAspectRatio: false
-                }
-                //plugins: [dataLabelPlugin]
-            };
+            /*var pieConfig = {
+             type: 'pie',
+             data: {
+             datasets: [{
+             data: data,
+             backgroundColor: colorSet
+             }],
+             labels: labels
+             },
+             options: {
+             responsive: false, //グラフの横幅自動調整
+             maintainAspectRatio: false
+             }
+             //plugins: [dataLabelPlugin]
+             };*/
             // ---ここまで円グラフ---
             // ---ここから棒グラフ---
-            var barConfig = {
-                type: 'bar',
-                data: {
-                    datasets: [{
-                            data: data,
-                            backgroundColor: colorSet
-                        }],
-                    labels: labels
-                },
-                options: {
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true,
-                                    min: 0
-                                }
-                            }
-                        ]
-                    },
-                    responsive: false, //グラフの横幅自動調整
-                    maintainAspectRatio: false
-                }
-            };
+            /*var barConfig = {
+             type: 'bar',
+             data: {
+             datasets: [{
+             data: data,
+             backgroundColor: colorSet
+             }],
+             labels: labels
+             },
+             options: {
+             scales: {
+             yAxes: [
+             {
+             ticks: {
+             beginAtZero: true,
+             min: 0
+             }
+             }
+             ]
+             },
+             responsive: false, //グラフの横幅自動調整
+             maintainAspectRatio: false
+             }
+             };*/
             // ---ここまで棒グラフ---
             // ---ここから性別---
             var sexConfig = {
@@ -247,31 +247,31 @@ try {
                         }]
                 }
             }
-                    // ---ここまで性別---
-                    //グローバル
-                    var myChart;
+            // ---ここまで性別---
+            //グローバル
+            var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
 
             /*円グラフ*/
-            document.getElementById("piechart").onclick = function () {
-                //myChartの中身があれば空に
-                if (myChart) {
-                    myChart.destroy();
-                }
-                ctx.canvas.height = 500;//グラフの高さ
-                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-                myChart = new Chart(ctx, pieConfig);
-            };
+            /*document.getElementById("piechart").onclick = function () {
+             //myChartの中身があれば空に
+             if (myChart) {
+             myChart.destroy();
+             }
+             ctx.canvas.height = 500;//グラフの高さ
+             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+             myChart = new Chart(ctx, pieConfig);
+             };*/
             /*棒グラフ*/
-            document.getElementById("barchart").onclick = function () {
-                //myChartの中身があれば空に
-                if (myChart) {
-                    myChart.destroy();
-                }
-                ctx.canvas.height = 300;//グラフの高さ
-                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-                myChart = new Chart(ctx, barConfig);
-            };
+            /*document.getElementById("barchart").onclick = function () {
+             //myChartの中身があれば空に
+             if (myChart) {
+             myChart.destroy();
+             }
+             ctx.canvas.height = 300;//グラフの高さ
+             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+             myChart = new Chart(ctx, barConfig);
+             };*/
             /*性別*/
             document.getElementById("sexchart").onclick = function () {
                 //myChartの中身があれば空に
