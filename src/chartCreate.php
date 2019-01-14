@@ -58,7 +58,7 @@ try {
     </head>
 
     <body>
-        234
+        2345
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -180,7 +180,7 @@ try {
                 "#ab47bc"
             ];
 
-            var pieConfig = {
+            /*var pieConfig = {
                 type: 'pie',
                 data: {
                     datasets: [{
@@ -194,10 +194,10 @@ try {
                     maintainAspectRatio: false
                 }
                 //plugins: [dataLabelPlugin]
-            };
+            };*/
             // ---ここまで円グラフ---
             // ---ここから棒グラフ---
-            var barConfig = {
+            /*var barConfig = {
                 type: 'bar',
                 data: {
                     datasets: [{
@@ -220,7 +220,7 @@ try {
                     responsive: false, //グラフの横幅自動調整
                     maintainAspectRatio: false
                 }
-            };
+            };*/
             // ---ここまで棒グラフ---
             // ---ここから性別---
             var sexConfig = {
