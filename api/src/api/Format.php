@@ -6,6 +6,7 @@
 		use PDO;
 		use PDOStatement;
 		use SimpleXMLElement;
+
 		/**
 		 * ## Class Format
 		 * データベースの表示形式を変更する
