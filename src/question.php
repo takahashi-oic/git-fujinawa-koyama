@@ -207,6 +207,10 @@
                 </div>
             </div>
         </div>
+            <div class="row">
+                        <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
+                        <button type="submit" name="action" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >送信</button>
+                    </div>
         </form>
     </body>
 </html>
