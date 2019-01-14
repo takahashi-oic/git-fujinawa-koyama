@@ -7,7 +7,7 @@
                 header('Content-Type: text/plain; charset=UTF-8', true, 500);
                 exit($e->getMessage());
             }
-            $date = new DateTime();
+            $now = date('Y/m/d');
             $country = $_POST['country'];
             $age = $_POST['age'];
             $sex = $_POST['sex'];
@@ -23,8 +23,7 @@
             $Purchases3 = $_POST['Purchases3'];
             $purpose = $_POST['purpose'];
             $sns = $_POST['sns'];
-            echo $date;
-            $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ($data)");
+            $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ($now)");
             $stmt->execute();
             
             
