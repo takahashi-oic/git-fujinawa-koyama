@@ -24,17 +24,10 @@
             $purpose = $_POST['purpose'];
             $sns = $_POST['sns'];
            
-           
-            
-            echo $country; 
-            echo $age; 
-            echo $sex; 
-            echo $inairport; 
-            echo $outairport;
-            echo $Purchases1; 
-            echo $Tourism1; 
-            echo $purpose;
-            echo $sns; 
+            $pdo->beginTransaction();
+            $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ('$data')");
+            $stmt->execute();
+            $pdo->commit();
             
                        
              ?>
