@@ -6,8 +6,7 @@
 	$query = new Select('age');
 	$data = $query->query();
 
-	/*
-	$result = null;
+	if($data == null) echo "null";
 
 	if(key_exists('format', $_GET)) {
 		$fmt = new Format();
@@ -26,3 +25,5 @@
 				break;
 		}
 	}
+
+	echo $result;
