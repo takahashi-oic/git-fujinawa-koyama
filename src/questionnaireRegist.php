@@ -21,7 +21,11 @@
             $Purchases1 = $_POST['Purchases1'];
             $Purchases2 = $_POST['Purchases2'];
             $Purchases3 = $_POST['Purchases3'];
-            $purpose = $_POST['purpose'];
+                   if(isset($_POST['purpose'])){
+                        $purpose = $_POST['purpose'];
+                    }else{
+                        $purpose = $_POST["other"];
+                    }
             $sns = $_POST['sns'];
                         
             $stmt1 = $pdo->prepare("INSERT INTO answer_info(ans_day) VALUES ('$now')");
@@ -111,11 +115,11 @@
         <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート</span></div>
     </header>
     <body>
-       
+       <div class="row">
         <div class="col s12 m10 offset-m1 l8 offset-l2">
             <div class="card">
               <div class="card-content">
-                 <h5>種類アンケートご協力ありがとうございました。</h5>
+                 <h5>アンケートご協力ありがとうございました。</h5>
               </div>
             </div>
         </div>

@@ -59,6 +59,8 @@
                 <option value="アメリカ">アメリカ</option>
                 <option value="日本">日本</option>
                 <option value="韓国">韓国</option>
+                <option value="中国">日本</option>
+                <option value="フランス">韓国</option>
             </select>
             <p>
                 <p>2.年齢</p><br>
@@ -112,6 +114,10 @@
                 <option value="岡山空港">岡山空港</option>
                 <option value="広島空港">広島空港</option>
                 <option value="高松空港">高松空港</option>
+                <option value="関西国際空港">関西国際空港</option>
+                <option value="中部国際空港">中部国際空港</option>
+                <option value="羽田空港">羽田空港</option>
+                  <option value="成田空港">成田空港</option>
             </select>
             <br>
             <select class="browser-default" name="outairport">
@@ -119,41 +125,80 @@
                 <option value="岡山空港">岡山空港</option>
                 <option value="広島空港">広島空港</option>
                 <option value="高松空港">高松空港</option>
+                <option value="関西国際空港">関西国際空港</option>
+                <option value="中部国際空港">中部国際空港</option>
+                <option value="羽田空港">羽田空港</option>
+                <option value="成田空港">成田空港</option>
             </select>
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
             <select class="browser-default" name="Tourism1">
                 <option value="" disabled selected>一番目の観光地を選択してください</option>
+                 <option value="岡山城">岡山城</option>
                 <option value="後楽園">後楽園</option>
                 <option value="大原美術館">大原美術館</option>
                 <option value="美観地区">美観地区</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="鷲羽山">鷲羽山</option>
+                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
+                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="蒜山高原">蒜山高原</option>
+                <option value="社吉備津神">社吉備津神</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism2">
                 <option value="" disabled selected>二番目の観光地を選択してください</option>
+                <option value="岡山城">岡山城</option>
                 <option value="後楽園">後楽園</option>
                 <option value="大原美術館">大原美術館</option>
                 <option value="美観地区">美観地区</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="鷲羽山">鷲羽山</option>
+                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
+                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="蒜山高原">蒜山高原</option>
+                <option value="社吉備津神">社吉備津神</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism3">
                 <option value="" disabled selected>三番目の観光地を選択してください</option>
-               <option value="後楽園">後楽園</option>
+                <option value="岡山城">岡山城</option>
+                <option value="後楽園">後楽園</option>
                 <option value="大原美術館">大原美術館</option>
                 <option value="美観地区">美観地区</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="鷲羽山">鷲羽山</option>
+                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
+                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="蒜山高原">蒜山高原</option>
+                <option value="社吉備津神">社吉備津神</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism4">
                 <option value="" disabled selected>四番目の観光地を選択してください</option>
+                 <option value="岡山城">岡山城</option>
                 <option value="後楽園">後楽園</option>
                 <option value="大原美術館">大原美術館</option>
                 <option value="美観地区">美観地区</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="鷲羽山">鷲羽山</option>
+                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
+                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="蒜山高原">蒜山高原</option>
+                <option value="社吉備津神">社吉備津神</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism5">
                 <option value="" disabled selected>五番目の観光地を選択してください</option>
+                 <option value="岡山城">岡山城</option>
                 <option value="後楽園">後楽園</option>
                 <option value="大原美術館">大原美術館</option>
                 <option value="美観地区">美観地区</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="鷲羽山">鷲羽山</option>
+                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
+                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="蒜山高原">蒜山高原</option>
+                <option value="社吉備津神">社吉備津神</option>
             </select>
             <p>6.岡山県で何を購入しましたか（印象に残ったものを3つ）</p>
             <div class="row">
@@ -174,7 +219,7 @@
             <div>
                 <p>7.岡山県を訪れた目的はなんですか</p><br>
                 <label>
-                    <input name="purpose" type="radio" value="ビジネス"/>
+                    <input name="purpose" type="radio" value="ビジネス" />
                     <span>ビジネス</span>
                 </label>
                 <label>
@@ -187,7 +232,7 @@
                 </label>
                 <br>
                 <label>
-                    <input name="purpose" type="radio" checked/>
+                    <input name="purpose" type="radio" />
                     <span>
                         その他<input name="other" id="text" type="text" class="validate">
                     </span>
