@@ -2,6 +2,7 @@
 	declare(strict_types = 1);
 
 	require_once('Select.php');
+	require_once('Format.php');
 
 	$query = new Select('age');
 	$data = $query->query();
