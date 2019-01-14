@@ -21,8 +21,6 @@
 			public function __construct(string $tbl, string $column = '*') {
 				$url = parse_url(getenv('DATABASE_URL'));
 				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
-
-				$this->db->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
 				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 				$this->sql = "SELECT ${column} FROM ${tbl} WHERE ";
