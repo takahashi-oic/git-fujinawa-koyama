@@ -2,6 +2,7 @@
 	declare(strict_types = 1);
 
 	namespace src\api {
+		use PDO;
 		use PDOStatement;
 		use src\database\DBAccess as Database;
 
@@ -20,6 +21,10 @@
 			 */
 			public function __construct(string $tbl, string $column = '*') {
 				$this->db = Database::getInstance()->connect();
+
+				$this->db->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
+				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 				$this->sql = "SELECT ${column} FROM ${tbl} WHERE ";
 			}
 
