@@ -1,3 +1,7 @@
+<Files ~ "^(Format|Select)\.php$">
+	Deny from all
+</Files>
+
 <LimitExcept GET>
 	Deny from all
 </LimitExcept>

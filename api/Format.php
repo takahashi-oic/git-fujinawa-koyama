@@ -15,6 +15,8 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toCsv(PDOStatement $database): string {
+			header(ContentType::CSV);
+
 			$result = '';
 			$length = $database->columnCount();
 
@@ -36,6 +38,8 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toJson(PDOStatement $database): string {
+			header(ContentType::JSON);
+
 			$idx = 0;
 			while($col = $database->fetch()) {
 				$this->data['result'] += array($idx => $col);
@@ -55,6 +59,8 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toXml(PDOStatement $database): string {
+			header(ContentType::XML);
+
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 			$root->addChild('msg', http_response_code());

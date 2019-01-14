@@ -1,16 +1,11 @@
 <?php
 	declare(strict_types = 1);
 
-	require_once('AutoLoader.php');
-
 	$query = new Select('age');
 	$data = $query->query();
 
-	if($data == null) echo "null";
-
-	if(key_exists('format', $_GET)) {
-		$fmt = new Format();
-
+	$fmt = new Format();
+	if(key_exists('format', $_GET))
 		switch(strtolower($_GET['format'])) {
 			case 'csv':
 				$result = $fmt->toCsv($data);
@@ -23,7 +18,9 @@
 			case 'xml':
 				$result = $fmt->toXml($data);
 				break;
-		}
+		} else {
+		http_response_code(400);
+		exit(400);
 	}
 
 	echo $result;
