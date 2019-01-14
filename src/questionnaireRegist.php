@@ -10,10 +10,16 @@
             $date = new DateTime();
             $age = $_POST['age'];
             $sex = $_POST['sex'];
-            
+            $sns = $_POST['sns'];
+            $inairport = $_POST['inairport'];
+            $outairport = $_POST['outairport'];
+            $purpose = $_POST['purpose'];
             echo $age;
             echo $sex;
-            
+            echo $purpose;
+            echo $sns;
+            echo $inairport;
+            echo $outairport;
             
              ?>
 <input type="button" value="終了" onClick="location.href='admin.php'">
