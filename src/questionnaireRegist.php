@@ -23,8 +23,8 @@
             $Purchases3 = $_POST['Purchases3'];
             $purpose = $_POST['purpose'];
             $sns = $_POST['sns'];
-           $num = 1;
-            
+            $num = 1;
+            echo $date;
             $stmt = $pdo->prepare("INSERT INTO answer_info(answer_num,ans_day) " . "VALUES ('$num',$data')");
             $stmt->execute();
             
