@@ -1,20 +1,29 @@
 <?php
-    session_start();
+session_start();
 try {
     //DB接続
     //host localhost,192.168.201.xxxなど 106koya 99 ju
-            $url = parse_url(getenv('DATABASE_URL'));
-            $pdo = new PDO("pgsql:".sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s',$url["host"],$url["port"],$url["user"],$url["pass"],ltrim($url["path"],"/")));
-            
+    $url = parse_url(getenv('DATABASE_URL'));
+    $pdo = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
+
 
     //---ここから処理---
+    //旧SQL 参考用
+    /* $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");
+      $stmt->execute();
+
+      $resultArray = array();
+      //結果取得 連想配列へ
+      while ($row = $stmt->fetch()) {
+      $resultArray[$row['result']] = $row['count'];
+      } */
+
     $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");
     $stmt->execute();
 
-    $resultArray = array();
-    //結果取得 連想配列へ
+    $resultSex = array();
     while ($row = $stmt->fetch()) {
-        $resultArray[$row['result']] = $row['count'];
+        $resultSex[$row['result']] = $row['count'];
     }
     //test
     /* echo("count<br>");
@@ -55,11 +64,11 @@ try {
 
             <div class="col s12">
                 <ul class="tabs">
-                    <?php if(isset($_SESSION["userid"])){?>
-                    <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
-                    <?php }else {?>
+                    <?php if (isset($_SESSION["userid"])) { ?>
+                        <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                    <?php } else { ?>
                         <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-                    <?php               }?>
+                    <?php } ?>
                     <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
                 </ul>
             </div>
@@ -70,12 +79,14 @@ try {
             <a class='dropdown-tr btn' href='#' data-target='dropdown1'>グラフを表示</a>
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!" id="piechart">円グラフ</a></li>
+                <li><a href="#!" id="sexchart">性別</a></li>
+                <!--<li><a href="#!" id="piechart">円グラフ</a></li>
                 <li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
                 <li><a href="#!">グラフ２</a></li>
                 <li><a href="#!">グラフ３</a></li>
+                -->
             </ul>
         </div>
         <canvas id="myChart" class=""/>
@@ -89,6 +100,7 @@ try {
         </script>
 
         <script>
+           
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
             var json = <?php echo json_encode($resultArray); ?>
@@ -209,6 +221,21 @@ try {
                 }
             };
             // ---ここまで棒グラフ---
+            // ---ここから性別---
+            var sexConfig = {
+                type: 'bar',
+                data: {
+                    labels: ["男性", "女性"],
+                    datasets: [{
+                            label: '男',
+                            data: [128]
+                        }, {
+                            label: '女',
+                            data: [114]
+                        }]
+                }
+            });
+            // ---ここまで性別---
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -225,6 +252,16 @@ try {
             };
             /*棒グラフ*/
             document.getElementById("barchart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, barConfig);
+            };
+            /*性別*/
+            document.getElementById("sexchart").onclick = function () {
                 //myChartの中身があれば空に
                 if (myChart) {
                     myChart.destroy();
