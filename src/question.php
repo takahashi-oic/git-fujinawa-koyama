@@ -9,7 +9,7 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="text/javascript"></script>
-        <title>アンケート収集公開APIトップページ</title>
+        <title>アンケート</title>
         <!-- CSS -->
         <style type="text/css">
             .col {/*親div*/
@@ -48,7 +48,7 @@
         </script>
     </head>
     <header>
-        <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート作成</span></div>
+        <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート</span></div>
     </header>
     <body>
         <form action="questionnaireRegist.php" method="post">

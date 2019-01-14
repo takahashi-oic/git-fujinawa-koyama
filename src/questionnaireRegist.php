@@ -60,4 +60,68 @@
                     
              ?>
 
-<input type="button" value="終了" onClick="location.href='admin.php'">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript"></script>
+        <title>アンケート</title>
+        <!-- CSS -->
+        <style type="text/css">
+            .col {/*親div*/
+                position: relative;/*相対配置*/
+            }
+
+            .col p#okayama {
+                font-size: 700%;
+                position: absolute;/*絶対配置*/
+                color: white;/*文字は白に*/
+                top: 50%;
+                left: 50%;
+                /*文字分のずれを修正*/
+                -ms-transform: translate(-50%,-50%);
+                -webkit-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+                margin:0;
+                padding:0;
+            }
+
+            .col img {
+              width: 100%;
+            }
+            body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+              }
+
+              main {
+                flex: 1 0 auto;
+              }
+        </style>
+        <script>
+            
+        </script>
+    </head>
+    <header>
+        <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート</span></div>
+    </header>
+    <body>
+       
+        
+            <div class="row">
+                        <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
+                <button type="button" onClick="location.href='https://sotuken2018q.herokuapp.com/src/question.php'" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >別の回答を送信する</button>
+                    </div>
+        
+        <div class="row">
+                        <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
+            <button type="button" onClick="window.close()" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >終了</button>
+                    </div>
+        
+    </body>
+</html>
