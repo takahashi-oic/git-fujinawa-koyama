@@ -229,7 +229,7 @@ try {
                     labels: ['男性', '女性'],
                     datasets: [{
                             label: ['男性'],
-                            data: [129],
+                            data: [129,123],
                             backgroundColor: ['blue']
                         }, {
                             label: ['女性'],
