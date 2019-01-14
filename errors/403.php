@@ -10,8 +10,8 @@
 	<body>
 		<h1>403 Forbidden!</h1>
 		<p>そのURLは、アクセスを禁止されています</p>
-		<a href="http://127.0.0.1/git-fujinawa-koyama/src/index.php">アンケート収集公開APIトップページ</a>
+		<a href="/src/index.php">アンケート収集公開APIトップページ</a>
 		<br>
-		<a href="http://127.0.0.1/git-fujinawa-koyama/src/apiMain.php">アンケートAPI-API概要</a>
+		<a href="/src/apiMain.php">アンケートAPI-API概要</a>
 	</body>
 </html>

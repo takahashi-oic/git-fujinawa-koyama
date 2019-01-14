@@ -1,3 +1,5 @@
+Allow from all
+
 <LimitExcept GET>
 	Deny from all
 </LimitExcept>
