@@ -26,10 +26,6 @@
 
 	try {
 		$query = new Select();
-	} catch(Exception $e) {
-		echo $e->getMessage();
-	}
-	/*
 	$data = $query->query('age');
 
 	$result = function() {
@@ -54,4 +50,9 @@
 				break;
 		}
 	}
+
+	} catch(Exception $e) {
+		echo $e->getTrace();
+	}
+
 ?><?= $result ?>
