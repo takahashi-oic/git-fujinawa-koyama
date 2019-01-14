@@ -228,8 +228,11 @@ try {
                 data:{
                     labels:['男性','女性'],
                     datasets:[{
-                            data:[129,118],
-                            backgroundColor:['blue','red']
+                            data:[129],
+                            backgroundColor:['blue']
+                    },{
+                        data:[118],
+                            backgroundColor:['red']
                     }]
                 }
             };
