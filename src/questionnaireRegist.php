@@ -59,5 +59,5 @@
             
                     
              ?>
-<img src="https://api.qrserver.com/v1/create-qr-code/?data=https://sotuken2018q.herokuapp.com/src/question.php&size=100x100" alt="QRコード" />
+
 <input type="button" value="終了" onClick="location.href='admin.php'">
