@@ -58,6 +58,7 @@ try {
     </head>
 
     <body>
+        1
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
