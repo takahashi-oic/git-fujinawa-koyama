@@ -81,7 +81,7 @@ try {
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" id="sexchart">性別</a></li>
-                <li><a href="#!" id="piechart">円グラフ</a></li>
+                <!--<li><a href="#!" id="piechart">円グラフ</a></li>-->
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
@@ -104,7 +104,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);      ?>
+            //var json = <?php //echo json_encode($resultArray);       ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -225,15 +225,17 @@ try {
             // ---ここから性別---
             var sexConfig = {
                 type: 'bar',
-                data:{
-                    labels:['男性','女性'],
-                    datasets:[{
-                            data:[129],
-                            backgroundColor:['blue']
-                    },{
-                        data:[118],
-                            backgroundColor:['red']
-                    }]
+                data: {
+                    labels: ['男性', '女性'],
+                    datasets: [{
+                            label: ['男性'],
+                            data: [129],
+                            backgroundColor: ['blue']
+                        }, {
+                            label: ['女性'],
+                            data: [118],
+                            backgroundColor: ['red']
+                        }]
                 }
             };
             /*type: 'bar',
