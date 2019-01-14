@@ -18,7 +18,7 @@
 				$url = parse_url(getenv('DATABASE_URL'));
 				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
 			} catch(Exception $e) {
-				throw $e;
+				echo $e->getMessage();
 			}
 		}
 
