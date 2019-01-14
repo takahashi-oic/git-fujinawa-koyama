@@ -119,13 +119,14 @@
         <div class="col s12 m10 offset-m1 l8 offset-l2">
             <div class="card">
               <div class="card-content">
-                 <h5>アンケートご協力ありがとうございました。</h5>
+                  <h5>アンケートご協力<br>ありがとうございました。</h5>
               </div>
             </div>
-        </div>
-            <div class="row">
+             <div class="row">
                         <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
                 <button type="button" onClick="location.href='question.php'" class="btn waves-effect waves-light" id="createbtn" >別の回答を送信する</button>
-                    </div>        
+             </div>       
+        </div>
+            
     </body>
 </html>
