@@ -27,6 +27,7 @@
             $pdo->beginTransaction();
             $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ('$data')");
             $stmt->execute();
+            $pdo->commit();
             
                        
              ?>
