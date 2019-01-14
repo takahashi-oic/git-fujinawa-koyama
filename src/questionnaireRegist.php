@@ -113,7 +113,11 @@
     <body>
        
         <div class="col s12 m10 offset-m1 l8 offset-l2">
-            <p>アンケートご協力ありがとうございました。</p>
+            <div class="card">
+              <div class="card-content">
+                 <h5>種類アンケートご協力ありがとうございました。</h5>
+              </div>
+            </div>
         </div>
             <div class="row">
                         <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
