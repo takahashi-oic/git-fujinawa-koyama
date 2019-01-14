@@ -26,7 +26,7 @@
             
             echo $now;
             
-            $stmt = $pdo->prepare("INSERT INTO answer_info(ans_day) VALUES ($now)");
+            $stmt = $pdo->prepare("INSERT INTO answer_info(ans_day) VALUES ('$now')");
             $stmt->execute();
             
             
