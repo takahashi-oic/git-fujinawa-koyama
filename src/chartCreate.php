@@ -58,7 +58,7 @@ try {
     </head>
 
     <body>
-        2
+        23
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -101,7 +101,7 @@ try {
         </script>
 
         <script>
-           
+
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
             var json = <?php echo json_encode($resultArray); ?>
@@ -225,31 +225,31 @@ try {
             // ---ここから性別---
             var sexConfig = {
                 /*type: 'bar',
+                 data: {
+                 //labels: ["男性", "女性"],
+                 datasets: [{
+                 label: '男',
+                 data: [128]
+                 }, {
+                 label: '女',
+                 data: [114]
+                 }]
+                 }*/
+                type: 'bar',
                 data: {
-                    //labels: ["男性", "女性"],
+                    labels: ["M", "T", "W", "R", "F", "S", "S"],
                     datasets: [{
-                            label: '男',
-                            data: [128]
+                            label: 'apples',
+                            data: [12, 19, 3, 17, 28, 24, 7]
                         }, {
-                            label: '女',
-                            data: [114]
+                            label: 'oranges',
+                            data: [30, 29, 5, 5, 20, 3, 10]
                         }]
-                }*/
-                   type: 'bar',
-  data: {
-    labels: ["M", "T", "W", "R", "F", "S", "S"],
-    datasets: [{
-      label: 'apples',
-      data: [12, 19, 3, 17, 28, 24, 7]
-    }, {
-      label: 'oranges',
-      data: [30, 29, 5, 5, 20, 3, 10]
-    }]
-  }
-            });
-            // ---ここまで性別---
-            //グローバル
-            var myChart;
+                }
+            }
+                    // ---ここまで性別---
+                    //グローバル
+                    var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
 
             /*円グラフ*/
