@@ -49,5 +49,5 @@
 		}
 		echo $result;
 	} catch(Exception $e) {
-		echo $e->getTrace();
+		echo "Exception";
 	}
