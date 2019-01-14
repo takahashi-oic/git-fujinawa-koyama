@@ -232,7 +232,7 @@
                 </label>
                 <br>
                 <label>
-                    <input name="purpose" type="radio" />
+                    <input name="purpose" type="radio" value=""/>
                     <span>
                         その他<input name="other" id="text" type="text" class="validate">
                     </span>
