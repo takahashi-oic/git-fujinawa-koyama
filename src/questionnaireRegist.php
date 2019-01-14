@@ -116,7 +116,7 @@
     </header>
     <body>
        <div class="row">
-        <div class="col s14 m16 offset-m1 l8 offset-l4">
+        <div class="col s18 m18 offset-m1 l8 offset-l8">
             <div class="card">
               <div class="card-content">
                   <h5>アンケートご協力<br>ありがとうございました。</h5>
