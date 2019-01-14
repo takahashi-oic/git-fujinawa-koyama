@@ -49,22 +49,16 @@
     </head>
     <header>
         <div class="card-panel row s12 light-green lighten-1"><span class="white-text">アンケート作成</span></div>
-        <div class="col s12">
-          <ul class="tabs">
-            <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
-            <li class="tab col s3" id="chart"><a class="active" href="chartCreate.php"><span class="light-green-text text-lighten-1">グラフ作成</span></a></li>
-            <li class="tab col s3" id="api"><a href="apiMain.php"><span class="light-green-text text-lighten-1">API仕様書</span></a></li>
-          </ul>
-        </div>
     </header>
     <body>
+        <form action="questionnaireRegist.php" method="post">
         <div class="container s8">
             <p class="black-text">1.出身国</p>
-            <select class="browser-default">
+            <select class="browser-default" name="country">
                 <option value="" disabled selected>出身国を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="アメリカ">アメリカ</option>
+                <option value="日本">日本</option>
+                <option value="韓国">韓国</option>
             </select>
             <p>
                 <p>2.年齢</p><br>
@@ -104,107 +98,112 @@
             <p>
                 <p>3.性別</p><br>
                 <label>
-                    <input name="group1" type="radio" value="男"/>
+                    <input name="sex" type="radio" value="男"/>
                     <span>男性</span>
                 </label>
                 <label>
-                    <input name="group1" type="radio" value="女"/>
+                    <input name="sex" type="radio" value="女"/>
                     <span>女性</span>
                 </label>
             </p>
             <p class="black-text">4.どこの空港から出入国しましたか</p>
-            <select class="browser-default">
+            <select class="browser-default" name="inairport">
                 <option value="" disabled selected>入国空港を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="岡山空港">岡山空港</option>
+                <option value="広島空港">広島空港</option>
+                <option value="高松空港">高松空港</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default" name="outairport">
                 <option value="" disabled selected>出国空港を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="岡山空港">岡山空港</option>
+                <option value="広島空港">広島空港</option>
+                <option value="高松空港">高松空港</option>
             </select>
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
-            <select class="browser-default">
+            <select class="browser-default" name="Tourism1">
                 <option value="" disabled selected>一番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism2">
                 <option value="" disabled selected>二番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism3">
                 <option value="" disabled selected>三番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+               <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism4">
                 <option value="" disabled selected>四番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
-            <select class="browser-default">
+            <select class="browser-default"  name="Tourism5">
                 <option value="" disabled selected>五番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <p>6.岡山県で何を購入しましたか（印象に残ったものを3つ）</p>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases1">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases2">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" class="validate" name="Purchases3">
                 </div>
             </div>
             <div>
-                <p>4.岡山県を訪れた目的はなんですか</p><br>
+                <p>7.岡山県を訪れた目的はなんですか</p><br>
                 <label>
-                    <input name="purpose" type="radio" />
+                    <input name="purpose" type="radio" value="ビジネス"/>
                     <span>ビジネス</span>
                 </label>
                 <label>
-                    <input name="purpose" type="radio" checked/>
+                    <input name="purpose" type="radio" value="観光"/>
                     <span>観光</span>
                 </label>
                 <label>
-                    <input name="purpose" type="radio" checked/>
+                    <input name="purpose" type="radio" value="家族・友人に会いに"/>
                     <span>家族・友人に会いに</span>
                 </label>
                 <br>
                 <label>
                     <input name="purpose" type="radio" checked/>
                     <span>
-                        その他<input id="text" type="text" class="validate">
+                        その他<input name="other" id="text" type="text" class="validate">
                     </span>
                 </label>
             </div>
             <p>8.もっとも使用してるSNSはなんですか（1つ）</p>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="text" type="text" class="validate">
+                    <input id="text" type="text" name="sns" class="validate">
                 </div>
             </div>
         </div>
+            <div class="row">
+                        <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
+                        <button type="submit" name="action" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >送信</button>
+                    </div>
+        </form>
     </body>
 </html>

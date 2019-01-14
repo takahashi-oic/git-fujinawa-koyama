@@ -17,8 +17,8 @@ try {
       while ($row = $stmt->fetch()) {
       $resultArray[$row['result']] = $row['count'];
       } */
-
-    $stmt = $pdo->prepare("SELECT count(*) as count, result FROM questionnaire_result GROUP BY result ORDER BY count DESC");
+    /* 性別取得 */
+    $stmt = $pdo->prepare("SELECT count(*) as count, result FROM sex GROUP BY result ORDER BY count DESC");
     $stmt->execute();
 
     $resultSex = array();
@@ -58,7 +58,6 @@ try {
     </head>
 
     <body>
-        23456
         <header>
             <div class="card-panel row s12 light-green lighten-1" id="test1"><span class="white-text">アンケートグラフ作成ページ</span></div>
 
@@ -81,7 +80,8 @@ try {
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" id="sexchart">性別</a></li>
-                <li><a href="#!" id="piechart">円グラフ</a></li>
+                <li><a href="#!" id="agechart">年齢</a></li>
+                <!--<li><a href="#!" id="piechart">円グラフ</a></li>-->
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
@@ -90,6 +90,7 @@ try {
                 -->
             </ul>
         </div>
+        <br>
         <canvas id="myChart" class=""/>
 
 
@@ -104,7 +105,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);  ?>
+            //var json = <?php //echo json_encode($resultArray);          ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -224,30 +225,70 @@ try {
             // ---ここまで棒グラフ---
             // ---ここから性別---
             var sexConfig = {
-                /*type: 'bar',
-                 data: {
-                 //labels: ["男性", "女性"],
-                 datasets: [{
-                 label: '男',
-                 data: [128]
-                 }, {
-                 label: '女',
-                 data: [114]
-                 }]
-                 }*/
                 type: 'bar',
                 data: {
-                    labels: ["M", "T", "W", "R", "F", "S", "S"],
+                    labels: ['男性', '女性'],
                     datasets: [{
-                            label: 'apples',
-                            data: [12, 19, 3, 17, 28, 24, 7]
-                        }, {
-                            label: 'oranges',
-                            data: [30, 29, 5, 5, 20, 3, 10]
+                            data: [129, 123],
+                            backgroundColor: ['#2196f3', '#f44336']
                         }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false, //グラフの横幅自動調整
+                    legend: {//凡例設定
+                        display: false                 //表示設定
+                    },
+                    maintainAspectRatio: false
                 }
-            }
+            };
             // ---ここまで性別---
+            // ---ここから年齢---
+            var ageConfig = {
+                type: 'bar',
+                data: {
+                    labels: ['0～9', '10～19', '20～29', '30～39', '40～49', '50～59', '60～69', '70～79', '80+'],
+                    datasets: [{
+                            data: [129, 423, 650, 550, 450, 330, 440, 330, 370],
+                            backgroundColor: ["#9ccc65",
+                                "#039be5",
+                                "#ff9800",
+                                "#5e35b1",
+                                "#fdd835",
+                                "#e53935",
+                                "#d4e157",
+                                "#4fc3f7",
+                                "#ffb74d"]
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false, //グラフの横幅自動調整
+                    legend: {//凡例設定
+                        display: false                 //表示設定
+                    },
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで年齢---
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -281,6 +322,16 @@ try {
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, sexConfig);
+            };
+            /*年齢*/
+            document.getElementById("agechart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, ageConfig);
             };
         </script>
     </body>
