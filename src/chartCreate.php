@@ -81,8 +81,8 @@ try {
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" id="sexchart">性別</a></li>
-                <!--<li><a href="#!" id="piechart">円グラフ</a></li>
-                <li><a href="#!" id="barchart">棒グラフ</a></li>
+                <li><a href="#!" id="piechart">円グラフ</a></li>
+                <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
                 <li><a href="#!">グラフ２</a></li>
@@ -226,7 +226,7 @@ try {
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: ["男性", "女性"],
+                    //labels: ["男性", "女性"],
                     datasets: [{
                             label: '男',
                             data: [128]
