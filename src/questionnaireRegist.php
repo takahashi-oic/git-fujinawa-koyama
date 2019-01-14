@@ -25,7 +25,7 @@
             $sns = $_POST['sns'];
            
             $pdo->beginTransaction();
-            $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ('$data')");
+            $stmt = $pdo->prepare("INSERT INTO answer_info(ans_day) " . "VALUES ('$data')");
             $stmt->execute();
             $pdo->commit();
             
