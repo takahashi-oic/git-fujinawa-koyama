@@ -4,7 +4,6 @@
 	namespace src\api {
 		use PDO;
 		use PDOStatement;
-		use src\database\DBAccess as Database;
 
 		class Select {
 			/** ## データベース */
@@ -20,7 +19,8 @@
 			 * @param string $column 行
 			 */
 			public function __construct(string $tbl, string $column = '*') {
-				$this->db = Database::getInstance()->connect();
+				$url = parse_url(getenv('DATABASE_URL'));
+				$this->db = new PDO("pgsql:" . sprintf('host=%s;port=%s;user=%s;password=%s;dbname=%s', $url["host"], $url["port"], $url["user"], $url["pass"], ltrim($url["path"], "/")));
 
 				$this->db->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
 				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
