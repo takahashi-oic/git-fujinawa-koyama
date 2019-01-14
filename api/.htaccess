@@ -1,5 +1,9 @@
 Allow from all
 
+<Files ~ ".*">
+	Allow from all
+</Files>
+
 <LimitExcept GET>
 	Deny from all
 </LimitExcept>
