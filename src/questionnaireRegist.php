@@ -8,9 +8,11 @@
                 exit($e->getMessage());
             }
             $date = new DateTime();
-            $ques = $_POST['ques'];
-            $stmt = $pdo->prepare("INSERT INTO questionnaire_info(questionnaire_url,conversion_data,create_date)"."VALUES ('$ques','$ques','$date')");
-            $stmt->execute();
+            $age = $_POST['age'];
+            $sex = $_POST['sex'];
+            
+            echo $age;
+            echo $sex;
             
             
              ?>
