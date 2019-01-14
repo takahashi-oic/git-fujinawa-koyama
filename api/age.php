@@ -6,6 +6,7 @@
 	$query = new Select('age');
 	$data = $query->query();
 
+	/*
 	$result = null;
 
 	if(key_exists('format', $_GET)) {
