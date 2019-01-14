@@ -28,10 +28,7 @@
 		$query = new Select();
 		$data = $query->query('age');
 
-		$result = function() {
-			http_response_code(401);
-			exit(401);
-		};
+		$result = null;
 
 		if(key_exists('format', $_GET)) {
 			$fmt = new src\api\Format();
@@ -50,8 +47,7 @@
 					break;
 			}
 		}
+		echo $result;
 	} catch(Exception $e) {
 		echo $e->getTrace();
 	}
-
-?><?= $result ?>
