@@ -44,8 +44,10 @@
         </div>
     </header>
     <body>
-        <a href="https://sotuken2018q.herokuapp.com/src/question.php">https://sotuken2018q.herokuapp.com/src/question.php</a>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://sotuken2018q.herokuapp.com/src/question.php&size=200x200" alt="QRコード" />
+        <center>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://sotuken2018q.herokuapp.com/src/question.php&size=400x400" alt="QRコード" /><br>
+            <a href="https://sotuken2018q.herokuapp.com/src/question.php">https://sotuken2018q.herokuapp.com/src/question.php</a>
+        </center>
     </body>
     <!--<footer class="page-footer deep-orange darken-2">
         <div class="footer-copyright">
