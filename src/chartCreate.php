@@ -104,7 +104,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);       ?>
+            //var json = <?php //echo json_encode($resultArray);        ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -229,9 +229,23 @@ try {
                     labels: ['男性', '女性'],
                     datasets: [{
                             label: ['男性'],
-                            data: [129,123],
-                            backgroundColor: ['blue','red']
+                            data: [129, 123],
+                            backgroundColor: ['blue', 'red']
                         }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
                 }
             };
             /*type: 'bar',
