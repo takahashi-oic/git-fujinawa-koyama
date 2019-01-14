@@ -6,6 +6,7 @@
 	$query = new Select('age');
 	$data = $query->query();
 
+	if($data == null) echo "null";
 	/*
 	$result = null;
 
