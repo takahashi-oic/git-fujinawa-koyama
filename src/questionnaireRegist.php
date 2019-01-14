@@ -115,13 +115,7 @@
         
             <div class="row">
                         <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
-                <button type="button" onClick="location.href='https://sotuken2018q.herokuapp.com/src/question.php'" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >別の回答を送信する</button>
-                    </div>
-        
-        <div class="row">
-                        <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
-            <button type="button" onClick="window.open('about:blank','_self').close();" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >終了</button>
-                    </div>
-        
+                <button type="button" onClick="location.href='question.php'" class="btn waves-effect waves-light" id="createbtn" >別の回答を送信する</button>
+                    </div>        
     </body>
 </html>
