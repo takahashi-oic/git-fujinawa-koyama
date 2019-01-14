@@ -120,7 +120,7 @@
         
         <div class="row">
                         <!--<input type="submit" value="確認ページへ" class="waves-effect waves-light btn col s4 offset-s4" id="createbtn">-->
-            <button type="button" onClick="window.open(‘./index.html’,’_self’).close();" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >終了</button>
+            <button type="button" onClick="window.open('about:blank','_self').close();" class="btn waves-effect waves-light col s4 offset-s4" id="createbtn" >終了</button>
                     </div>
         
     </body>
