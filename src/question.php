@@ -123,37 +123,37 @@
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
             <select class="browser-default" name="Tourism1">
                 <option value="" disabled selected>一番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism2">
                 <option value="" disabled selected>二番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism3">
                 <option value="" disabled selected>三番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+               <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism4">
                 <option value="" disabled selected>四番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism5">
                 <option value="" disabled selected>五番目の観光地を選択してください</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="後楽園">後楽園</option>
+                <option value="大原美術館">大原美術館</option>
+                <option value="美観地区">美観地区</option>
             </select>
             <p>6.岡山県で何を購入しましたか（印象に残ったものを3つ）</p>
             <div class="row">
