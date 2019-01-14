@@ -58,6 +58,7 @@
         </div>
     </header>
     <body>
+        <form action="questionnaireRegist.php" method="post">
         <div class="container s8">
             <p class="black-text">1.出身国</p>
             <select class="browser-default">
@@ -104,11 +105,11 @@
             <p>
                 <p>3.性別</p><br>
                 <label>
-                    <input name="group1" type="radio" value="男"/>
+                    <input name="sex" type="radio" value="男"/>
                     <span>男性</span>
                 </label>
                 <label>
-                    <input name="group1" type="radio" value="女"/>
+                    <input name="sex" type="radio" value="女"/>
                     <span>女性</span>
                 </label>
             </p>
@@ -206,5 +207,6 @@
                 </div>
             </div>
         </div>
+        </form>
     </body>
 </html>

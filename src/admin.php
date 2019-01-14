@@ -59,7 +59,7 @@
                 <div class="col m6">
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <a href="questionnaireCreate.php">
+                            <a href="question.php">
                                 <img src="../picture/アンケート.jpg">
                                 <span class="card-title blue-text text-darken-2">アンケート作成</span>
                             </a>
