@@ -24,7 +24,7 @@
             $purpose = $_POST['purpose'];
             $sns = $_POST['sns'];
             echo $date;
-            $stmt = $pdo->prepare("INSERT INTO answer_info(ans_day) " . "VALUES ($data)");
+            $stmt = $pdo->prepare("INSERT INTO answer_info VALUES ($data)");
             $stmt->execute();
             
             
