@@ -6,6 +6,7 @@
 
 	$result = null;
 
+	/*
 	if(key_exists('format', $_GET)) {
 		$fmt = new src\api\Format();
 
