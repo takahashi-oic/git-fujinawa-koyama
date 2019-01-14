@@ -13,7 +13,7 @@
 	$result = null;
 
 	if(key_exists('format', $_GET)) {
-		$fmt = new src\api\Format();
+		$fmt = new Format();
 
 		switch(strtolower($_GET['format'])) {
 			case 'csv':
