@@ -1,8 +1,6 @@
 <?php
 	declare(strict_types = 1);
 
-	require_once('src/ContentType.php');
-
 	/**
 	 * ## Class Format
 	 * データベースの表示形式を変更する
