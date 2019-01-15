@@ -80,17 +80,21 @@
 									<table>
 										<tbody>
 											<tr>
-												<td>Json</td>
-												<td>application/json</td>
-											</tr>
-											<tr>
 												<td>csv</td>
 												<td>text/csv</td>
 											</tr>
 											<tr>
-												<td>xml</td>
-												<td>application/xml</td>
+												<td>Json</td>
+												<td>application/json</td>
 											</tr>
+											<?php
+												/*
+												<tr>
+													<td>xml</td>
+													<td>application/xml</td>
+												</tr>
+												*/
+											?>
 										</tbody>
 									</table>
 								</div>
