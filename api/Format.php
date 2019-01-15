@@ -64,7 +64,7 @@
 			$root = new SimpleXMLElement($header . '<api></api>');
 			$msg = $root->addChild('msg', null);
 
-			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
+			while($col = $database->fetch()) {
 				$result = $root->addChild('result');
 				foreach($col as $key => $value) $result->addChild($key, $value);
 			}
