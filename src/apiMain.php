@@ -59,6 +59,7 @@
 												<td>API Endpoint</td>
 												<td>http://sotuken2018q.herokuapp.com/api/</td>
 											</tr>
+
 											<tr>
 												<td>利用可能なHTTPメソッド</td>
 												<td>GET</td>
