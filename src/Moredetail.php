@@ -102,9 +102,6 @@
 							<div>
 								<p>HTTPリクエスト</p>
 								<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
-
-								<p>HTTPレスポンス</p>
-								<pre class="prettyprint"><?php include '../api/database.php' ?></pre>
 							</div>
 						</div>
 					</div>
