@@ -40,7 +40,7 @@
 			header('Content-type: application/json');
 
 			$idx = 0;
-			while($col = $database->fetch()) {
+			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
 				$this->data['result'] += array($idx => $col);
 				$idx++;
 			}

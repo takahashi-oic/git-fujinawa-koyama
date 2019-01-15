@@ -4,7 +4,7 @@
 	require_once('Select.php');
 	require_once('Format.php');
 
-	$query = new Select('age');
+	$query = new Select('age', 'answer_num, age');
 	$data = $query->query();
 
 	$fmt = new Format();
