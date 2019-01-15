@@ -62,8 +62,8 @@
 
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
-			$msg = $root->addChild('msg', null);
 
+			$msg = $root->addChild('msg', null);
 			$result = $root->addChild('result');
 			while($col = $database->fetch()) foreach($col as $key => $value) $result->addChild($key, $value);
 

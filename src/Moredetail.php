@@ -87,14 +87,10 @@
 												<td>Json</td>
 												<td>application/json</td>
 											</tr>
-											<?php
-												/*
-												<tr>
-													<td>xml</td>
-													<td>application/xml</td>
-												</tr>
-												*/
-											?>
+											<tr>
+												<td>xml</td>
+												<td>application/xml</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
