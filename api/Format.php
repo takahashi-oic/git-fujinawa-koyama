@@ -61,7 +61,7 @@
 			header('Content-type: application/xml');
 
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
-			$root = new SimpleXMLElement($header . '<api></api>');
+			$root = new SimpleXMLElement($header);
 			$msg = $root->addChild('msg', null);
 
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
