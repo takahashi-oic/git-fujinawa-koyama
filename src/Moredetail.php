@@ -4,16 +4,17 @@
 	// 表示形式決定
 	switch(rand(0, 2)) {
 		case 0:
-			$_GET['format'] = 'json';
+			$_GET['format'] = 'csv';
 			break;
 
 		case 1:
-			$_GET['format'] = 'xml';
+			$_GET['format'] = 'json';
 			break;
 
 		case 2:
-			$_GET['format'] = 'csv';
+			$_GET['format'] = 'xml';
 			break;
+
 
 		// 何かあった時のため
 		default:
@@ -84,7 +85,7 @@
 												<td>text/csv</td>
 											</tr>
 											<tr>
-												<td>Json</td>
+												<td>json</td>
 												<td>application/json</td>
 											</tr>
 											<tr>
