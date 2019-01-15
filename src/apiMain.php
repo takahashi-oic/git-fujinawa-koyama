@@ -67,9 +67,7 @@
 
 											<tr>
 												<td>レスポンスデータフォーマット</td>
-												<td>csv</td>
-												<td>json</td>
-												<td>xml</td>
+												<td>csv, json, xml</td>
 											</tr>
 										</tbody>
 									</table>
