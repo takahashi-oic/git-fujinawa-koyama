@@ -64,10 +64,8 @@
 			$root = new SimpleXMLElement($header . '<api></api>');
 			$msg = $root->addChild('msg', null);
 
-			while($col = $database->fetch()) {
-				$result = $root->addChild('result');
-				foreach($col as $key => $value) $result->addChild($key, $value);
-			}
+			$result = $root->addChild('result');
+			while($col = $database->fetch()) foreach($col as $key => $value) $result->addChild($key, $value);
 
 			$dom = new DOMDocument('1.0');
 			$dom->loadXML($root->asXML());
