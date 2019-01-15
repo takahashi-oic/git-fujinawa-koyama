@@ -65,7 +65,7 @@
 			$msg = $root->addChild('msg', null);
 
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
-				$result = $root->addChild('result');
+				$result = $root->addChild('result', null);
 				foreach($col as $key => $value) $result->addChild($key, $value);
 			}
 
