@@ -44,7 +44,7 @@
 		public function toJson(PDOStatement $database): string {
 			header('Content-type: application/json');
 
-			foreach($database->fetch(PDO::FETCH_UNIQUE) as $col) $this->data['result'] .= $col;
+			foreach($database->fetch() as $key => $value) $this->data['result'] .= array($key => $value);
 
 			// region JSON Setting
 			$opt = 0;
@@ -68,7 +68,7 @@
 			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$result = $root->addChild('result');
-			foreach($database->fetch(PDO::FETCH_ASSOC) as $key => $value) $result->addChild($key, $value);
+			foreach($database->fetch() as $key => $value) $result->addChild($key, $value);
 			// endregion XML Element
 
 			// region XML Format
