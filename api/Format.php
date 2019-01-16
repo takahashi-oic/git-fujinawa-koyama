@@ -44,7 +44,7 @@
 		public function toJson(PDOStatement $database): string {
 			header('Content-type: application/json');
 
-			foreach($database->fetch() as $key => $value) $this->data['result'] .= array($key => $value);
+			foreach($database->fetch() as $value) $this->data['result'] .= $value;
 
 			// region JSON Setting
 			$opt = 0;
