@@ -15,24 +15,22 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toCsv(PDOStatement $database): string {
-			header('Content-type: text/csv');
+			// header('Content-type: text/csv');
 
 			$result = '';
 			$length = $database->columnCount() - 1;
 
 			// Column Name
-			for($col = 0; $col < $length;) {
+			for($col = 0; $col < $length; $col++) {
 				$result .= $database->getColumnMeta($col)['name'];
 				if($col < $length) $result .= ','; else $result .= "\n";
-				$col++;
 			}
 
 			// Column Value
 			$cnt = 0;
 			foreach($database->fetch(PDO::FETCH_ASSOC) as $value) {
 				$result .= strval($value);
-				if($cnt < $length) $result .= ','; else $result .= "\n";
-				$cnt++;
+				if($cnt++ < $length) $result .= ','; else $result .= "\n";
 			}
 
 			return $result;
