@@ -22,8 +22,7 @@
 
 			// Column Name
 			for($idx = 0; $idx < $length; $idx++) {
-				$meta = $database->getColumnMeta($idx);
-				$result .= $meta['name'];
+				$result .= $database->getColumnMeta($idx)['meta'];;
 				if($idx++ < $length - 1) $result .= ','; else $result .= "\n";
 			}
 
