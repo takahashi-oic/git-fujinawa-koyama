@@ -18,19 +18,20 @@
 			header('Content-type: text/csv');
 
 			$result = '';
-			$length = $database->columnCount();
+			$length = $database->columnCount() - 1;
 
 			// Column Name
 			for($idx = 0; $idx < $length; $idx++) {
 				$result .= $database->getColumnMeta($idx)['name'];
-				if($idx < $length - 1) $result .= ','; else $result .= "\n";
+				if($idx < $length) $result .= ','; else $result .= "\n";
 			}
 
 			// Column Value
 			$cnt = 0;
 			foreach($database->fetch(PDO::FETCH_ASSOC) as $value) {
 				$result .= strval($value);
-				if($cnt++ < $length - 1) $result .= ','; else $result .= "\n";
+				if($cnt < $length) $result .= ','; else $result .= "\n";
+				$cnt++;
 			}
 
 			return $result;
