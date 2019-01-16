@@ -23,7 +23,7 @@
 			// Column Name
 			for($col = 0; $col < $length + 1; $col++) {
 				$result .= $database->getColumnMeta($col)['name'];
-				if($col < $length) $result .= ','; else $result .= "\n";
+				if($col < $length - 1) $result .= ','; else $result .= "\n";
 			}
 
 			// Column Value
