@@ -21,9 +21,9 @@
 			$length = $database->columnCount() - 1;
 
 			// Column Name
-			for($idx = 0; $idx < $length; $idx++) {
-				$result .= $database->getColumnMeta($idx)['name'];
-				if($idx < $length) $result .= ','; else $result .= "\n";
+			for($col = 0; $col < $length; $col++) {
+				$result .= $database->getColumnMeta($col)['name'];
+				if($col < $length) $result .= ','; else $result .= "\n";
 			}
 
 			// Column Value
