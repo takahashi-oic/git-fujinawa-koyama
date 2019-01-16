@@ -39,11 +39,7 @@
 		public function toJson(PDOStatement $database): string {
 			header('Content-type: application/json');
 
-			$idx = 0;
-			while($col = $database->fetch()) {
-				$this->data['result'] += $col;
-				$idx++;
-			}
+			foreach($database->fetch() as $key => $value) $this->data['result'] .= array($key => $value);
 
 			/** ## JSONの形式 */
 			$opt = 0;
@@ -65,7 +61,7 @@
 
 			$msg = $root->addChild('msg', null);
 			$result = $root->addChild('result');
-			while($col = $database->fetch()) foreach($col as $key => $value) $result->addChild($key, $value);
+			foreach($database->fetch() as $key => $value) $result->addChild($key, $value);
 
 			$dom = new DOMDocument('1.0');
 			$dom->loadXML($root->asXML());
