@@ -20,12 +20,18 @@
 			$result = '';
 			$length = $database->columnCount();
 
-			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
-				$cnt = 0;
-				foreach($col as $value) {
-					$result .= strval($value);
-					if($cnt++ < $length - 1) $result .= ','; else $result .= "\n";
-				}
+			// Column Name
+			for($idx = 0; $idx < $length; $idx++) {
+				$meta = $database->getColumnMeta($idx);
+				$result .= $meta['name'];
+				if($idx++ < $length - 1) $result .= ','; else $result .= "\n";
+			}
+
+			// Column Value
+			$cnt = 0;
+			foreach($database->fetch(PDO::FETCH_ASSOC) as $value) {
+				$result .= strval($value);
+				if($cnt++ < $length - 1) $result .= ','; else $result .= "\n";
 			}
 
 			return $result;
@@ -34,24 +40,25 @@
 		/**
 		 * ## データ形成変更関数
 		 * @param \PDOStatement $database 表示データベース
-		 * @return string データベース内容(CSV)
+		 * @return string データベース内容(JSON)
 		 */
 		public function toJson(PDOStatement $database): string {
 			header('Content-type: application/json');
 
 			foreach($database->fetch(PDO::FETCH_ASSOC) as $key => $value) $this->data['result'] .= array($key => $value);
 
-			/** ## JSONの形式 */
+			// region JSON Setting
 			$opt = 0;
 			$opt += JSON_NUMERIC_CHECK;
 			$opt += JSON_UNESCAPED_UNICODE;
+			// endregion JSON Setting
 			return json_encode($this->data, $opt);
 		}
 
 		/**
 		 * ## データ形成変更関数
 		 * @param \PDOStatement $database 表示データベース
-		 * @return string データベース内容(CSV)
+		 * @return string データベース内容(XML)
 		 */
 		public function toXml(PDOStatement $database): string {
 			header('Content-type: application/xml');
@@ -59,13 +66,17 @@
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 
+			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$result = $root->addChild('result');
-			foreach($database->fetch() as $key => $value) $result->addChild($key, $value);
+			foreach($database->fetch(PDO::FETCH_ASSOC) as $key => $value) $result->addChild($key, $value);
+			// endregion XML Element
 
+			// region XML Format
 			$dom = new DOMDocument('1.0');
 			$dom->loadXML($root->asXML());
 			$dom->formatOutput = true;
+			// endregion XML Format
 			return $dom->saveXML();
 		}
 	}
