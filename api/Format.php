@@ -15,7 +15,7 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toCsv(PDOStatement $database): string {
-			// header('Content-type: text/csv');
+			header('Content-type: text/csv');
 
 			$result = '';
 			$length = $database->columnCount() - 1;
