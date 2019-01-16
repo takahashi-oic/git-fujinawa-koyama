@@ -39,7 +39,7 @@
 		public function toJson(PDOStatement $database): string {
 			header('Content-type: application/json');
 
-			foreach($database->fetch() as $key => $value) $this->data['result'] .= array($key => $value);
+			foreach($database->fetch() as $col) $this->data['result'] .= array($col);
 
 			/** ## JSONの形式 */
 			$opt = 0;
