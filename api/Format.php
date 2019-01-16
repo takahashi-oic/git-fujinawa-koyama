@@ -21,7 +21,7 @@
 			$length = $database->columnCount() - 1;
 
 			// Column Name
-			for($col = 0; $col < $length; $col++) {
+			for($col = 0; $col < $length + 1; $col++) {
 				$result .= $database->getColumnMeta($col)['name'];
 				if($col < $length) $result .= ','; else $result .= "\n";
 			}
