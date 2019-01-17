@@ -32,7 +32,7 @@ try {
     
     $resultAge = array();
     while ($row = $stmt->fetch()) {
-        $resultAge[$row['age']] = $row['num'];
+        $resultAge[$row['age'] . "代"] = $row['num'];
     }
 
     //---ここまで処理---
