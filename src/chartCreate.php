@@ -189,8 +189,8 @@ try {
             var sexData = new Array(sexJson.length);
             var sexLabels = new Array(sexJson.length);
 
-            sexData = Object.values(json);
-            sexLabels = Object.keys(json);
+            sexData = Object.values(sexJson);
+            sexLabels = Object.keys(sexJson);
             
             var sexConfig = {
                 type: 'bar',
