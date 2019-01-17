@@ -45,7 +45,7 @@
 			header('Content-type: application/json');
 
 			$idx = 0;
-			while($col = $database->fetch(PGSQL_ASSOC)) {
+			while($col = $database->fetch()) {
 				foreach($col as $key => $value) $this->data['result'] += array($idx => array($key => $value));
 				$idx++;
 			}
