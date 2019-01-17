@@ -84,7 +84,7 @@
 
 			while($col = $database->fetch()) {
 				foreach($col as $key => $value) {
-					$results->addChild($key, strval($value));
+					$results->addChild($col, $key);
 				}
 			}
 			// endregion XML Element
