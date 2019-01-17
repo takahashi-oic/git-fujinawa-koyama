@@ -81,7 +81,7 @@
 			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$results = $root->addChild('results');
-			while($col = $database->fetch()) foreach($col as $key => $value) {
+			while($col = $database->fetch(PDO::FETCH_ASSOC)) foreach($col as $key => $value) {
 				$results->addChild($key, $value);
 			}
 			// endregion XML Element
