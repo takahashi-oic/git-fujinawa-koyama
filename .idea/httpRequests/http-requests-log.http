@@ -8,6 +8,14 @@ GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
 
 GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
 
+###
+
+GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
+
+###
+
+GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
+
 <> 2019-01-17T015307.200.xml
 
 ###
