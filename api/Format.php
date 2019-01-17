@@ -76,17 +76,16 @@
 			header('Content-type: application/xml');
 
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
-			$root = new SimpleXMLElement($header . '<api></api>');
+			$root = new SimpleXMLElement($header . '<api />');
 
 			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$results = $root->addChild('results');
 
 			while($col = $database->fetch()) {
-				foreach($col as $key => $value) {
-					$results->addChild($col, $key);
-				}
+				foreach($col as $key => $value) $results->addChild($col);
 			}
+				// $results->addChild($key, $value);
 			// endregion XML Element
 
 			// region XML Format
