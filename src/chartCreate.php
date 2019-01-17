@@ -350,6 +350,16 @@ try {
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, ageConfig);
             };
+            /*目的*/
+            document.getElementById("purposechart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, purposeConfig);
+            };
         </script>
     </body>
 </html>
