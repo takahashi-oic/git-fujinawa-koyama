@@ -75,6 +75,7 @@
 		public function toXml(PDOStatement $database): string {
 			header('Content-type: application/xml');
 
+			/*
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 
@@ -82,16 +83,15 @@
 			$msg = $root->addChild('msg', null);
 			$results = $root->addChild('results');
 
-			/*
 			while($col = $database->fetch()) foreach($col as $key => $value) $results->addChild($key, $value);
 			// endregion XML Element
+			*/
 
 			// region XML Format
 			$dom = new DOMDocument('1.0');
-			$dom->loadXML($root->asXML());
+			// $dom->loadXML($root->asXML());
 			$dom->formatOutput = true;
 			// endregion XML Format
-			*/
 
 			return $dom->saveXML();
 		}
