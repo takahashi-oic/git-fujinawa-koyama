@@ -46,8 +46,7 @@
 
 			$idx = 0;
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
-				foreach($col as $key => $value) $this->data['result'] += array(array($key => $value));
-				$idx++;
+				foreach($col as $key => $value) $this->data['result'] += array($idx++ => array($key => $value));
 			}
 
 			// region JSON Setting
