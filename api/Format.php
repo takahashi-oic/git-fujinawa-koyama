@@ -29,8 +29,10 @@
 			// Column Value
 			$cnt = 0;
 			while($col = $database->fetch()) {
-				$result .= strval($col);
-				if($cnt++ < $length) $result .= ','; else $result .= "\n";
+				foreach($col as $key => $value) {
+					$result .= $value;
+					if($cnt++ < $length) $result .= ','; else $result .= "\n";
+				}
 			}
 
 			return $result;
