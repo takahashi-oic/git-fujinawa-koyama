@@ -81,7 +81,9 @@
 			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$result = $root->addChild('result');
-			foreach($database->fetch() as $key => $value) $result->addChild($key, $value);
+			while($col = $database->fetch()) foreach($col as $key => $value) {
+				$result->addChild($key, $value);
+			}
 			// endregion XML Element
 
 			// region XML Format
