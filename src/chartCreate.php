@@ -25,14 +25,23 @@ try {
     while ($row = $stmt->fetch()) {
         $resultSex[$row['sex']] = $row['num'];
     }
-    
-    /*年齢取得*/
+
+    /* 年齢取得 */
     $stmt = $pdo->prepare("SELECT count(age) as num, age FROM age GROUP BY age ORDER BY age");
     $stmt->execute();
-    
+
     $resultAge = array();
     while ($row = $stmt->fetch()) {
         $resultAge[$row['age'] . "代"] = $row['num'];
+    }
+
+    /* 目的 */
+    $stmt = $pdo->prepare("SELECT count(purpose) as num, purpose FROM purpose GROUP BY purpose ORDER BY num DESC");
+    $stmt->execute();
+
+    $resultPurpose = array();
+    while ($row = $stmt->fetch()) {
+        $resultPurpose[$row['purpose']] = $row['num'];
     }
 
     //---ここまで処理---
@@ -87,7 +96,7 @@ try {
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" id="sexchart">性別</a></li>
                 <li><a href="#!" id="agechart">年齢</a></li>
-                <!--<li><a href="#!" id="piechart">円グラフ</a></li>-->
+                <li><a href="#!" id="purposechart">目的</a></li>
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
@@ -111,7 +120,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);          ?>
+            //var json = <?php //echo json_encode($resultArray);           ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -190,18 +199,18 @@ try {
              };*/
             // ---ここまで棒グラフ---
             // ---ここから性別---
-            var sexJson = <?php echo json_encode($resultSex);?>
+            var sexJson = <?php echo json_encode($resultSex); ?>
             //配列に変換
             var sexData = new Array(sexJson.length);
             var sexLabels = new Array(sexJson.length);
 
             sexData = Object.values(sexJson);
             sexLabels = Object.keys(sexJson);
-            
+
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: sexLabels,/*['男性', '女性']*/
+                    labels: sexLabels, /*['男性', '女性']*/
                     datasets: [{
                             data: sexData,
                             backgroundColor: ['#2196f3', '#f44336']
@@ -227,14 +236,14 @@ try {
             };
             // ---ここまで性別---
             // ---ここから年齢---
-            var ageJson = <?php echo json_encode($resultAge);?>
+            var ageJson = <?php echo json_encode($resultAge); ?>
             //配列に変換
             var ageData = new Array(ageJson.length);
             var ageLabels = new Array(ageJson.length);
 
             ageData = Object.values(ageJson);
             ageLabels = Object.keys(ageJson);
-            
+
             var ageConfig = {
                 type: 'bar',
                 data: {
@@ -273,6 +282,30 @@ try {
                 }
             };
             // ---ここまで年齢---
+            // ---ここから目的---
+            var purposeJson = <?php echo json_encode($resultPurpose); ?>
+            //配列に変換
+            var sexData = new Array(purposeJson.length);
+            var sexLabels = new Array(purposeJson.length);
+
+            purposeData = Object.values(purposeJson);
+            purposeLabels = Object.keys(purposeJson);
+            
+            var purposeConfig = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: purposeData,
+                            backgroundColor: colorSet
+                        }],
+                    labels: purposeLabels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで目的---
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
