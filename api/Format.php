@@ -82,7 +82,9 @@
 			$msg = $root->addChild('msg', null);
 			$results = $root->addChild('results');
 
-			while($col = $database->fetch()) foreach($col as $key => $value)
+			while($col = $database->fetch()) {
+				foreach($col as $key => $value) print_r($col);
+			}
 				// $results->addChild($key, $value);
 			// endregion XML Element
 
