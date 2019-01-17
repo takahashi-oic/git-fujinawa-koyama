@@ -46,7 +46,7 @@
 
 			$idx = 0;
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
-				foreach($col as $key => $value) $this->data['result'][] += array($key => $value);
+				foreach($col as $key => $value) $this->data['result'][$idx] += array($key => $value);
 				$idx++;
 			}
 
