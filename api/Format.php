@@ -28,8 +28,8 @@
 
 			// Column Value
 			$cnt = 0;
-			foreach($database->fetch(PDO::FETCH_ASSOC) as $value) {
-				$result .= strval($value);
+			while($col = $database->fetch()) {
+				$result .= strval($col);
 				if($cnt++ < $length) $result .= ','; else $result .= "\n";
 			}
 
