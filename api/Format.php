@@ -46,7 +46,7 @@
 
 			$idx = 0;
 			while($col = $database->fetch()) {
-				$this->data['result'] += array($idx => null);
+				$this->data['result'] += array($idx);
 				foreach($col as $key => $value) $this->data['result'][$idx] += array($key => $value);
 				$idx++;
 			}
