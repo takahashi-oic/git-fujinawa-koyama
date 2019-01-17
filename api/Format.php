@@ -45,7 +45,7 @@
 			header('Content-type: application/json');
 
 			$idx = 0;
-			foreach($database->fetch(PDO::FETCH_ASSOC) as $key => $value) $this->data['result'] += array($idx++ => array($key => $value));
+			foreach($database->fetch(PDO::FETCH_ASSOC) as $value) $this->data['result'] += array($idx++ => array($value));
 
 			// region JSON Setting
 			$opt = 0;
