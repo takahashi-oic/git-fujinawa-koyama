@@ -184,13 +184,20 @@ try {
              };*/
             // ---ここまで棒グラフ---
             // ---ここから性別---
+            var sexJson = <?php echo json_encode($resultSex);?>
+            //配列に変換
+            var sexData = new Array(json.length);
+            var sexLabels = new Array(json.length);
+
+            sexData = Object.values(json);
+            sexLabels = Object.keys(json);
             
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: ['男性', '女性'],
+                    labels: sexLabels,/*['男性', '女性']*/
                     datasets: [{
-                            data: [129, 123],
+                            data: sexData,
                             backgroundColor: ['#2196f3', '#f44336']
                         }]
                 },
