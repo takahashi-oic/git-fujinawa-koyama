@@ -186,11 +186,11 @@ try {
             // ---ここから性別---
             var sexJson = <?php echo json_encode($resultSex);?>
             //配列に変換
-            var sexData = new Array(json.length);
-            var sexLabels = new Array(json.length);
+            var sexData = new Array(sexJson.length);
+            var sexLabels = new Array(sexJson.length);
 
-            sexData = Object.values(json);
-            sexLabels = Object.keys(json);
+            sexData = Object.values(sexJson);
+            sexLabels = Object.keys(sexJson);
             
             var sexConfig = {
                 type: 'bar',
