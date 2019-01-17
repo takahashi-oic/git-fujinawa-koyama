@@ -30,10 +30,7 @@
 			$cnt = 0;
 			while($col = $database->fetch()) {
 				$result .= strval($col);
-				foreach($col as $key => $value) {
-					$result .= $value;
-					if($cnt++ < $length) $result .= ','; else $result .= "\n";
-				}
+				if($cnt++ < $length) $result .= ','; else $result .= "\n";
 			}
 
 			return $result;
