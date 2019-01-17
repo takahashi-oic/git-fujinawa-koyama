@@ -45,8 +45,8 @@
 			header('Content-type: application/json');
 
 			$idx = 0;
-			foreach($database->fetch(PDO::FETCH_ASSOC) as $col) {
-				foreach($col as $key => $value) $this->data['result'] += array($key => $value);
+			foreach($database->fetch() as $col) {
+				foreach($col as $key => $value) $this->data['result'] += array($idx => array($key => $value));
 				$idx++;
 			}
 
