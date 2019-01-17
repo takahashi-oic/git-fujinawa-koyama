@@ -75,10 +75,10 @@
 		public function toXml(PDOStatement $database): string {
 			header('Content-type: application/xml');
 
-			/*
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api></api>');
 
+			/*
 			// region XML Element
 			$msg = $root->addChild('msg', null);
 			$results = $root->addChild('results');
@@ -89,7 +89,7 @@
 
 			// region XML Format
 			$dom = new DOMDocument('1.0');
-			// $dom->loadXML($root->asXML());
+			$dom->loadXML($root->asXML());
 			$dom->formatOutput = true;
 			// endregion XML Format
 
