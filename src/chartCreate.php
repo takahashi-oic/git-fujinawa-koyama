@@ -27,12 +27,12 @@ try {
     }
     
     /*年齢取得*/
-    $stmt = $pdo->prepare("SELECT count(age) as ageNum, age FROM age GROUP BY age");
+    $stmt = $pdo->prepare("SELECT count(age) as num, age FROM age GROUP BY age ORDER BY age");
     $stmt->execute();
     
     $resultAge = array();
     while ($row = $stmt->fetch()) {
-        $resultAge[$row['age']] = $row['ageNum'];
+        $resultAge[$row['age']] = $row['num'];
     }
 
     //---ここまで処理---
