@@ -25,9 +25,15 @@ try {
     while ($row = $stmt->fetch()) {
         $resultSex[$row['sex']] = $row['num'];
     }
-    //test
-    /* echo("count<br>");*/
-      print_r($resultArray);
+    
+    /*年齢取得*/
+    $stmt = $pdo->prepare("SELECT count(age) as ageNum, age FROM age GROUP BY age");
+    $stmt->execute();
+    
+    $resultAge = array();
+    while ($row = $stmt->fetch()) {
+        $resultAge[$row['age']] = $row['ageNum'];
+    }
 
     //---ここまで処理---
 } catch (PDOException $e) {
@@ -221,12 +227,22 @@ try {
             };
             // ---ここまで性別---
             // ---ここから年齢---
+            var ageJson = <?php echo json_encode($resultAge);?>
+            //配列に変換
+            var ageData = new Array(ageJson.length);
+            var ageLabels = new Array(ageJson.length);
+
+            ageData = Object.values(ageJson);
+            ageLabels = Object.keys(ageJson);
+            
             var ageConfig = {
                 type: 'bar',
                 data: {
-                    labels: ['0～9', '10～19', '20～29', '30～39', '40～49', '50～59', '60～69', '70～79', '80+'],
+                    labels: ageLabels,
+                    /*['0～9', '10～19', '20～29', '30～39', '40～49', '50～59', '60～69', '70～79', '80+']*/
                     datasets: [{
-                            data: [129, 423, 650, 550, 450, 330, 440, 330, 370],
+                            data: ageData,
+                            /*[129, 423, 650, 550, 450, 330, 440, 330, 370]*/
                             backgroundColor: ["#9ccc65",
                                 "#039be5",
                                 "#ff9800",
