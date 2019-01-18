@@ -57,7 +57,7 @@
 										<tbody>
 											<tr>
 												<td>API Endpoint</td>
-												<td>http://sotuken2018q.herokuapp.com/api/</td>
+												<td>https://sotuken2018q.herokuapp.com/api/</td>
 											</tr>
 
 											<tr>

@@ -2,6 +2,7 @@
 	declare(strict_types = 1);
 
 	// 表示形式決定
+	if(key_exists('send', $_GET)) $send = $_GET['send']; else $send = 'database';
 	switch(rand(0, 2)) {
 		case 0:
 			$_GET['format'] = 'csv';
@@ -101,7 +102,18 @@
 							<h3 id="header">使用例</h3>
 							<div>
 								<p>HTTPリクエスト</p>
-								<pre class="prettyprint">GET http://localhost/git-fujinawa-koyama/api/database.php?format=<?= $_GET['format'] ?></pre>
+								<pre class="prettyprint">GET https://sotuken2018q.herokuapp.com/git-fujinawa-koyama/api/<?= $send ?>.php?format=<?= $_GET['format'] ?></pre>
+							</div>
+
+							<div>
+								<p>HTTPレスポンス</p>
+								<pre class="prettyprint">
+									<?php
+										$request = $send . 'php';
+										require_once("../api/" . $request);
+										header('Content-type: text/html');
+									?>
+								</pre>
 							</div>
 						</div>
 					</div>
