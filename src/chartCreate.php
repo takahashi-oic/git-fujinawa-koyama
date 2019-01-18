@@ -80,7 +80,7 @@ try {
             <div class="col s12">
                 <ul class="tabs">
                     <?php if (isset($_SESSION["userid"])) { ?>
-                        <li class="tab col s3" id="home"><a href="adminTop.php"><span class="orange-text text-darken-3">ホーム</span></a></li>
+                        <li class="tab col s3" id="home"><a href="adminTop.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
                     <?php } else { ?>
                         <li class="tab col s3" id="home"><a href="index.php"><span class="light-green-text text-lighten-1">ホーム</span></a></li>
                     <?php } ?>
