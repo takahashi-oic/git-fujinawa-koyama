@@ -359,7 +359,9 @@
                 <option value="関西国際空港">関西国際空港</option>
                 <option value="中部国際空港">中部国際空港</option>
                 <option value="羽田空港">羽田空港</option>
-                  <option value="成田空港">成田空港</option>
+                <option value="成田空港">成田空港</option>
+                <option value="米子空港">米子空港</option>
+                <option value="福岡空港">福岡空港</option>
             </select>
             <br>
             <select class="browser-default" name="outairport">
@@ -371,76 +373,153 @@
                 <option value="中部国際空港">中部国際空港</option>
                 <option value="羽田空港">羽田空港</option>
                 <option value="成田空港">成田空港</option>
+                <option value="米子空港">米子空港</option>
+                <option value="福岡空港">福岡空港</option>
             </select>
             <p class="black-text">5.岡山県でどこの観光地に行きましたか</p>
             <select class="browser-default" name="Tourism1">
                 <option value="" disabled selected>一番目の観光地を選択してください</option>
-                 <option value="岡山城">岡山城</option>
-                <option value="後楽園">後楽園</option>
-                <option value="大原美術館">大原美術館</option>
-                <option value="美観地区">美観地区</option>
-                <option value="湯原温泉">湯原温泉</option>
-                <option value="鷲羽山">鷲羽山</option>
-                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
-                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="岡山後楽園">岡山後楽園</option>
+                <option value="岡山城">岡山城</option>
+                <option value="倉敷美観地区">倉敷美観地区</option>
+                <option value="直島">直島</option>
+                <option value="鷲羽山・瀬戸大橋">鷲羽山・瀬戸大橋</option>
+                <option value="豊島">豊島</option>
+                <option value="吉備津神社">吉備津神社</option>
+                <option value="犬島">犬島</option>
+                <option value="児島ジーンズストリート・ジーンズミュージアム">児島ジーンズストリート・ジーンズミュージアム</option>
+                <option value="観光農園（果物狩り）">観光農園（果物狩り）</option>
+                <option value="笠岡ベイファーム">笠岡ベイファーム</option>
+                <option value="牛窓オリーブ園・牛窓">牛窓オリーブ園・牛窓</option>
+                <option value="旧閑谷学校・備前市伊部">旧閑谷学校・備前市伊部</option>
+                <option value="備中松山城">備中松山城</option>
+                <option value="備前長船刀剣博物館">備前長船刀剣博物館</option>
+                <option value="サッポロワイナリー">サッポロワイナリー</option>
                 <option value="蒜山高原">蒜山高原</option>
-                <option value="社吉備津神">社吉備津神</option>
+                <option value="キリンビール岡山工場">キリンビール岡山工場</option>
+                <option value="吹屋">吹屋</option>
+                <option value="津山城（鶴山公園）">津山城（鶴山公園）</option>
+                <option value="湯郷温泉">湯郷温泉</option>
+                <option value="矢掛本陣">矢掛本陣</option>
+                <option value="井倉洞">井倉洞</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="岡山市内観光">岡山市内観光</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism2">
                 <option value="" disabled selected>二番目の観光地を選択してください</option>
+                <option value="岡山後楽園">岡山後楽園</option>
                 <option value="岡山城">岡山城</option>
-                <option value="後楽園">後楽園</option>
-                <option value="大原美術館">大原美術館</option>
-                <option value="美観地区">美観地区</option>
-                <option value="湯原温泉">湯原温泉</option>
-                <option value="鷲羽山">鷲羽山</option>
-                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
-                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="倉敷美観地区">倉敷美観地区</option>
+                <option value="直島">直島</option>
+                <option value="鷲羽山・瀬戸大橋">鷲羽山・瀬戸大橋</option>
+                <option value="豊島">豊島</option>
+                <option value="吉備津神社">吉備津神社</option>
+                <option value="犬島">犬島</option>
+                <option value="児島ジーンズストリート・ジーンズミュージアム">児島ジーンズストリート・ジーンズミュージアム</option>
+                <option value="観光農園（果物狩り）">観光農園（果物狩り）</option>
+                <option value="笠岡ベイファーム">笠岡ベイファーム</option>
+                <option value="牛窓オリーブ園・牛窓">牛窓オリーブ園・牛窓</option>
+                <option value="旧閑谷学校・備前市伊部">旧閑谷学校・備前市伊部</option>
+                <option value="備中松山城">備中松山城</option>
+                <option value="備前長船刀剣博物館">備前長船刀剣博物館</option>
+                <option value="サッポロワイナリー">サッポロワイナリー</option>
                 <option value="蒜山高原">蒜山高原</option>
-                <option value="社吉備津神">社吉備津神</option>
+                <option value="キリンビール岡山工場">キリンビール岡山工場</option>
+                <option value="吹屋">吹屋</option>
+                <option value="津山城（鶴山公園）">津山城（鶴山公園）</option>
+                <option value="湯郷温泉">湯郷温泉</option>
+                <option value="矢掛本陣">矢掛本陣</option>
+                <option value="井倉洞">井倉洞</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="岡山市内観光">岡山市内観光</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism3">
                 <option value="" disabled selected>三番目の観光地を選択してください</option>
+                <option value="岡山後楽園">岡山後楽園</option>
                 <option value="岡山城">岡山城</option>
-                <option value="後楽園">後楽園</option>
-                <option value="大原美術館">大原美術館</option>
-                <option value="美観地区">美観地区</option>
-                <option value="湯原温泉">湯原温泉</option>
-                <option value="鷲羽山">鷲羽山</option>
-                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
-                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="倉敷美観地区">倉敷美観地区</option>
+                <option value="直島">直島</option>
+                <option value="鷲羽山・瀬戸大橋">鷲羽山・瀬戸大橋</option>
+                <option value="豊島">豊島</option>
+                <option value="吉備津神社">吉備津神社</option>
+                <option value="犬島">犬島</option>
+                <option value="児島ジーンズストリート・ジーンズミュージアム">児島ジーンズストリート・ジーンズミュージアム</option>
+                <option value="観光農園（果物狩り）">観光農園（果物狩り）</option>
+                <option value="笠岡ベイファーム">笠岡ベイファーム</option>
+                <option value="牛窓オリーブ園・牛窓">牛窓オリーブ園・牛窓</option>
+                <option value="旧閑谷学校・備前市伊部">旧閑谷学校・備前市伊部</option>
+                <option value="備中松山城">備中松山城</option>
+                <option value="備前長船刀剣博物館">備前長船刀剣博物館</option>
+                <option value="サッポロワイナリー">サッポロワイナリー</option>
                 <option value="蒜山高原">蒜山高原</option>
-                <option value="社吉備津神">社吉備津神</option>
+                <option value="キリンビール岡山工場">キリンビール岡山工場</option>
+                <option value="吹屋">吹屋</option>
+                <option value="津山城（鶴山公園）">津山城（鶴山公園）</option>
+                <option value="湯郷温泉">湯郷温泉</option>
+                <option value="矢掛本陣">矢掛本陣</option>
+                <option value="井倉洞">井倉洞</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="岡山市内観光">岡山市内観光</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism4">
                 <option value="" disabled selected>四番目の観光地を選択してください</option>
-                 <option value="岡山城">岡山城</option>
-                <option value="後楽園">後楽園</option>
-                <option value="大原美術館">大原美術館</option>
-                <option value="美観地区">美観地区</option>
-                <option value="湯原温泉">湯原温泉</option>
-                <option value="鷲羽山">鷲羽山</option>
-                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
-                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="岡山後楽園">岡山後楽園</option>
+                <option value="岡山城">岡山城</option>
+                <option value="倉敷美観地区">倉敷美観地区</option>
+                <option value="直島">直島</option>
+                <option value="鷲羽山・瀬戸大橋">鷲羽山・瀬戸大橋</option>
+                <option value="豊島">豊島</option>
+                <option value="吉備津神社">吉備津神社</option>
+                <option value="犬島">犬島</option>
+                <option value="児島ジーンズストリート・ジーンズミュージアム">児島ジーンズストリート・ジーンズミュージアム</option>
+                <option value="観光農園（果物狩り）">観光農園（果物狩り）</option>
+                <option value="笠岡ベイファーム">笠岡ベイファーム</option>
+                <option value="牛窓オリーブ園・牛窓">牛窓オリーブ園・牛窓</option>
+                <option value="旧閑谷学校・備前市伊部">旧閑谷学校・備前市伊部</option>
+                <option value="備中松山城">備中松山城</option>
+                <option value="備前長船刀剣博物館">備前長船刀剣博物館</option>
+                <option value="サッポロワイナリー">サッポロワイナリー</option>
                 <option value="蒜山高原">蒜山高原</option>
-                <option value="社吉備津神">社吉備津神</option>
+                <option value="キリンビール岡山工場">キリンビール岡山工場</option>
+                <option value="吹屋">吹屋</option>
+                <option value="津山城（鶴山公園）">津山城（鶴山公園）</option>
+                <option value="湯郷温泉">湯郷温泉</option>
+                <option value="矢掛本陣">矢掛本陣</option>
+                <option value="井倉洞">井倉洞</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="岡山市内観光">岡山市内観光</option>
             </select>
             <br>
             <select class="browser-default"  name="Tourism5">
                 <option value="" disabled selected>五番目の観光地を選択してください</option>
-                 <option value="岡山城">岡山城</option>
-                <option value="後楽園">後楽園</option>
-                <option value="大原美術館">大原美術館</option>
-                <option value="美観地区">美観地区</option>
-                <option value="湯原温泉">湯原温泉</option>
-                <option value="鷲羽山">鷲羽山</option>
-                <option value="牛窓オリーブ園">牛窓オリーブ園</option>
-                <option value="おもちゃ王国">おもちゃ王国</option>
+                <option value="岡山後楽園">岡山後楽園</option>
+                <option value="岡山城">岡山城</option>
+                <option value="倉敷美観地区">倉敷美観地区</option>
+                <option value="直島">直島</option>
+                <option value="鷲羽山・瀬戸大橋">鷲羽山・瀬戸大橋</option>
+                <option value="豊島">豊島</option>
+                <option value="吉備津神社">吉備津神社</option>
+                <option value="犬島">犬島</option>
+                <option value="児島ジーンズストリート・ジーンズミュージアム">児島ジーンズストリート・ジーンズミュージアム</option>
+                <option value="観光農園（果物狩り）">観光農園（果物狩り）</option>
+                <option value="笠岡ベイファーム">笠岡ベイファーム</option>
+                <option value="牛窓オリーブ園・牛窓">牛窓オリーブ園・牛窓</option>
+                <option value="旧閑谷学校・備前市伊部">旧閑谷学校・備前市伊部</option>
+                <option value="備中松山城">備中松山城</option>
+                <option value="備前長船刀剣博物館">備前長船刀剣博物館</option>
+                <option value="サッポロワイナリー">サッポロワイナリー</option>
                 <option value="蒜山高原">蒜山高原</option>
-                <option value="社吉備津神">社吉備津神</option>
+                <option value="キリンビール岡山工場">キリンビール岡山工場</option>
+                <option value="吹屋">吹屋</option>
+                <option value="津山城（鶴山公園）">津山城（鶴山公園）</option>
+                <option value="湯郷温泉">湯郷温泉</option>
+                <option value="矢掛本陣">矢掛本陣</option>
+                <option value="井倉洞">井倉洞</option>
+                <option value="湯原温泉">湯原温泉</option>
+                <option value="岡山市内観光">岡山市内観光</option>
             </select>
             <p>6.岡山県で何を購入しましたか（印象に残ったものを3つ）</p>
             <div class="row">
