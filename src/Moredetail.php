@@ -15,7 +15,6 @@
 			$_GET['format'] = 'xml';
 			break;
 
-
 		// 何かあった時のため
 		default:
 			$_GET['format'] = 'json';

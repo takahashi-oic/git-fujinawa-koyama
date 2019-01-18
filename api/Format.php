@@ -38,6 +38,7 @@
 				}
 			}
 
+			$database->closeCursor();
 			return $result;
 		}
 
@@ -64,6 +65,7 @@
 			$opt += JSON_NUMERIC_CHECK;
 			$opt += JSON_UNESCAPED_UNICODE;
 			// endregion JSON Setting
+			$database->closeCursor();
 			return json_encode($this->data, $opt);
 		}
 
@@ -94,6 +96,7 @@
 			$dom->formatOutput = true;
 			// endregion XML Format
 
+			$database->closeCursor();
 			return $dom->saveXML();
 		}
 	}

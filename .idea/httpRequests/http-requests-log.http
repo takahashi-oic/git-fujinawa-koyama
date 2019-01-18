@@ -16,6 +16,14 @@ GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
 
 GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
 
+###
+
+GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
+
+###
+
+GET http://sotuken2018q.herokuapp.com/api/age.php?format=xml
+
 <> 2019-01-17T015307.200.xml
 
 ###
@@ -259,12 +267,6 @@ PUT http://sotuken2018q.herokuapp.com/api/age.php?format=json
 TRACE http://sotuken2018q.herokuapp.com/api/age.php?format=json
 
 <> 2019-01-15T112626.405.html
-
-###
-
-POST http://sotuken2018q.herokuapp.com/api/age.php?format=json
-
-<> 2019-01-15T112600.403.html
 
 ###
 
