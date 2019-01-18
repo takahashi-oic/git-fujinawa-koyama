@@ -79,7 +79,7 @@
 		<p>　API一覧</p>
 		<?php
 			print_list(array(
-				new APIDispatcher('#?send=database', '全集計結果'), new APIDispatcher('#?send=question', 'アンケートごとの結果'), new APIDispatcher('#?send=sex', '性別一覧'), new APIDispatcher('#?send=country', '国一覧'), new APIDispatcher('#?send=airport', '空港一覧'), new APIDispatcher('#?send=tourism', '観光地一覧'), new APIDispatcher('#?send=purchases', '購入したもの一覧'),
+				new APIDispatcher('Moredetail.php?send=database', '全集計結果'), new APIDispatcher('Moredetail.php?send=question', 'アンケートごとの結果'), new APIDispatcher('Moredetail.php?send=sex', '性別一覧'), new APIDispatcher('Moredetail.php?send=country', '国一覧'), new APIDispatcher('Moredetail.php?send=airport', '空港一覧'), new APIDispatcher('Moredetail.php?send=tourism', '観光地一覧'), new APIDispatcher('Moredetail.php?send=purchases', '購入したもの一覧'),
 			));
 		?>
 
