@@ -55,7 +55,7 @@
 	<body>
 		<?php
 			// left_nav
-			include_once('/api/src/nav.php');
+			include_once('../api/src/nav.php');
 		?>
 		<div class="container">
 			<div class="row">
@@ -110,7 +110,7 @@
 								<pre class="prettyprint">
 									<?php
 										$request = $send . 'php';
-										require_once("../api/" . $request);
+										require_once("../api/${request}");
 										header('Content-type: text/html');
 									?>
 								</pre>
