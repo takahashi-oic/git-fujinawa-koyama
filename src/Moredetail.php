@@ -55,7 +55,7 @@
 	<body>
 		<?php
 			// left_nav
-			include_once('../api/src/nav.php');
+			include_once('/api/src/nav.php');
 		?>
 		<div class="container">
 			<div class="row">
