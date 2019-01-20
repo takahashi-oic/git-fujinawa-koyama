@@ -36,10 +36,12 @@ try {
 
     $resultSex = array();
     while ($row = $stmt->fetch()) {
-        if($row['sex'] == ""){
-            $resultSex['無回答・その他'] = $row['num'];
+        if($row['sex'] == '男'){
+            $resultSex[0] = $row['num'];
+        } else if($row['sex'] == '女'){
+            $resultSex[1] = $row['num'];
         } else {
-            $resultSex[$row['sex']] = $row['num'];
+            $resultSex[2] = $row['num'];
         }
     }
 
@@ -255,12 +257,11 @@ try {
             var sexLabels = new Array(sexJson.length);
 
             sexData = Object.values(sexJson);
-            sexLabels = Object.keys(sexJson);
 
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: sexLabels, /*['男性', '女性']*/
+                    labels: ['男性', '女性'],
                     datasets: [{
                             data: sexData,
                             backgroundColor: ['#2196f3', '#f44336']
