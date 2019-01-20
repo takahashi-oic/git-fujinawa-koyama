@@ -18,13 +18,14 @@ try {
       $resultArray[$row['result']] = $row['count'];
       } */
     /* 国取得 */
-    $stmt = $pdo->prepare("SELECT count(country) as num, country FROM country GROUP BY country");
+    $stmt = $pdo->prepare("SELECT count(country) as num, country FROM country GROUP BY country ORDER BY num DESC");
     $stmt->execute();
 
     $resultCountry = array();
     while ($row = $stmt->fetch()) {
         if($row['country'] == '' || $row['country'] == null){
             $resultCountry[$row['無回答・その他']] = $row['num'];
+            echo '無回答1';
         } else {
             $resultCountry[$row['country']] = $row['num'];
         }
