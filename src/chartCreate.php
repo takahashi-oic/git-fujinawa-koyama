@@ -373,8 +373,8 @@ try {
             };
             // ---ここまで目的---
             // ---ここから入出
-            var inJson = <?php echo json_encode($resultInport); ?>
-            var outJson = <?php echo json_encode($resultOutport); ?>
+            var inJson = <?php echo json_encode($resultInport); ?>;
+            var outJson = <?php echo json_encode($resultOutport); ?>;
 
             inData = Object.values(inJson);
             inLabels = Object.keys(inJson);
