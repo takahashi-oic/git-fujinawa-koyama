@@ -126,6 +126,60 @@ try {
             $resultP3[$row['purchases3']] = $row['num'];
         }
     }
+    
+    /* 観光 */
+    $stmt_t1 = $pdo->prepare("SELECT count(tourism1) as num, tourism1 FROM tourism1 GROUP BY tourism1 ORDER BY num DESC");
+    $stmt_t2 = $pdo->prepare("SELECT count(tourism2) as num, tourism2 FROM tourism2 GROUP BY tourism2 ORDER BY num DESC");
+    $stmt_t3 = $pdo->prepare("SELECT count(tourism3) as num, tourism3 FROM tourism3 GROUP BY tourism3 ORDER BY num DESC");
+    $stmt_t4 = $pdo->prepare("SELECT count(tourism4) as num, tourism4 FROM tourism4 GROUP BY tourism4 ORDER BY num DESC");
+    $stmt_t5 = $pdo->prepare("SELECT count(tourism5) as num, tourism5 FROM tourism5 GROUP BY tourism5 ORDER BY num DESC");
+    $stmt_t1->execute();
+    $stmt_t2->execute();
+    $stmt_t3->execute();
+    $stmt_t4->execute();
+    $stmt_t5->execute();
+    
+    $resultT1 = array();
+    while ($row = $stmt_t1->fetch()) {
+        if ($row['tourism1'] == "") {
+            $resultT1['無回答・その他'] = $row['num'];
+        } else {
+            $resultT1[$row['tourism1']] = $row['num'];
+        }
+    }
+    $resultT2 = array();
+    while ($row = $stmt_t2->fetch()) {
+        if ($row['tourism2'] == "") {
+            $resultT2['無回答・その他'] = $row['num'];
+        } else {
+            $resultT2[$row['tourism2']] = $row['num'];
+        }
+    }
+    $resultT3 = array();
+    while ($row = $stmt_t3->fetch()) {
+        if ($row['tourism3'] == "") {
+            $resultT3['無回答・その他'] = $row['num'];
+        } else {
+            $resultT3[$row['tourism3']] = $row['num'];
+        }
+    }
+    $resultT4 = array();
+    while ($row = $stmt_t4->fetch()) {
+        if ($row['tourism4'] == "") {
+            $resultT4['無回答・その他'] = $row['num'];
+        } else {
+            $resultT4[$row['tourism4']] = $row['num'];
+        }
+    }
+    $resultT5 = array();
+    while ($row = $stmt_t5->fetch()) {
+        if ($row['tourism5'] == "") {
+            $resultT5['無回答・その他'] = $row['num'];
+        } else {
+            $resultT5[$row['tourism5']] = $row['num'];
+        }
+    }
+    
     //---ここまで処理---
 } catch (PDOException $e) {
     //エラー
@@ -182,9 +236,14 @@ try {
                 <li><a href="#!" id="purposechart">目的</a></li>
                 <li><a href="#!" id="inchart">入国空港</a></li>
                 <li><a href="#!" id="outchart">出国空港</a></li>
-                <li><a href="#!" id="p1chart">購入物1位</a></li>
-                <li><a href="#!" id="p2chart">購入物2位</a></li>
-                <li><a href="#!" id="p3chart">購入物3位</a></li>
+                <li><a href="#!" id="p1chart">購入物 選択1</a></li>
+                <li><a href="#!" id="p2chart">購入物 選択2</a></li>
+                <li><a href="#!" id="p3chart">購入物 選択3</a></li>
+                <li><a href="#!" id="t1chart">観光 選択1</a></li>
+                <li><a href="#!" id="t2chart">観光 選択2</a></li>
+                <li><a href="#!" id="t3chart">観光 選択3</a></li>
+                <li><a href="#!" id="t4chart">観光 選択4</a></li>
+                <li><a href="#!" id="t5chart">観光 選択5</a></li>
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 -->
@@ -499,6 +558,95 @@ try {
                 }
             };
             // ---ここまで購入物---
+            // ---ここから観光---
+            var t1Json = <?php echo json_encode($resultT1); ?>;
+            var t2Json = <?php echo json_encode($resultT2); ?>;
+            var t3Json = <?php echo json_encode($resultT3); ?>;
+            var t4Json = <?php echo json_encode($resultT4); ?>;
+            var t5Json = <?php echo json_encode($resultT5); ?>;
+            
+            t1Data = Object.values(t1Json);
+            t1Labels = Object.keys(t1Json);
+            t2Data = Object.values(t2Json);
+            t2Labels = Object.keys(t2Json);
+            t3Data = Object.values(t3Json);
+            t3Labels = Object.keys(t3Json);
+            t4Data = Object.values(t4Json);
+            t4Labels = Object.keys(t4Json);
+            t5Data = Object.values(t5Json);
+            t5Labels = Object.keys(t5Json);
+            
+            var t1Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: t1Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: t1Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var t2Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: t2Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: t2Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var t3Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: t3Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: t3Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var t4Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: t4Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: t4Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var t5Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: t5Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: t5Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで観光---
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
@@ -589,6 +737,52 @@ try {
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, p3Config);
+            };
+            /*観光*/
+            document.getElementById("t1chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, t1Config);
+            };
+            document.getElementById("t2chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, t2Config);
+            };
+            document.getElementById("t3chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, t3Config);
+            };
+            document.getElementById("t4chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, t4Config);
+            };
+            document.getElementById("t5chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, t5Config);
             };
         </script>
     </body>
