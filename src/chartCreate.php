@@ -113,7 +113,7 @@ try {
     $resultP2 = array();
     while ($row = $stmt_in->fetch()) {
         if ($row['purchases2'] == "") {
-            $resultP1['無回答・その他'] = $row['num'];
+            $resultP2['無回答・その他'] = $row['num'];
         } else {
             $resultP2[$row['purchases2']] = $row['num'];
         }
