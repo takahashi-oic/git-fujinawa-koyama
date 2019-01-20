@@ -103,7 +103,7 @@ try {
     $stmt_p3->execute();
     
     $resultP1 = array();
-    while ($row = $stmt_in->fetch()) {
+    while ($row = $stmt_p1->fetch()) {
         if ($row['purchases1'] == "") {
             $resultP1['無回答・その他'] = $row['num'];
         } else {
@@ -111,7 +111,7 @@ try {
         }
     }
     $resultP2 = array();
-    while ($row = $stmt_in->fetch()) {
+    while ($row = $stmt_p2->fetch()) {
         if ($row['purchases2'] == "") {
             $resultP2['無回答・その他'] = $row['num'];
         } else {
@@ -119,7 +119,7 @@ try {
         }
     }
     $resultP3 = array();
-    while ($row = $stmt_in->fetch()) {
+    while ($row = $stmt_p3->fetch()) {
         if ($row['purchases3'] == "") {
             $resultP3['無回答・その他'] = $row['num'];
         } else {
