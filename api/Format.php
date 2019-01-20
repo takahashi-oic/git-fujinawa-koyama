@@ -81,7 +81,7 @@
 			$root = new SimpleXMLElement($header . '<api />');
 
 			// region XML Element
-			$msg = $root->addChild('msg', null);
+			$msg = $root->addChild('msg');
 			$results = $root->addChild('results');
 
 			while($col = $database->fetch()) {
