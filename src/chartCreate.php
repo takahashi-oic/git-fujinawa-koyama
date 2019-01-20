@@ -94,6 +94,38 @@ try {
         }
     }
 
+    /* 購入物 */
+    $stmt_p1 = $pdo->prepare("SELECT count(purchases1) as num, purchases1 FROM purchases1 GROUP BY purchases1 ORDER BY num DESC");
+    $stmt_p2 = $pdo->prepare("SELECT count(purchases2) as num, purchases2 FROM purchases2 GROUP BY purchases2 ORDER BY num DESC");
+    $stmt_p3 = $pdo->prepare("SELECT count(purchases3) as num, purchases3 FROM purchases3 GROUP BY purchases3 ORDER BY num DESC");
+    $stmt_p1->execute();
+    $stmt_p2->execute();
+    $stmt_p3->execute();
+    
+    $resultP1 = array();
+    while ($row = $stmt_in->fetch()) {
+        if ($row['purchases1'] == "") {
+            $resultP1['無回答・その他'] = $row['num'];
+        } else {
+            $resultP1[$row['purchases1']] = $row['num'];
+        }
+    }
+    $resultP2 = array();
+    while ($row = $stmt_in->fetch()) {
+        if ($row['purchases2'] == "") {
+            $resultP1['無回答・その他'] = $row['num'];
+        } else {
+            $resultP2[$row['purchases2']] = $row['num'];
+        }
+    }
+    $resultP3 = array();
+    while ($row = $stmt_in->fetch()) {
+        if ($row['purchases3'] == "") {
+            $resultP3['無回答・その他'] = $row['num'];
+        } else {
+            $resultP3[$row['purchases3']] = $row['num'];
+        }
+    }
     //---ここまで処理---
 } catch (PDOException $e) {
     //エラー
@@ -150,11 +182,11 @@ try {
                 <li><a href="#!" id="purposechart">目的</a></li>
                 <li><a href="#!" id="inchart">入国空港</a></li>
                 <li><a href="#!" id="outchart">出国空港</a></li>
+                <li><a href="#!" id="p1chart">購入物1位</a></li>
+                <li><a href="#!" id="p2chart">購入物2位</a></li>
+                <li><a href="#!" id="p3chart">購入物3位</a></li>
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">グラフ１</a></li>
-                <li><a href="#!">グラフ２</a></li>
-                <li><a href="#!">グラフ３</a></li>
                 -->
             </ul>
         </div>
@@ -411,31 +443,66 @@ try {
                     maintainAspectRatio: false
                 }
             };
-            // ---ここまで入出
+            // ---ここまで入出---
+            // ---ここから購入物---
+            var p1Json = <?php echo json_encode($resultP1); ?>;
+            var p2Json = <?php echo json_encode($resultP2); ?>;
+            var p3Json = <?php echo json_encode($resultP3); ?>;
+            
+            p1Data = Object.values(p1Json);
+            p1Labels = Object.keys(p1Json);
+            p2Data = Object.values(p2Json);
+            p2Labels = Object.keys(p2Json);
+            p3Data = Object.values(p3Json);
+            p3Labels = Object.keys(p3Json);
+            
+            var p1Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: p1Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: p1Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var p2Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: p2Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: p2Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            var p3Config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: p3Data,
+                            backgroundColor: colorSet
+                        }],
+                    labels: p3Labels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで購入物---
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
 
-            /*円グラフ*/
-            /*document.getElementById("piechart").onclick = function () {
-             //myChartの中身があれば空に
-             if (myChart) {
-             myChart.destroy();
-             }
-             ctx.canvas.height = 500;//グラフの高さ
-             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-             myChart = new Chart(ctx, pieConfig);
-             };*/
-            /*棒グラフ*/
-            /*document.getElementById("barchart").onclick = function () {
-             //myChartの中身があれば空に
-             if (myChart) {
-             myChart.destroy();
-             }
-             ctx.canvas.height = 300;//グラフの高さ
-             ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-             myChart = new Chart(ctx, barConfig);
-             };*/
             /*国*/
             document.getElementById("countrychart").onclick = function () {
                 //myChartの中身があれば空に
@@ -494,6 +561,34 @@ try {
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, outConfig);
+            };
+            /*購入物*/
+            document.getElementById("p1chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, p1Config);
+            };
+            document.getElementById("p2chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, p2Config);
+            };
+            document.getElementById("p3chart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, p3Config);
             };
         </script>
     </body>
