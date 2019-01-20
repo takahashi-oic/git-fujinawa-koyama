@@ -24,8 +24,7 @@ try {
     $resultCountry = array();
     while ($row = $stmt->fetch()) {
         if($row['country'] == '' || $row['country'] == null){
-            $resultCountry[$row['無回答・その他']] = $row['num'];
-            echo '無回答1';
+            $resultCountry['無回答・その他'] = $row['num'];
         } else {
             $resultCountry[$row['country']] = $row['num'];
         }
@@ -38,7 +37,7 @@ try {
     $resultSex = array();
     while ($row = $stmt->fetch()) {
         if($row['sex'] == ""){
-            $resultSex[$row['無回答・その他']] = $row['num'];
+            $resultSex['無回答・その他'] = $row['num'];
         } else {
             $resultSex[$row['sex']] = $row['num'];
         }
@@ -51,7 +50,7 @@ try {
     $resultAge = array();
     while ($row = $stmt->fetch()) {
         if($row['age'] == ""){
-            $resultAge[$row['無回答・その他']] = $row['num'];
+            $resultAge['無回答・その他'] = $row['num'];
         } else {
             $resultAge[$row['age'] . "代"] = $row['num'];
         }
@@ -64,7 +63,7 @@ try {
     $resultPurpose = array();
     while ($row = $stmt->fetch()) {
         if($row['purpose'] == ""){
-            $resultPurpose[$row['無回答・その他']] = $row['num'];
+            $resultPurpose['無回答・その他'] = $row['num'];
         } else {
             $resultPurpose[$row['purpose']] = $row['num'];
         }
