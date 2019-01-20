@@ -236,9 +236,9 @@ try {
                 <li><a href="#!" id="purposechart">目的</a></li>
                 <li><a href="#!" id="inchart">入国空港</a></li>
                 <li><a href="#!" id="outchart">出国空港</a></li>
-                <li><a href="#!" id="p1chart">購入物 選択1</a></li>
-                <li><a href="#!" id="p2chart">購入物 選択2</a></li>
-                <li><a href="#!" id="p3chart">購入物 選択3</a></li>
+                <li><a href="#!" id="p1chart">購入 選択1</a></li>
+                <li><a href="#!" id="p2chart">購入 選択2</a></li>
+                <li><a href="#!" id="p3chart">購入 選択3</a></li>
                 <li><a href="#!" id="t1chart">観光 選択1</a></li>
                 <li><a href="#!" id="t2chart">観光 選択2</a></li>
                 <li><a href="#!" id="t3chart">観光 選択3</a></li>
