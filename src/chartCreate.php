@@ -382,7 +382,7 @@ try {
             outLabels = Object.keys(outJson);
 
             //横棒グラフはシステムの相性の都合上難しい
-            var inConfig = {
+            var ioConfig = {
                 type: 'bar',
                 data: {
                     labels: inLabels,
@@ -492,6 +492,16 @@ try {
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, purposeConfig);
+            };
+            /*入出*/
+            document.getElementById("iochart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, ioConfig);
             };
         </script>
     </body>
