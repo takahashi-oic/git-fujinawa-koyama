@@ -23,7 +23,7 @@ try {
 
     $resultCountry = array();
     while ($row = $stmt->fetch()) {
-        if($row['country'] == "" || $row['country'] == null){
+        if($row['country'] == '' || $row['country'] == null){
             $resultCountry[$row['無回答・その他']] = $row['num'];
         } else {
             $resultCountry[$row['country']] = $row['num'];
