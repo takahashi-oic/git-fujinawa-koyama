@@ -17,13 +17,30 @@ try {
       while ($row = $stmt->fetch()) {
       $resultArray[$row['result']] = $row['count'];
       } */
+    /* 国取得 */
+    $stmt = $pdo->prepare("SELECT count(country) as num, country FROM country GROUP BY country");
+    $stmt->execute();
+
+    $resultCountry = array();
+    while ($row = $stmt->fetch()) {
+        if($row['country'] == ""){
+            $resultCountry[$row['無回答・その他']] = $row['num'];
+        } else {
+            $resultCountry[$row['country']] = $row['num'];
+        }
+    }
+    
     /* 性別取得 */
     $stmt = $pdo->prepare("SELECT count(sex) as num, sex FROM sex GROUP BY sex");
     $stmt->execute();
 
     $resultSex = array();
     while ($row = $stmt->fetch()) {
-        $resultSex[$row['sex']] = $row['num'];
+        if($row['sex'] == ""){
+            $resultCountry[$row['無回答・その他']] = $row['num'];
+        } else {
+            $resultCountry[$row['sex']] = $row['num'];
+        }
     }
 
     /* 年齢取得 */
@@ -32,7 +49,11 @@ try {
 
     $resultAge = array();
     while ($row = $stmt->fetch()) {
-        $resultAge[$row['age'] . "代"] = $row['num'];
+        if($row['age'] == ""){
+            $resultCountry[$row['無回答・その他']] = $row['num'];
+        } else {
+            $resultCountry[$row['age'] . "代"] = $row['num'];
+        }
     }
 
     /* 目的 */
@@ -41,7 +62,11 @@ try {
 
     $resultPurpose = array();
     while ($row = $stmt->fetch()) {
-        $resultPurpose[$row['purpose']] = $row['num'];
+        if($row['purpose'] == ""){
+            $resultCountry[$row['無回答・その他']] = $row['num'];
+        } else {
+            $resultCountry[$row['purpose']] = $row['num'];
+        }
     }
 
     //---ここまで処理---
@@ -94,6 +119,7 @@ try {
             <a class='dropdown-tr btn' href='#' data-target='dropdown1'>グラフを表示</a>
             <!-- Dropdown Structure -->
             <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!" id="countrychart">国</a></li>
                 <li><a href="#!" id="sexchart">性別</a></li>
                 <li><a href="#!" id="agechart">年齢</a></li>
                 <li><a href="#!" id="purposechart">目的</a></li>
@@ -198,6 +224,30 @@ try {
              }
              };*/
             // ---ここまで棒グラフ---
+            // ---ここから国---
+            var countryJson = <?php echo json_encode($resultCountry); ?>
+            //配列に変換
+            var countryData = new Array(countryJson.length);
+            var countryLabels = new Array(countryJson.length);
+
+            countryData = Object.values(countryJson);
+            countryLabels = Object.keys(countryJson);
+            
+            var countryConfig = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: countryData,
+                            backgroundColor: colorSet
+                        }],
+                    labels: countryLabels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまで国---
             // ---ここから性別---
             var sexJson = <?php echo json_encode($resultSex); ?>
             //配列に変換
@@ -285,8 +335,8 @@ try {
             // ---ここから目的---
             var purposeJson = <?php echo json_encode($resultPurpose); ?>
             //配列に変換
-            var sexData = new Array(purposeJson.length);
-            var sexLabels = new Array(purposeJson.length);
+            var purposeData = new Array(purposeJson.length);
+            var purposeLabels = new Array(purposeJson.length);
 
             purposeData = Object.values(purposeJson);
             purposeLabels = Object.keys(purposeJson);
@@ -330,6 +380,16 @@ try {
              ctx.canvas.width = document.body.clientWidth;//グラフの横幅
              myChart = new Chart(ctx, barConfig);
              };*/
+            /*国*/
+            document.getElementById("countrychart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, countryConfig);
+            };
             /*性別*/
             document.getElementById("sexchart").onclick = function () {
                 //myChartの中身があれば空に
