@@ -261,7 +261,7 @@ try {
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: ['男性', '女性'],
+                    labels: ['男性', '女性','無回答・その他'],
                     datasets: [{
                             data: sexData,
                             backgroundColor: ['#2196f3', '#f44336']
