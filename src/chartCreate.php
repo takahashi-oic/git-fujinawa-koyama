@@ -70,6 +70,19 @@ try {
             $resultPurpose[$row['purpose']] = $row['num'];
         }
     }
+    
+    /* 使用SNS */
+    $stmt_s = $pdo->prepare("SELECT count(sns) as num, sns FROM sns GROUP BY sns ORDER BY num DESC");
+    $stmt_s->execute();
+
+    $resultSns = array();
+    while ($row = $stmt_s->fetch()) {
+        if ($row['sns'] == "") {
+            $resultSns['無回答・その他'] = $row['num'];
+        } else {
+            $resultSns[$row['sns']] = $row['num'];
+        }
+    }
 
     /* 入出国空港 */
     $stmt_in = $pdo->prepare("SELECT count(in_airport) as num, in_airport FROM inandout_airport GROUP BY in_airport ORDER BY num DESC");
@@ -234,6 +247,7 @@ try {
                 <li><a href="#!" id="sexchart">性別</a></li>
                 <li><a href="#!" id="agechart">年齢</a></li>
                 <li><a href="#!" id="purposechart">目的</a></li>
+                <li><a href="#!" id="snschart">使用SNS</a></li>
                 <li><a href="#!" id="inchart">入国空港</a></li>
                 <li><a href="#!" id="outchart">出国空港</a></li>
                 <li><a href="#!" id="p1chart">購入 選択1</a></li>
@@ -464,6 +478,27 @@ try {
                 }
             };
             // ---ここまで目的---
+            // ---ここからSNS---
+            var snsJson = <?php echo json_encode($resultSns); ?>
+
+            snsData = Object.values(snsJson);
+            snsLabels = Object.keys(snsJson);
+
+            var snsConfig = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: snsData,
+                            backgroundColor: colorSet
+                        }],
+                    labels: snsLabels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
+            // ---ここまでSNS---
             // ---ここから入出
             var inJson = <?php echo json_encode($resultInport); ?>;
             var outJson = <?php echo json_encode($resultOutport); ?>;
@@ -690,6 +725,16 @@ try {
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
                 myChart = new Chart(ctx, purposeConfig);
+            };
+            /*SNS*/
+            document.getElementById("snschart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, snsConfig);
             };
             /*入出*/
             document.getElementById("inchart").onclick = function () {
