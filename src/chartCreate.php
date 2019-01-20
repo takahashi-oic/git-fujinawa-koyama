@@ -74,7 +74,7 @@ try {
     /* 入出国空港 */
     $stmt_in = $pdo->prepare("SELECT count(in_airport) as num, in_airport FROM inandout_airport GROUP BY in_airport ORDER BY num DESC");
     $stmt_in->execute();
-    $stmt_out = $pdo->prepare("SELECT count(out_airport) as num, out_airport FROM inandout_airport GROUP BY out_airport ORDER BY num DESC");
+    $stmt_out = $pdo->prepare("SELECT count(out_airport) as num, out_airport FROM inandout_airport GROUP BY out_airport ORDER BY count(in_airport) DESC");
     $stmt_out->execute();
 
     $resultInport = array();
@@ -148,7 +148,8 @@ try {
                 <li><a href="#!" id="sexchart">性別</a></li>
                 <li><a href="#!" id="agechart">年齢</a></li>
                 <li><a href="#!" id="purposechart">目的</a></li>
-                <li><a href="#!" id="iochart">入出国空港</a></li>
+                <li><a href="#!" id="inchart">入国空港</a></li>
+                <li><a href="#!" id="outchart">出国空港</a></li>
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
@@ -172,7 +173,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);             ?>
+            //var json = <?php //echo json_encode($resultArray);              ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -382,52 +383,34 @@ try {
             outLabels = Object.keys(outJson);
 
             //横棒グラフはシステムの相性の都合上難しい
-            var ioConfig = {
-                type: 'bar',
+            var inConfig = {
+                type: 'pie',
                 data: {
-                    labels: inLabels,
                     datasets: [{
                             data: inData,
                             backgroundColor: colorSet
                         }],
-                    labels: outLabels,
-                    datasets: [{
-                            data: outData,
-                            backgroundColor: colorSet
-                        }]
+                    labels: inLabels
                 },
                 options: {
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true,
-                                    min: 0
-                                }
-                            }
-                        ]
-                    },
                     responsive: false, //グラフの横幅自動調整
-                    legend: {//凡例設定
-                        display: false                 //表示設定
-                    },
                     maintainAspectRatio: false
                 }
             };
-            /*var outConfig = {
-             type: 'pie',
-             data: {
-             datasets: [{
-             data: outData,
-             backgroundColor: colorSet
-             }],
-             labels: outLabels
-             },
-             options: {
-             responsive: false, //グラフの横幅自動調整
-             maintainAspectRatio: false
-             }
-             };*/
+            var outConfig = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: outData,
+                            backgroundColor: colorSet
+                        }],
+                    labels: outLabels
+                },
+                options: {
+                    responsive: false, //グラフの横幅自動調整
+                    maintainAspectRatio: false
+                }
+            };
             // ---ここまで入出
             //グローバル
             var myChart;
@@ -494,14 +477,23 @@ try {
                 myChart = new Chart(ctx, purposeConfig);
             };
             /*入出*/
-            document.getElementById("iochart").onclick = function () {
+            document.getElementById("inchart").onclick = function () {
                 //myChartの中身があれば空に
                 if (myChart) {
                     myChart.destroy();
                 }
                 ctx.canvas.height = 300;//グラフの高さ
                 ctx.canvas.width = document.body.clientWidth;//グラフの横幅
-                myChart = new Chart(ctx, ioConfig);
+                myChart = new Chart(ctx, inConfig);
+            };
+            document.getElementById("outchart").onclick = function () {
+                //myChartの中身があれば空に
+                if (myChart) {
+                    myChart.destroy();
+                }
+                ctx.canvas.height = 300;//グラフの高さ
+                ctx.canvas.width = document.body.clientWidth;//グラフの横幅
+                myChart = new Chart(ctx, outConfig);
             };
         </script>
     </body>
