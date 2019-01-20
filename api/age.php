@@ -4,7 +4,7 @@
 	require_once('Select.php');
 	require_once('Format.php');
 
-	$query = new Select('answer_info AS answer LEFT JOIN age ON answer.answer_num = age.answer_num', 'answer.answer_num, answer.ans_day, age');
+	$query = new Select('questionnaire_view', 'answer_num, ans_day, age');
 	$data = $query->query();
 
 	$fmt = new Format();

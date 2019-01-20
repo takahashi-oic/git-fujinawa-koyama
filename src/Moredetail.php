@@ -20,6 +20,7 @@
 		default:
 			$_GET['format'] = 'json';
 	}
+
 ?>
 
 <!DOCTYPE html>
