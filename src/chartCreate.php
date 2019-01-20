@@ -18,27 +18,27 @@ try {
       $resultArray[$row['result']] = $row['count'];
       } */
     /* 国取得 */
-    $stmt = $pdo->prepare("SELECT count(country) as num, country FROM country GROUP BY country ORDER BY num DESC");
-    $stmt->execute();
+    $stmt1 = $pdo->prepare("SELECT count(country) as num, country FROM country GROUP BY country ORDER BY num DESC");
+    $stmt1->execute();
 
     $resultCountry = array();
-    while ($row = $stmt->fetch()) {
-        if($row['country'] == '' || $row['country'] == null){
+    while ($row = $stmt1->fetch()) {
+        if ($row['country'] == '' || $row['country'] == null) {
             $resultCountry['無回答・その他'] = $row['num'];
         } else {
             $resultCountry[$row['country']] = $row['num'];
         }
     }
-    
+
     /* 性別取得 */
-    $stmt = $pdo->prepare("SELECT count(sex) as num, sex FROM sex GROUP BY sex");
-    $stmt->execute();
+    $stmt2 = $pdo->prepare("SELECT count(sex) as num, sex FROM sex GROUP BY sex");
+    $stmt2->execute();
 
     $resultSex = array();
-    while ($row = $stmt->fetch()) {
-        if($row['sex'] == '男'){
+    while ($row = $stmt2->fetch()) {
+        if ($row['sex'] == '男') {
             $resultSex[0] = $row['num'];
-        } else if($row['sex'] == '女'){
+        } else if ($row['sex'] == '女') {
             $resultSex[1] = $row['num'];
         } else {
             $resultSex[2] = $row['num'];
@@ -46,12 +46,12 @@ try {
     }
 
     /* 年齢取得 */
-    $stmt = $pdo->prepare("SELECT count(age) as num, age FROM age GROUP BY age ORDER BY age");
-    $stmt->execute();
+    $stmt3 = $pdo->prepare("SELECT count(age) as num, age FROM age GROUP BY age ORDER BY age");
+    $stmt3->execute();
 
     $resultAge = array();
-    while ($row = $stmt->fetch()) {
-        if($row['age'] == ""){
+    while ($row = $stmt3->fetch()) {
+        if ($row['age'] == "") {
             $resultAge['無回答・その他'] = $row['num'];
         } else {
             $resultAge[$row['age'] . "代"] = $row['num'];
@@ -59,15 +59,38 @@ try {
     }
 
     /* 目的 */
-    $stmt = $pdo->prepare("SELECT count(purpose) as num, purpose FROM purpose GROUP BY purpose ORDER BY num DESC");
-    $stmt->execute();
+    $stmt4 = $pdo->prepare("SELECT count(purpose) as num, purpose FROM purpose GROUP BY purpose ORDER BY num DESC");
+    $stmt4->execute();
 
     $resultPurpose = array();
-    while ($row = $stmt->fetch()) {
-        if($row['purpose'] == ""){
+    while ($row = $stmt4->fetch()) {
+        if ($row['purpose'] == "") {
             $resultPurpose['無回答・その他'] = $row['num'];
         } else {
             $resultPurpose[$row['purpose']] = $row['num'];
+        }
+    }
+
+    /* 入出国空港 */
+    $stmt_in = $pdo->prepare("SELECT count(in_airport) as num, in_airport FROM inandout_airport GROUP BY in_airport ORDER BY num DESC");
+    $stmt_in->execute();
+    $stmt_out = $pdo->prepare("SELECT count(out_airport) as num, out_airport FROM inandout_airport GROUP BY out_airport ORDER BY num DESC");
+    $stmt_out->execute();
+
+    $resultInport = array();
+    while ($row = $stmt_in->fetch()) {
+        if ($row['in_airport'] == "") {
+            $resultInport['無回答・その他'] = $row['num'];
+        } else {
+            $resultInport[$row['in_airport']] = $row['num'];
+        }
+    }
+    $resultOutport = array();
+    while ($row = $stmt_out->fetch()) {
+        if ($row['out_airport'] == "") {
+            $resultOutport['無回答・その他'] = $row['num'];
+        } else {
+            $resultOutport[$row['out_airport']] = $row['num'];
         }
     }
 
@@ -125,6 +148,7 @@ try {
                 <li><a href="#!" id="sexchart">性別</a></li>
                 <li><a href="#!" id="agechart">年齢</a></li>
                 <li><a href="#!" id="purposechart">目的</a></li>
+                <li><a href="#!" id="iochart">入出国空港</a></li>
                 <!--<li><a href="#!" id="barchart">棒グラフ</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li><a href="#!">グラフ１</a></li>
@@ -148,7 +172,7 @@ try {
 
             // ---ここから円グラフ---
             //phpからJSON key=場所val=数
-            //var json = <?php //echo json_encode($resultArray);           ?>
+            //var json = <?php //echo json_encode($resultArray);             ?>
 
             //配列に変換
             //var data = new Array(json.length);
@@ -229,12 +253,12 @@ try {
             // ---ここから国---
             var countryJson = <?php echo json_encode($resultCountry); ?>
             //配列に変換
-            var countryData = new Array(countryJson.length);
-            var countryLabels = new Array(countryJson.length);
+            //var countryData = new Array(countryJson.length);
+            //var countryLabels = new Array(countryJson.length);
 
             countryData = Object.values(countryJson);
             countryLabels = Object.keys(countryJson);
-            
+
             var countryConfig = {
                 type: 'pie',
                 data: {
@@ -252,16 +276,13 @@ try {
             // ---ここまで国---
             // ---ここから性別---
             var sexJson = <?php echo json_encode($resultSex); ?>
-            //配列に変換
-            var sexData = new Array(sexJson.length);
-            var sexLabels = new Array(sexJson.length);
 
             sexData = Object.values(sexJson);
 
             var sexConfig = {
                 type: 'bar',
                 data: {
-                    labels: ['男性', '女性','無回答・その他'],
+                    labels: ['男性', '女性', '無回答・その他'],
                     datasets: [{
                             data: sexData,
                             backgroundColor: ['#2196f3', '#f44336']
@@ -288,9 +309,6 @@ try {
             // ---ここまで性別---
             // ---ここから年齢---
             var ageJson = <?php echo json_encode($resultAge); ?>
-            //配列に変換
-            var ageData = new Array(ageJson.length);
-            var ageLabels = new Array(ageJson.length);
 
             ageData = Object.values(ageJson);
             ageLabels = Object.keys(ageJson);
@@ -335,13 +353,10 @@ try {
             // ---ここまで年齢---
             // ---ここから目的---
             var purposeJson = <?php echo json_encode($resultPurpose); ?>
-            //配列に変換
-            var purposeData = new Array(purposeJson.length);
-            var purposeLabels = new Array(purposeJson.length);
 
             purposeData = Object.values(purposeJson);
             purposeLabels = Object.keys(purposeJson);
-            
+
             var purposeConfig = {
                 type: 'pie',
                 data: {
@@ -357,6 +372,63 @@ try {
                 }
             };
             // ---ここまで目的---
+            // ---ここから入出
+            var inJson = <?php echo json_encode($resultInport); ?>
+            var outJson = <?php echo json_encode($resultOutport); ?>
+
+            inData = Object.values(inJson);
+            inLabels = Object.keys(inJson);
+            outData = Object.values(outJson);
+            outLabels = Object.keys(outJson);
+
+            //横棒グラフはシステムの相性の都合上難しい
+            var inConfig = {
+                type: 'bar',
+                data: {
+                    labels: inLabels,
+                    datasets: [{
+                            data: inData,
+                            backgroundColor: colorSet
+                        }],
+                    labels: outLabels,
+                    datasets: [{
+                            data: outData,
+                            backgroundColor: colorSet
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    min: 0
+                                }
+                            }
+                        ]
+                    },
+                    responsive: false, //グラフの横幅自動調整
+                    legend: {//凡例設定
+                        display: false                 //表示設定
+                    },
+                    maintainAspectRatio: false
+                }
+            };
+            /*var outConfig = {
+             type: 'pie',
+             data: {
+             datasets: [{
+             data: outData,
+             backgroundColor: colorSet
+             }],
+             labels: outLabels
+             },
+             options: {
+             responsive: false, //グラフの横幅自動調整
+             maintainAspectRatio: false
+             }
+             };*/
+            // ---ここまで入出
             //グローバル
             var myChart;
             var ctx = document.getElementById("myChart").getContext('2d');
