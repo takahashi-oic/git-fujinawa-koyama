@@ -84,11 +84,11 @@
 			$msg = $root->addChild('msg');
 			$results = $root->addChild('results');
 
-			while($col = $database->fetch()) {
+			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
 				$result = $results->addChild('result');
-				foreach($col as $key => $value) {
+				foreach($col as $key => $value)
 					$result->addChild($key, $value);
-				}
+
 			}
 			// endregion XML Element
 
