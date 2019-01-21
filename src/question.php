@@ -553,10 +553,8 @@
                 </label>
                 <br>
                 <label>
-                    <input name="purpose" type="radio" value=""/>
-                    <span>
-                        その他<input name="other" id="text" type="text" class="validate">
-                    </span>
+                    <input name="purpose" type="radio" value="その他"/>
+                    <span>その他</span>
                 </label>
             </div>
             <p>8.もっとも使用してるSNSはなんですか（1つ）</p>

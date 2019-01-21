@@ -21,11 +21,8 @@
             $Purchases1 = $_POST['Purchases1'];
             $Purchases2 = $_POST['Purchases2'];
             $Purchases3 = $_POST['Purchases3'];
-                   if(isset($_POST['purpose'])){
-                        $purpose = $_POST['purpose'];
-                    }else{
-                        $purpose = $_POST["other"];
-                    }
+            $purpose = $_POST['purpose'];
+                  
             $sns = $_POST['sns'];
                         
             $stmt1 = $pdo->prepare("INSERT INTO answer_info(ans_day) VALUES ('$now')");
