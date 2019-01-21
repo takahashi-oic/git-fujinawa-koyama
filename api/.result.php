@@ -12,7 +12,7 @@
 	 */
 	function result(string $tbl, string $col) {
 		$query = new Select($tbl, $col);
-		$data = $query->query(time_formatter());
+		$data = $query->query();
 
 		$fmt = new Format();
 		if(key_exists('format', $_GET)) {
