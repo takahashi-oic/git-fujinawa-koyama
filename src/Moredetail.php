@@ -130,3 +130,11 @@
 		</div>
 	</body>
 </html>
+
+<style>
+	pre {
+		max-width: 80em;
+		overflow: auto;
+		max-height: 25em;
+	}
+</style>
