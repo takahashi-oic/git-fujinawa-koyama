@@ -59,6 +59,7 @@
 			// region JSON Setting
 			$opt = 0;
 			$opt += JSON_NUMERIC_CHECK;
+			$opt += JSON_PRETTY_PRINT;
 			$opt += JSON_UNESCAPED_UNICODE;
 			// endregion JSON Setting
 			$database->closeCursor();
