@@ -45,14 +45,12 @@
 		if(key_exists('year', $_GET)) $year = $_GET['year'];
 
 		$month = '__';
-		if(key_exists('month', $_GET)) switch($_GET['month']) {
+		if(key_exists('month', $_GET)) switch(strlen($_GET['month'])) {
 			case 1:
-			case 9:
 				$month = 0 . $_GET['month'];
 				break;
 
-			case 10:
-			case 12:
+			case 2:
 				$month = $_GET['month'];
 				break;
 
