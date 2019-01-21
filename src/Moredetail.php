@@ -2,7 +2,8 @@
 	declare(strict_types = 1);
 
 	// 表示形式決定
-	if(key_exists('send', $_GET)) $send = $_GET['send']; else $send = 'database';
+	if(key_exists('send', $_GET)) $send = $_GET['send']; else $send = 'data';
+
 	switch(rand(0, 2)) {
 		case 0:
 			$_GET['format'] = 'csv';
