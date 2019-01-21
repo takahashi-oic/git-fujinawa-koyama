@@ -15,8 +15,6 @@
 		 * @return string データベース内容(CSV)
 		 */
 		public function toCsv(PDOStatement $database): string {
-			if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: text/csv');
-
 			$result = '';
 			$length = $database->columnCount() - 1;
 
@@ -48,8 +46,6 @@
 		 * @return string データベース内容(JSON)
 		 */
 		public function toJson(PDOStatement $database): string {
-			if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: application/json');
-
 			$idx = 0;
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
 				$data = array();
@@ -75,8 +71,6 @@
 		 * @return string データベース内容(XML)
 		 */
 		public function toXml(PDOStatement $database): string {
-			if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: application/xml');
-
 			$header = '<?xml version="1.0" encoding="UTF-8" ?>';
 			$root = new SimpleXMLElement($header . '<api />');
 

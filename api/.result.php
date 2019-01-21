@@ -19,14 +19,17 @@
 			switch(strtolower($_GET['format'])) {
 				case 'csv':
 					$result = $fmt->toCsv($data);
+					if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: text/csv');
 					break;
 
 				case 'json':
 					$result = $fmt->toJson($data);
+					if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: application/json');
 					break;
 
 				case 'xml':
 					$result = $fmt->toXml($data);
+					if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: application/xml');
 					break;
 
 				default:
