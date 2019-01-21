@@ -86,7 +86,7 @@
 
 			while($col = $database->fetch(PDO::FETCH_ASSOC)) {
 				$result = $results->addChild('result');
-				foreach($col as $key => $value) $result->addChild($key, $value);
+				foreach($col as $key => $value) $result->addChild($key, strval($value));
 			}
 			// endregion XML Element
 
