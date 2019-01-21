@@ -34,8 +34,6 @@
 					exit(400);
 			}
 
-			if($_SERVER['PHP_SELF'] != $_SERVER['REQUEST_URI']) header('Content-type: text/html');
-
 			return $result;
 		} else {
 			http_response_code(400);
