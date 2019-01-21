@@ -104,15 +104,14 @@
 							<h3 id="header">使用例</h3>
 							<div>
 								<p>HTTPリクエスト</p>
-								<pre class="prettyprint">GET https://sotuken2018q.herokuapp.com/git-fujinawa-koyama/api/<?= $send ?>.php?format=<?= $_GET['format'] ?></pre>
+								<pre class="prettyprint">GET https://sotuken2018q.herokuapp.com/api/<?= $send ?>.php?format=<?= $_GET['format'] ?></pre>
 							</div>
 
 							<div>
 								<p>HTTPレスポンス</p>
 								<pre class="prettyprint">
 									<?php
-										$request = $send . '.php';
-										require_once("../api/${request}");
+										require_once("../api/${send}.php");
 										header('Content-type: text/html');
 									?>
 								</pre>
