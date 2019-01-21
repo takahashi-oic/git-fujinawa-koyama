@@ -58,5 +58,5 @@
 				http_response_code(400);
 				exit(400);
 		}
-		return "ans_day LIKE ${year}-${month}-__";
+		return "'ans_day' LIKE ${year}-${month}-__";
 	}
