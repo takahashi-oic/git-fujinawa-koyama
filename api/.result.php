@@ -8,7 +8,6 @@
 	 * ## 結果取得関数
 	 * @param string $tbl 検索テーブル
 	 * @param string $col 表示行
-	 * @param string $where 検索条件
 	 * @return string SQL実行結果
 	 */
 	function result(string $tbl, string $col) {
@@ -61,5 +60,5 @@
 				http_response_code(400);
 				exit(400);
 		}
-		return "ans_day LIKE ${year}-${month}";
+		return "ans_day LIKE ${year}-${month}-__";
 	}
