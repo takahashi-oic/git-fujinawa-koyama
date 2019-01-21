@@ -111,7 +111,7 @@
 								<pre class="prettyprint">
 									<?php
 										$request = $send . 'php';
-										require_once("../api/${request}");
+										include_once("../api/${request}");
 										header('Content-type: text/html');
 									?>
 								</pre>
