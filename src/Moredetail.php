@@ -111,8 +111,8 @@
 								<p>HTTPレスポンス</p>
 								<pre class="prettyprint">
 									<?php
-										$request = $send . 'php';
-										include_once("../api/${request}");
+										$request = $send . '.php';
+										require_once("../api/${request}");
 										header('Content-type: text/html');
 									?>
 								</pre>
