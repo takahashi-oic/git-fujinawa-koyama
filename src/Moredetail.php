@@ -109,11 +109,10 @@
 
 							<div>
 								<p>HTTPレスポンス</p>
-								<pre class="prettyprint">
-									<?= include_once("../api/${send}.php"); ?>
-
-									<?php header('Content-type: text/html'); ?>
-								</pre>
+								<pre class="prettyprint"><?php
+										include_once "../api/${send}.php";
+										header('Content-type: text/html');
+									?></pre>
 							</div>
 						</div>
 					</div>
